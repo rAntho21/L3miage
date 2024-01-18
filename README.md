@@ -117,3 +117,129 @@ A la victoire d’une partie, le joueur remporte 10 points d’expérience et ga
     <li>Réussir 5 niveau de difficulté facile.</li>
     <li>Réussir 5 niveau de difficulté difficile.</li>
 </ul>
+
+<h2>Personas</h2>
+<table id="personas">
+    <tr id="ligne_rene">
+        <td>
+        <img src="assets/images/vieux_homme.jpg"> <br>
+        Identification : René <br>
+        Âge : 73 ans <br>
+        Situation : Veuf <br>
+        Domicile : Tours <br>
+        <br>
+        Bio : <br>
+        Homme âgé à la retraite, cherche à se divertir pendant ses journées lors de sa retraite.
+        </td>
+        <td>
+        Attentes : <br>
+        <ul>
+            <li>Pouvoir acheter des éléments dans une boutique.</li>
+            <li>Ne pas avoir de limite de temps pour jouer.</li>
+            <li>Pouvoir consulter son niveau d’expérience.</li>
+        </ul>
+        </td>
+        <td>
+        Frustrations : <br>
+        <ul>
+            <li>Ne pas bien voir à cause de son âge.</li>
+            <li>Ne pas réussir à se retrouver sur les sites internet.</li>
+            <li>Avoir plein de pop-up.</li>
+        </ul>
+        </td>
+    </tr>
+    <tr id="ligne_lucile">
+        <td>
+        <img src="assets/images/fille_moche.png"> <br>
+        Identification : Lucile <br>
+        Âge : 19 ans <br>
+        Situation : Célibataire <br>
+        Domicile : Dignes les bains <br>
+        <br>
+        Bio : <br>
+        Étudiante en Art & Dessin, cherche à se divertir durant des cours ennuyant.
+        </td>
+        <td>
+        Attentes : <br>
+        <ul>
+            <li>Être contraint par le temps.</li>
+            <li>Avoir des premiers niveaux ultra simples pour être sûr 
+            d’avoir compris les règles et ne pas perdre dès le début.</li>
+            <li>Avoir un mode daltonien.</li>
+        </ul>
+        </td>
+        <td>
+        Frustrations : <br>
+        <ul>
+            <li>Ne pas pouvoir jouer avec des amis sur un ordinateur.</li>
+            <li>Ne pas avoir plus de 2 difficultés.</li>
+            <li>Elle se lasse facilement des apparences.</li>
+        </ul>
+        </td>
+    </tr>
+    <tr id="ligne_lucien">
+        <td>
+        <img src="assets/images/lucien.png"> <br>
+        Identification : Lucien <br>
+        Âge : 25 ans <br>
+        Situation : Marié <br>
+        Domicile : Paris <br>
+        <br>
+        Bio : <br>
+        Il vient d’obtenir son diplôme de commerce, se considère comme un stratège.
+        </td>
+        <td>
+        Attentes : <br>
+        <ul>
+            <li>Pouvoir trouver des easter eggs.</li>
+            <li>Pouvoir avoir le ratio des parties jouées.</li>
+            <li>Pouvoir lire les règles du jeu en jouant.</li>
+        </ul>
+        </td>
+        <td>
+        Frustrations : <br>
+        <ul>
+            <li>Souvent déçu des nouveaux jeux dis : “difficile”.</li>
+            <li>Il a l’esprit critique, il n’aime pas ne pas pouvoir accès aux dernières maj.</li>
+            <li>Il n’aime pas lorsqu’il y a trop de texte, et des règles de jeu compliqué.</li>
+        </ul>
+        </td>
+    </tr>
+</table>
+
+<h2>Explication des tâches</h2>
+<img src="assets/images/diagramme_tache.png">
+<p>
+<strong>René souhaite jouer au sudoku.</strong> 
+Pour ce faire, il accède à la page d’accueil du site. 
+Il se connecte à son compte puis il clique sur Jeux.
+Par la suite, il devra choisir le jeu Sudoku parmi les 3 jeux proposés.
+</p>
+<p>
+<strong>René souhaite pouvoir accéder à la boutique.</strong>
+Pour cela, il clique sur le bouton Boutique dans le fil d’ariane.
+Il peut désormais choisir entre plusieurs éléments, qu’il pourra acheter s’il le souhaite grâce à son argent.
+</p>
+<p>
+<strong>René souhaite accéder à son profil</strong> afin de consulter son expérience ainsi que son argent.
+Il décide de cliquer sur le bouton Profil situé dans le fil d’ariane pour y parvenir.
+</p>
+<p>
+<strong>Lucile souhaite jouer au pendu.</strong>
+Pour cela, elle accède à la page d’accueil, se rend dans jeux, puis elle choisit de jouer au pendu. 
+</p>
+<p>
+<strong>Lucile souhaite activer le mode daltonien,</strong>
+elle peut retourner à l’accueil puis se diriger sur paramètre,
+elle pourra cocher l’option de mettre le mode daltonien.
+</p>
+<p>
+<strong>Lucien souhaite jouer à la bataille navale.</strong>
+Pour se faire, il accède à la page d’accueil, cliquez sur la partie jeux, puis sélectionne le jeu de la  bataille navale.
+Il aime ce type de jeu, facile à comprendre et très modelable. 
+</p>
+<p>
+<strong>Lucien souhaite lire les règles de la bataille navale.</strong>
+Pour cela, il accède à la page d’accueil, se rend sur la partie jeux, puis sélectionne le jeu de la bataille navale.
+Il aura accès aux règles correspondant à la bataille navale.  
+</p>
