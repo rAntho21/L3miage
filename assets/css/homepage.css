@@ -1,0 +1,26 @@
+/*
+ * Style pour la page d'accueil.
+ */
+.patch-note {
+    box-sizing: border-box;
+    width: 48%; /* 48% pour permettre deux patch notes par ligne avec un léger espace entre eux */
+    padding: 10px;
+    margin: 1%; /* Espace entre les patch notes */
+    background-color: #f2f2f2; /* Couleur de fond du cadre (vous pouvez changer cela) */
+    border: 1px solid #ccc; /* Bordure du cadre (vous pouvez changer cela) */
+    text-align: justify;
+    float: left; /* Les patch notes seront alignés côte à côte */
+}
+
+/* Style spécifique pour le titre des patch notes */
+.patch-note h4 {
+    margin-top: 0;
+    color: #333; /* Couleur du titre (vous pouvez changer cela) */
+}
+
+/* Style spécifique pour le texte des patch notes */
+.patch-note p {
+    font-size: 14px; /* Taille de la police pour le texte (vous pouvez changer cela) */
+    line-height: 1.4;
+    color: #666; /* Couleur du texte (vous pouvez changer cela) */
+}

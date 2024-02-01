@@ -1,0 +1,97 @@
+/*
+ *   Ce fichier contient les styles CSS de base du site.
+ *   PARTIE : GÉNÉRAL
+ */
+body {
+    font-size: 13px;
+    color: #333; /* Couleur du texte normal (vous pouvez changer cela) */
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4CAF50; /* Teinte de vert pour les titres h1 (vous pouvez changer cela) */
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #64DD17; /* Teinte de vert différente pour les titres h2 (vous pouvez changer cela) */
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #81C784; /* Teinte de vert différente pour les titres h3 (vous pouvez changer cela) */
+}
+
+p {
+    margin-bottom: 15px; /* Ajoute de l'espace entre les paragraphes (vous pouvez changer cela) */
+}
+/*
+ *   PARTIE : EN-TÊTE
+ */
+#Entete-site {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Ajoutez un padding selon vos préférences */
+    background-color: #333; /* Couleur de fond de l'en-tête (vous pouvez changer cela) */
+    color: white; /* Couleur du texte dans l'en-tête (vous pouvez changer cela) */
+}
+
+#Entete-site a {
+    text-decoration: none;
+    color: white; /* Couleur du texte des liens (vous pouvez changer cela) */
+}
+
+#Entete-site a:hover {
+    text-decoration: underline; /* Soulignement au survol des liens (vous pouvez changer cela) */
+}
+
+#Entete-site #Menu {
+    display: flex;
+    align-items: center;
+}
+
+#Entete-site #Menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#Entete-site #Menu ul li {
+    margin-right: 10px; /* Ajoute un espace entre les éléments de la liste (vous pouvez changer cela) */
+}
+
+#Entete-site #Menu ul li:last-child {
+    margin-right: 0; /* Supprime la marge à droite du dernier élément de la liste */
+}
+/*
+ *   PARTIE : MENU
+ */
+#Menu {
+    background-color: #333; /* Couleur de fond du menu (vous pouvez changer cela) */
+}
+
+#Menu ul {
+    list-style-type: none; /* Supprime les puces de la liste */
+    padding: 0; /* Supprime le padding par défaut de la liste */
+    margin: 0; /* Supprime la marge par défaut de la liste */
+}
+
+#Menu ul li {
+    display: inline-block; /* Les éléments de la liste sont affichés en ligne */
+}
+
+#Menu ul li a {
+    display: block;
+    padding: 15px; /* Ajoutez un rembourrage pour améliorer la convivialité */
+    text-decoration: none;
+    color: white; /* Couleur du texte des liens (vous pouvez changer cela) */
+}
+
+#Menu ul li:hover {
+    background-color: #555; /* Couleur de fond au survol (vous pouvez changer cela) */
+}
