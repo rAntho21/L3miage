@@ -1,0 +1,63 @@
+#page-connexion {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: black;
+}
+
+.connexion {
+    margin-top: 20px;
+}
+
+.id{
+    margin-bottom: 15px;
+}
+
+.pw {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-top: 30px;
+    display: block;
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+input {
+    width: 400px;
+    padding: 8px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    background-color: #d9dcd9;
+    border-radius: 4px;
+}
+
+.bouton button {
+    margin-top: 20px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.bouton #con {
+    background-color: forestgreen;
+    color: white;
+}
+
+.bouton #con:hover {
+    background-color: darkgreen;
+}
+
+#ins a {
+    text-decoration: none;
+    color: black;
+}
+
+#ins a:hover {
+    color: #2980b9;
+}

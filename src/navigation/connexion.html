@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/connexion.css">
     <title>Jaya | Connexion</title>
 </head>
 <header>
@@ -22,6 +23,24 @@
     </div>
 </header>
 <body>
+    <div id="page-connexion">
+        <h2>Connexion</h2>
+        <form class="connexion">
+            <div class="id">
+                <label for="username">Nom d'utilisateur:</label>
+                <input type="text" id="username" required>
+            </div>
 
+            <div class="pw">
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <div class="bouton">
+                <button id="con" type="submit">Se connecter</button>
+                <p id="ins"><a href="inscription.html"> S'inscrire</a></p>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
