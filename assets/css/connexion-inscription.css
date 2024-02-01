@@ -1,4 +1,4 @@
-#page-connexion {
+#page {
     padding: 20px;
     text-align: center;
 }
@@ -7,7 +7,7 @@ h2 {
     color: black;
 }
 
-.connexion {
+.form {
     margin-top: 20px;
 }
 
