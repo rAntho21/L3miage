@@ -1,25 +1,26 @@
 /* GÉNÉRAL */
 body {
-    font-size: 13px;
+    font-size: 16px;
     color: #333;
     padding: 10px;
+    /* overflow-y: hidden; */
 }
 
 h1 {
     text-align: center;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
     color: #4CAF50;
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 25px;
     font-weight: bold;
     color: #64DD17;
 }
 
 h3 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: #81C784;
 }
@@ -102,4 +103,12 @@ p {
     padding: 15px;
     text-decoration: none;
     color: white;
+}
+/* FOOTER */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 0;
 }
