@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px; /* Taille de base de la police */
+}
+
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.stats {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.achievements {
+    flex: 1;
+}
+
+.progress {
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    background-color: #4CAF50;
+    height: 20px;
+}
+
+.progress-bar span {
+    display: block;
+    padding: 5px;
+    color: white;
+    font-size: 18px; /* Taille de police de la barre de progression */
+}
+
+.level,
+.money {
+    margin-top: 10px;
+    font-size: 18px; /* Taille de police pour le niveau et l'argent */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    font-size: 18px; /* Taille de police pour les éléments de la liste */
+}
