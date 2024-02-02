@@ -1,52 +1,50 @@
-/*
- *   Ce fichier contient les styles CSS de base du site.
- *   PARTIE : GÉNÉRAL
- */
+/* GÉNÉRAL */
 body {
     font-size: 13px;
-    color: #333; /* Couleur du texte normal (vous pouvez changer cela) */
+    color: #333;
+    padding: 20px;
 }
 
 h1 {
+    text-align: center;
     font-size: 28px;
     font-weight: bold;
-    color: #4CAF50; /* Teinte de vert pour les titres h1 (vous pouvez changer cela) */
+    color: #4CAF50;
 }
 
 h2 {
     font-size: 24px;
     font-weight: bold;
-    color: #64DD17; /* Teinte de vert différente pour les titres h2 (vous pouvez changer cela) */
+    color: #64DD17;
 }
 
 h3 {
     font-size: 18px;
     font-weight: bold;
-    color: #81C784; /* Teinte de vert différente pour les titres h3 (vous pouvez changer cela) */
+    color: #81C784;
 }
 
 p {
-    margin-bottom: 15px; /* Ajoute de l'espace entre les paragraphes (vous pouvez changer cela) */
+    margin-bottom: 15px;
 }
-/*
- *   PARTIE : EN-TÊTE
- */
+
+/* EN-TÊTE */
 #Entete-site {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px; /* Ajoutez un padding selon vos préférences */
-    background-color: #333; /* Couleur de fond de l'en-tête (vous pouvez changer cela) */
-    color: white; /* Couleur du texte dans l'en-tête (vous pouvez changer cela) */
+    padding: 10px;
+    background-color: #333;
+    color: white;
 }
 
 #Entete-site a {
     text-decoration: none;
-    color: white; /* Couleur du texte des liens (vous pouvez changer cela) */
+    color: white;
 }
 
 #Entete-site a:hover {
-    text-decoration: underline; /* Soulignement au survol des liens (vous pouvez changer cela) */
+    text-decoration: underline;
 }
 
 #Entete-site #Menu {
@@ -62,36 +60,46 @@ p {
 }
 
 #Entete-site #Menu ul li {
-    margin-right: 10px; /* Ajoute un espace entre les éléments de la liste (vous pouvez changer cela) */
+    margin-right: 10px;
 }
 
 #Entete-site #Menu ul li:last-child {
-    margin-right: 0; /* Supprime la marge à droite du dernier élément de la liste */
+    margin-right: 0;
 }
-/*
- *   PARTIE : MENU
- */
+
+#Entete-site div a {
+    margin: 0 3px;
+}
+
+/* MENU */
 #Menu {
-    background-color: #333; /* Couleur de fond du menu (vous pouvez changer cela) */
+    text-align: center;
+    background-color: #333;
 }
 
 #Menu ul {
-    list-style-type: none; /* Supprime les puces de la liste */
-    padding: 0; /* Supprime le padding par défaut de la liste */
-    margin: 0; /* Supprime la marge par défaut de la liste */
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 #Menu ul li {
-    display: inline-block; /* Les éléments de la liste sont affichés en ligne */
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#Menu div {
+    display: inline-block;
+}
+
+#Menu ul li:hover {
+    background-color: #555;
 }
 
 #Menu ul li a {
     display: block;
-    padding: 15px; /* Ajoutez un rembourrage pour améliorer la convivialité */
+    padding: 15px;
     text-decoration: none;
-    color: white; /* Couleur du texte des liens (vous pouvez changer cela) */
-}
-
-#Menu ul li:hover {
-    background-color: #555; /* Couleur de fond au survol (vous pouvez changer cela) */
+    color: white;
 }
