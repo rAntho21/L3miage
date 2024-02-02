@@ -12,7 +12,7 @@ Les jeux disponibles seront le Sudoku, la Bataille Navale et le Pendu.
 <p>
 Le jeu du pendu consiste à trouver un mot généré aléatoirement selon la difficulté.
 Le joueur aura un certain nombre de vies pour trouver celui-ci en citant des lettres.
-Lorsque l’utilisateur pense avoir le mot, il peut tenter sa chance, si il échoue alors il perdra une vie.
+Lorsque l’utilisateur pense avoir le mot, il peut tenter sa chance, s'il échoue alors, il perdra une vie.
 </p>
 <h4>Difficultés</h4>
 <p>
@@ -49,15 +49,15 @@ Ils devront tour par tour sélectionner une case sur la grille adverse (touché-
     <li><strong>Facile</strong></li>
     <ul>
         <li>Les bateaux sont de la même taille.</li>
-        <li>Les cases déjà ciblée restent affichée.</li>
+        <li>Les cases déjà ciblées restent affichée.</li>
         <li>Les bateaux sont placée que verticalement.</li>
         <li>Si la case d’un bateau est touché le joueur peut continuer à jouer.</li>
     </ul>
     <li><strong>Moyen</strong></li>
     <ul>
         <li>Mettre un timer de 15 minutes.</li>
-        <li>Les bateaux sont de tailles différentes.</li>
-        <li>Les bateaux peuvent se placer de manière horizontal et vertical.</li>
+        <li>Les bateaux sont de taille différente.</li>
+        <li>Les bateaux peuvent se placer de manière horizontale et verticale.</li>
         <li>Le joueur peut effectuer qu’un seul tir par tour même si un bateau est touché.</li>
     </ul>
     <li><strong>Difficile</strong></li>
@@ -65,13 +65,13 @@ Ils devront tour par tour sélectionner une case sur la grille adverse (touché-
         <li>Mettre un timer de 10 minutes.</li>
         <li>Les joueurs qui ont ciblé l’eau (coulé) ne s’affiche pas sur le plateau, 
         elle s’affiche que lorsqu’il touche un bateau.</li>
-        <li>Ajout de Leurre pour donner de fausse indication.</li>
+        <li>Ajout de Leurre pour donner de fausses indications.</li>
         <li>Certains bateaux peuvent se déplacer d’une case, tous les 3 tours(pas sur).</li>
     </ul>
 </ul>
 <h4>Scores</h4>
 <p>
-Les joueurs gagneront des points s' ils gagnent ou perdent selon la difficulté de la partie.
+Les joueurs gagneront des points s'ils gagnent ou perdent selon la difficulté de la partie.
 </p>
 <h4>Succès</h4>
 <ul>
@@ -108,25 +108,77 @@ seule fois tous les chiffres de un à neuf.
 <p>
 A la victoire d’une partie, le joueur remporte 10 points d’expérience et gagne aussi une petite somme d’argent.
 <br>Lors de la défaite, le joueur remporte 2 points d’expérience.
-<br>Si la difficulté “difficile” est sélectionnée, les points de victoire sont doublés mais lors de la défaite les points sont divisés par deux.
+<br>Si la difficulté “difficile” est sélectionnée, les points de victoire sont doublés, mais lors de la défaite les points sont divisés par deux.
 </p>
 <h4>Succès</h4>
 <ul>
     <li>Réussir 1 niveau de difficulté facile.</li>
     <li>Réussir 1 niveau de difficulté difficile</li>
-    <li>Réussir 5 niveau de difficulté facile.</li>
-    <li>Réussir 5 niveau de difficulté difficile.</li>
+    <li>Réussir 5 niveaux de difficulté facile.</li>
+    <li>Réussir 5 niveaux de difficulté difficile.</li>
+</ul>
+
+<h3>Solitaire</h3>
+<h4>Règles du jeu</h4>
+<ul>
+<h5>Objectif</h5>
+<p>
+Le but principal du Solitaire est de déplacer toutes les cartes vers quatre
+fondations, classées par couleur et en ordre croissant, commençant par l'As et se terminant par le Roi.
+</p>
+<h5>Déroulement du jeu</h5>
+<p>
+Déplacez les cartes entre les colonnes en dévoilant les cartes cachées.
+Vous pouvez déplacer les cartes en les plaçant sur une carte immédiatement supérieure dans une colonne voisine et de couleur opposée.
+Vous pouvez déplacer une séquence de cartes si elles sont en ordre décroissant.
+<br>
+Libérez une colonne en déplaçant une séquence de cartes face visible vers une colonne vide.
+</p>
+</ul>
+
+<h4>Difficultés</h4>
+<ul>
+    <li><strong>Facile</strong></li>
+    <p>
+    Jeu normal, disposition de cartes sans alterner les couleurs
+    </p>
+    <li><strong>Moyen</strong></li>
+    <p>
+    Jeu normal avec disposition des cartes en alternant les couleurs
+    </p>
+    <li><strong>Difficile</strong></li>
+    <p>
+    Fin du jeu en moins de 3 minutes
+    </p>
+</ul>
+<h4>Scores</h4>
+<p>
+On gagne des points à notre jeu du solitaire lorsque l'on effectue les actions suivantes :
+</p>
+<ul>
+    <li>Vous retournez une carte du tableau : + 10 points.</li>
+    <li>Vous déplacez une carte de la réserve vers le tableau : + 10 points.</li>
+    <li>Vous placez une carte sur l’une des fondations : + 15 points.</li>
+</ul>
+<p>Vous perdez des points lors de ces actions :</p>
+<ul>
+    <li>Vous déplacez une carte des fondations vers le tableau : - 5 points.</li>
+    <li>Vous annulez le dernier mouvement ou action de jeu : - 15 points.</li>
+</ul>
+<h4>Succès</h4>
+<ul>
+    <li>Un succès gagné pour chaque niveau de jeu réussi.</li>
 </ul>
 
 <h2>Personas</h2>
 <table id="personas">
     <tr id="ligne_rene">
         <td>
-        <img src="assets/images/vieux_homme.jpg"> <br>
-        Identification : René <br>
-        Âge : 73 ans <br>
-        Situation : Veuf <br>
-        Domicile : Tours <br>
+        <img src="assets/images/vieux_homme.jpg" alt="vielle homme"> <br>
+        Identification : René.<br>
+        Âge : 73 ans.<br>
+        Situation : Veuf.<br>
+        Domicile : Tours.<br>
         <br>
         Bio : <br>
         Homme âgé à la retraite, cherche à se divertir pendant ses journées lors de sa retraite.
@@ -150,11 +202,11 @@ A la victoire d’une partie, le joueur remporte 10 points d’expérience et ga
     </tr>
     <tr id="ligne_lucile">
         <td>
-        <img src="assets/images/fille_moche.png"> <br>
-        Identification : Lucile <br>
-        Âge : 19 ans <br>
-        Situation : Célibataire <br>
-        Domicile : Dignes les bains <br>
+        <img src="assets/images/fille_moche.png" alt="jeune étudiante"> <br>
+        Identification : Lucile.<br>
+        Âge : 19 ans.<br>
+        Situation : Célibataire.<br>
+        Domicile : Dignes les bains.<br>
         <br>
         Bio : <br>
         Étudiante en Art & Dessin, cherche à se divertir durant des cours ennuyant.
@@ -179,11 +231,11 @@ A la victoire d’une partie, le joueur remporte 10 points d’expérience et ga
     </tr>
     <tr id="ligne_lucien">
         <td>
-        <img src="assets/images/lucien.png"> <br>
-        Identification : Lucien <br>
-        Âge : 25 ans <br>
-        Situation : Marié <br>
-        Domicile : Paris <br>
+        <img src="assets/images/lucien.png" alt="Jeune homme"> <br>
+        Identification : Lucien.<br>
+        Âge : 25 ans.<br>
+        Situation : Marié.<br>
+        Domicile : Paris.<br>
         <br>
         Bio : <br>
         Il vient d’obtenir son diplôme de commerce, se considère comme un stratège.
@@ -199,9 +251,37 @@ A la victoire d’une partie, le joueur remporte 10 points d’expérience et ga
         <td>
         Frustrations : <br>
         <ul>
-            <li>Souvent déçu des nouveaux jeux dis : “difficile”.</li>
+            <li>Souvent déçu des nouveaux jeux dits : “difficile”.</li>
             <li>Il a l’esprit critique, il n’aime pas ne pas pouvoir accès aux dernières maj.</li>
             <li>Il n’aime pas lorsqu’il y a trop de texte, et des règles de jeu compliqué.</li>
+        </ul>
+        </td>
+    </tr>
+    <tr id="ligne_veronique">
+        <td>
+        <img src="assets/images/veronique.png" alt="Femme de mairie"> <br>
+        Identification : Véronique.<br>
+        Âge : 48 ans.<br>
+        Situation : Marié.<br>
+        Domicile : Pau.<br>
+        <br>
+        Bio : <br>
+        Travaille dans la mairie de Pau depuis 28 ans,
+        aime jouer à des jeux pendants ses pauses.
+        </td>
+        <td>
+        Attentes : <br>
+        <ul>
+            <li>Pouvoir faire des parties rapides.</li>
+            <li>Pouvoir s'améliorer grâce à des conseils en jeu.</li>
+            <li>Pouvoir visionner son temps de jeu durant une partie.</li>
+        </ul>
+        </td>
+        <td>
+        Frustrations : <br>
+        <ul>
+            <li>N’aime pas les sites trop compliqués, préfère quand c’est concis.</li>
+            <li>Elle n’aime pas perdre de temps, marre des publicités.</li>
         </ul>
         </td>
     </tr>
@@ -226,7 +306,7 @@ Il décide de cliquer sur le bouton Profil situé dans le fil d’ariane pour y 
 </p>
 <p>
 <strong>Lucile souhaite jouer au pendu.</strong>
-Pour cela, elle accède à la page d’accueil, se rend dans jeux, puis elle choisit de jouer au pendu. 
+Pour cela, elle accède à la page d’accueil, se rend dans le menu jeux, puis elle choisit de jouer au pendu. 
 </p>
 <p>
 <strong>Lucile souhaite activer le mode daltonien,</strong>
@@ -235,11 +315,22 @@ elle pourra cocher l’option de mettre le mode daltonien.
 </p>
 <p>
 <strong>Lucien souhaite jouer à la bataille navale.</strong>
-Pour se faire, il accède à la page d’accueil, cliquez sur la partie jeux, puis sélectionne le jeu de la  bataille navale.
+Pour se faire, il accède à la page d’accueil, cliquez sur la partie jeux, puis sélectionne le jeu de la bataille navale.
 Il aime ce type de jeu, facile à comprendre et très modelable. 
 </p>
 <p>
 <strong>Lucien souhaite lire les règles de la bataille navale.</strong>
 Pour cela, il accède à la page d’accueil, se rend sur la partie jeux, puis sélectionne le jeu de la bataille navale.
 Il aura accès aux règles correspondant à la bataille navale.  
+</p>
+<p>
+<strong>Veronique veut jouer au solitaire.</strong>
+Pour ce faire, il accède à la page d’accueil, cliquez sur la partie
+jeux, puis sélectionne le jeu solitaire.
+Elle aime ce type de jeu, facile à comprendre et rapide.
+</p>
+<p>
+<strong>Veronique souhaite voir son temps de jeu.</strong>
+Elle pourra regarder son temps de jeu, en regardant dans le coin
+en haut à droite de la page du jeu actuelle.
 </p>
