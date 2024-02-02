@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.setting {
+    margin-bottom: 20px;
+}
+
+.checkbox-label {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    color: #555;
+    margin-left: 10px;
+    line-height: 1.5; /* Ajuste la hauteur de ligne pour aligner le texte avec la checkbox */
+}
+
+
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    display: block;
+    width: 50%; /* Réduit la largeur du bouton à 50% de la largeur du conteneur */
+    margin: 0 auto; /* Centre le bouton horizontalement */
+    padding: 8px; /* Réduit l'espacement intérieur du bouton */
+    background-color: #4CAF50; /* Couleur verte */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Réduit la taille de la police */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049; /* Légèrement plus foncé au survol */
+}
+
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Masquer la checkbox par défaut */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Styles pour le faux élément de checkbox */
+.checkbox-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-container input[type="checkbox"] + .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+/* Styles pour la coche */
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #007bff;
+    transform: translate(-50%, -50%);
+}
+
+/* Styles pour le texte à côté de la checkbox */
+.checkbox-label {
+    margin-left: 30px;
+    vertical-align: middle;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Styles pour le texte à côté de la checkbox lorsqu'elle est désactivée */
+.checkbox-label.disabled {
+    color: #999;
+}
+
+/* Appliquer un effet de survol */
+.checkbox-container:hover input[type="checkbox"] + .checkmark {
+    background-color: #ddd;
+}
+
