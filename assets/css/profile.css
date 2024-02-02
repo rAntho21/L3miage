@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-size: 16px; /* Taille de base de la police */
 }
 
 .container {
@@ -38,11 +39,13 @@ body {
     display: block;
     padding: 5px;
     color: white;
+    font-size: 18px; /* Taille de police de la barre de progression */
 }
 
 .level,
 .money {
     margin-top: 10px;
+    font-size: 18px; /* Taille de police pour le niveau et l'argent */
 }
 
 ul {
@@ -54,4 +57,5 @@ ul li {
     margin-bottom: 10px;
     border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
+    font-size: 18px; /* Taille de police pour les éléments de la liste */
 }
