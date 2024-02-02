@@ -29,3 +29,7 @@
     line-height: 1.4;
     color: #666; /* Couleur du texte (vous pouvez changer cela) */
 }
+
+#presentation{
+    margin: 20px;
+}

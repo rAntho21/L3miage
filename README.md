@@ -259,7 +259,7 @@ On gagne des points à notre jeu du solitaire lorsque l'on effectue les actions 
     </tr>
     <tr id="ligne_veronique">
         <td>
-        <img src="assets/images/veronique.png" alt="Femme de mairie"> <br>
+        <img src="assets/images/veronique.jpg" alt="Femme de mairie"> <br>
         Identification : Véronique.<br>
         Âge : 48 ans.<br>
         Situation : Marié.<br>
