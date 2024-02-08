@@ -1,8 +1,7 @@
-body {
-}
 
-h2 {
-    color: black;
+#liste-jeux {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux patch notes de passer à la ligne si l'espace est insuffisant */
 }
 
 .jeux {
@@ -14,7 +13,7 @@ h2 {
     margin: 1%;
     background-color: #f2f2f2;
     border: 1px solid #ccc;
-    float: left;
+    /*float: left;*/
 }
 
 .jeux h3 {
@@ -42,7 +41,8 @@ button:hover {
     background-color: darkgreen;
 }
 
+/*
 .buttons-jeux{
     text-align: center;
     align-items: center;
-}
+}*/
