@@ -233,7 +233,6 @@
       </div>
 
       <div class="sudoku" id="sudoku" style="display:none;">
-        <h1>Sudoku</h1>
         <div class="div1">
             à venir ...
             <!--<div class="rectangleGris"></div>-->
@@ -281,7 +280,6 @@
       </div>
 
       <div class="bataille-navale" id="bataille-navale" style="display:none;">
-        <h1>Bataille Navale</h1>
         <div class="div1">
             à venir ...
             <!--<div class="rectangleGris"></div>-->
@@ -329,7 +327,6 @@
       </div>
 
       <div class="Pendu" id="pendu" style="display:none;">
-        <h1>Pendu</h1>
         <div class="div1">
             à venir ...
             <!--<div class="rectangleGris"></div>-->
@@ -377,7 +374,6 @@
       </div>
 
       <div class="Solitaire" id="solitaire" style="display:none;">
-        <h1>Solitaire</h1>
         <div class="div1">
             à venir ...
             <!--<div class="rectangleGris"></div>-->
@@ -561,6 +557,8 @@ let divPendu = document.getElementById("pendu");
 let divBataille = document.getElementById("bataille-navale");
 let divSolitaire = document.getElementById("solitaire");
 
+let boutons = document.querySelectorAll(".bouton");
+
 boutonTous.addEventListener("click", () => {
   toggleVisibility(divTous);
 });
@@ -596,8 +594,19 @@ function hideAllExcept(elementToShow) {
       div.style.display = "none";
     }
   });
-  elementToShow.style.display = "block"; // Affiche la div associée au bouton cliqué
+  elementToShow.style.display = ""; // Affiche la div associée au bouton cliqué
 }
+
+boutons.forEach(bouton => {
+  bouton.addEventListener("click", () => {
+    // D'abord, on retire la classe "active" de tous les boutons
+    boutons.forEach(b => {
+      b.classList.remove("active");
+    });
+    // Ensuite, on ajoute la classe "active" au bouton cliqué
+    bouton.classList.add("active");
+  });
+});
 
 </script>
 
