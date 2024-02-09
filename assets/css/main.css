@@ -8,6 +8,7 @@ body {
 }
 
 h1 {
+    text-align: center;
     font-size: 28px;
     font-weight: bold;
     color: #4CAF50; /* Teinte de vert pour les titres h1 (vous pouvez changer cela) */
