@@ -2,8 +2,9 @@
 body {
     font-size: 16px;
     color: #333;
-    padding: 8px;
-    margin: 0;
+    padding: 0;
+    margin: 85px 0 50px 0;
+    font-family: Arial, sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -20,32 +21,59 @@ h1 {
     font-size: 30px;
     font-weight: bold;
     color: #4CAF50;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-h2 {
-    font-size: 25px;
-    font-weight: bold;
-    color: #64DD17;
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 5px;
+    left: 1%;
+    right: 1%;
+    z-index: 999;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-h3 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #81C784;
+footer p {
+    margin: 0;
 }
 
-p {
-    margin-bottom: 15px;
+/* Header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    position: fixed;
+    top: 5px;
+    left: 1%;
+    right: 1%;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* EN-TÊTE */
+header a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: #4CAF50;
+}
+
 #Entete-site {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
 }
 
 #Entete-site a {
@@ -53,71 +81,22 @@ p {
     color: white;
 }
 
-#Entete-site a:hover {
-    text-decoration: underline;
-}
-
-#Entete-site #Menu {
-    display: flex;
-    align-items: center;
-}
-
-#Entete-site #Menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-#Entete-site #Menu ul li {
-    margin-right: 10px;
-}
-
-#Entete-site #Menu ul li:last-child {
-    margin-right: 0;
-}
-
-#Entete-site div a {
-    margin: 0 3px;
-}
-
-/* MENU */
-#Menu {
-    text-align: center;
-    background-color: #333;
-}
-
 #Menu ul {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+    margin: 8px 0 0 0;
 }
 
 #Menu ul li {
-    display: inline-block;
     margin-right: 10px;
 }
 
-#Menu div {
-    display: inline-block;
-}
-
-#Menu ul li:hover {
-    background-color: #555;
+#Menu ul li:last-child {
+    margin-right: 0;
 }
 
 #Menu ul li a {
-    display: block;
-    padding: 15px;
     text-decoration: none;
     color: white;
-}
-/* FOOTER */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 5px;
-    margin: 0;
 }
