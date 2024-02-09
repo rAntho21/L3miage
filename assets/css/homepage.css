@@ -1,6 +1,11 @@
 /*
  * Style pour la page d'accueil.
  */
+#list-patch {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux patch notes de passer à la ligne si l'espace est insuffisant */
+}
+
 .patch-note {
     box-sizing: border-box;
     width: 48%; /* 48% pour permettre deux patch notes par ligne avec un léger espace entre eux */
@@ -15,7 +20,7 @@
 /* Style spécifique pour le titre des patch notes */
 .patch-note h4 {
     margin-top: 0;
-    color: #333; /* Couleur du titre (vous pouvez changer cela) */
+    color: #4CAF50; /* Teinte de vert pour le titre des patch notes (vous pouvez changer cela) */
 }
 
 /* Style spécifique pour le texte des patch notes */
@@ -23,4 +28,8 @@
     font-size: 14px; /* Taille de la police pour le texte (vous pouvez changer cela) */
     line-height: 1.4;
     color: #666; /* Couleur du texte (vous pouvez changer cela) */
+}
+
+#presentation{
+    margin: 20px;
 }

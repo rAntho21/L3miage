@@ -1,0 +1,48 @@
+
+#liste-jeux {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux patch notes de passer à la ligne si l'espace est insuffisant */
+}
+
+.jeux {
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    width: 48%;
+    padding: 10px;
+    margin: 1%;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    /*float: left;*/
+}
+
+.jeux h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.jeux p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #000000;
+}
+
+button {
+    margin-top: 20px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: forestgreen;
+    color: white;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+/*
+.buttons-jeux{
+    text-align: center;
+    align-items: center;
+}*/

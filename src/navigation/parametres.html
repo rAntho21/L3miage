@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/parametre.css">
     <title>Jaya | Paramètres</title>
 </head>
 <header>
     <div id="Entete-site">
+        <a href="../../index.html"><img src="../../assets/images/logo.png" alt="Logo Jaya"></a>
         <a href="../../index.html">Jaya</a>
-        <a href="connexion.html">Connexion</a>
-        <a href="inscription.html">Inscription</a>
+        <div>
+            <a href="connexion.html">Connexion</a>
+            <a href="inscription.html">Inscription</a>
+        </div>
     </div>
     <div id="Menu">
         <ul>
@@ -22,6 +26,28 @@
     </div>
 </header>
 <body>
+    <div class="container">
+        <h1>Paramètres</h1>
+        <div class="setting">
+            <label class="checkbox-container">
+                <input type="checkbox" id="colorblindMode">
+                <span class="checkmark"></span>
+                <span class="checkbox-label">Activer le mode daltonien</span>
+            </label>
+        </div>
+
+        <div class="setting">
+            <label for="activationKey">Avez-vous un code d'activation ? (10 caractères)</label><br>
+            <input type="text" id="activationKey" maxlength="10">
+        </div>
+        <button onclick="saveSettings()">Activer</button>
+    </div>
+
+    <!-- Ajout de l'élément audio pour le son -->
+    <audio id="checkboxSound" src="../../assets/son/CliqueDaltonien.mp3"></audio>
 
 </body>
+<footer>
+    <p>&copy; Jaya 2024-2025</p>
+</footer>
 </html>
