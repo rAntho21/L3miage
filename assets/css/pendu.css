@@ -61,6 +61,12 @@ h2 {
     background-color: #034603;
 }
 
+#lettre .bouton-gris {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
 #essayeMot {
     display: flex;
     align-items: center;
@@ -88,8 +94,8 @@ h2 {
     cursor: pointer;
 }
 
-#vie {
+#basPage {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     align-items: center;
 }

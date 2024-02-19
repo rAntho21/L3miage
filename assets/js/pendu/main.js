@@ -18,7 +18,10 @@ let motSelectionne = "";
 let boutonValiderMot = document.getElementById("validerMot");
 let essayer = document.getElementById("essaye");
 
-let vie = 11; // Nombre de vie
+let difficulte = "";
+
+let score = 0;
+let vie = 11;
 
 /**
  * Permet de réinitialiser les mots générés lorsque l'utilisateur change la difficulté
@@ -38,6 +41,7 @@ boutonFacile.addEventListener("click", function() {
     let motATrouverFacile = generationMotFacile[0].toUpperCase() + " _ ".repeat(generationMotFacile.length - 2).toUpperCase() + generationMotFacile.toUpperCase()[generationMotFacile.length - 1];
     document.getElementById("generationMotFacile").innerText = motATrouverFacile;
     motSelectionne = generationMotFacile;
+    difficulte = "facile";
 });
 
 /**
@@ -49,6 +53,7 @@ boutonMoyen.addEventListener("click", function() {
     let motATrouverMoyen = generationMotMoyen[0].toUpperCase() + " _ ".repeat(generationMotMoyen.length - 1).toUpperCase();
     document.getElementById("generationMotMoyen").innerText = motATrouverMoyen;
     motSelectionne = generationMotMoyen;
+    difficulte = "moyen";
 });
 
 /**
@@ -60,6 +65,7 @@ boutonDifficile.addEventListener("click", function() {
     let motATrouverDifficile = " _ ".repeat(generationMotDifficile.length - 1).toUpperCase();
     document.getElementById("generationMotDifficile").innerText = motATrouverDifficile;
     motSelectionne = generationMotDifficile;
+    difficulte = "difficile";
 });
 
 /**
@@ -70,6 +76,7 @@ boutonDifficile.addEventListener("click", function() {
 alphabet.forEach(function (lettre) {
     let bouton = document.getElementById(lettre);
     bouton.addEventListener('click', function () {
+        bouton.classList.add('bouton-gris');
         // Vérifie si la lettre est dans le mot actuel
         if (motSelectionne.toLowerCase().includes(lettre.toLowerCase())) {
             // Si la lettre est dans le mot, remplace le caractère de soulignement correspondant par la lettre
@@ -82,6 +89,14 @@ alphabet.forEach(function (lettre) {
             document.getElementById("mot").innerText = motAffiche;
             if (!motAffiche.includes("_")) {
                 alert("Vous avez gagné !");
+                if (difficulte === "facile") {
+                    score += 10;
+                } else if (difficulte === "moyen") {
+                    score += 20;
+                } else if (difficulte === "difficile"){
+                    score += 30;
+                }
+                document.getElementById("scoreJoueur").innerText = score;
             }
         } else {
             // Si la lettre n'est pas dans le mot, décrémente le nombre de vies et change l'image
@@ -97,11 +112,18 @@ alphabet.forEach(function (lettre) {
     });
 });
 
-
 boutonValiderMot.addEventListener("click", function() {
     let motEssaye = essayer.value.toLowerCase();
     if (motEssaye === motSelectionne) {
         alert("Vous avez gagné !");
+        if (difficulte === "facile") {
+            score += 10;
+        } else if (difficulte === "moyen") {
+            score += 20;
+        } else if (difficulte === "difficile"){
+            score += 30;
+        }
+        document.getElementById("scoreJoueur").innerText = score;
     } else {
         if (boutonDifficile.clicked) {
             alert("Vous avez perdu !");
@@ -116,7 +138,8 @@ boutonValiderMot.addEventListener("click", function() {
             }
         }
     }
-    essayer.value = ""; // Clear the input field
+    essayer.value = "";
 });
 
 document.getElementById("vieJoueur").innerText = vie;
+document.getElementById("scoreJoueur").innerText = score;

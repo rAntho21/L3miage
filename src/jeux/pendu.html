@@ -26,7 +26,6 @@
     </div>
 </header>
 <body>
-    <script defer src="../../assets/js/pendu/main.js"></script>
     <div id="jeu">
         <h2>Le Pendu</h2>
         <div id="difficultes">
@@ -79,10 +78,22 @@
             <button id="validerMot">Valider </button>
         </div>
 
-        <div id="vie">
-            <p>Vie : <span id="vieJoueur"></span></p>
+        <div id="basPage">
+            <div id="vie">
+                <p>Vie : <span id="vieJoueur"></span></p>
+            </div>
+
+            <div id="score">
+                <p>Score : <span id="scoreJoueur"></span></p>
+            </div>
+        </div>
+
+        <div id="finJeu">
+            <button id="rejouer">Rejouer</button>
         </div>
     </div>
+
+    <script src="../../assets/js/pendu/main.js"></script>
 </body>
 <footer>
     <p>&copy; Jaya 2024-2025</p>
