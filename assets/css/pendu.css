@@ -94,7 +94,7 @@ h2 {
     cursor: pointer;
 }
 
-#basPage {
+#hautPage {
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,11 +1,8 @@
+
 // Création des listes de mots selon les difficultés
 let motFacile = ['chat', 'chien', 'souris', 'oiseau', 'poisson', 'lapin', 'tortue', 'poule', 'cochon', 'vache'];
 let motMoyen = ['éléphant', 'girafe', 'hippopotame', 'crocodile', 'tigre', 'lion', 'singe', 'panda', 'koala', 'kangourou'];
 let motDifficile = ['ornithorynque', 'hippocampe', 'chimpanzé', 'pangolin', 'okapi', 'narval', 'tapir', 'dromadaire', 'chinchilla', 'marmotte'];
-
-let generationMotFacile = "";
-let generationMotMoyen = "";
-let generationMotDifficile = "";
 
 let boutonFacile = document.getElementById("facile");
 let boutonMoyen = document.getElementById("moyen");
@@ -23,50 +20,65 @@ let difficulte = "";
 let score = 0;
 let vie = 11;
 
+let boutonRejouer = document.getElementById("rejouer");
+
 /**
  * Permet de réinitialiser les mots générés lorsque l'utilisateur change la difficulté
  */
 function reset() {
-    document.getElementById("generationMotFacile").innerText = "";
-    document.getElementById("generationMotMoyen").innerText = "";
-    document.getElementById("generationMotDifficile").innerText = "";
+    vie = 11;
+    document.getElementById("vieJoueur").innerText = vie;
+    document.getElementById("scoreJoueur").innerText = score;
+
+    difficulte = "";
+    console.log("reset now")
+    console.log(document.getElementById("mot"));
+    document.getElementById("mot").innerText = "";
+    /*document.getElementById("essaye").value = "";*/
+
+    alphabet.forEach(function (lettre) {
+        let bouton = document.getElementById(lettre);
+        bouton.classList.remove('bouton-gris');
+    });
+
+    document.getElementById("penduu").src = "../../assets/images/pendu00.png";
 }
 
 /**
  * Si l'utilisateur clique sur le bouton "facile", un mot de la liste "motFacile" est généré
  */
-boutonFacile.addEventListener("click", function() {
-    reset();
-    generationMotFacile = motFacile[Math.floor(Math.random() * motFacile.length)];
-    let motATrouverFacile = generationMotFacile[0].toUpperCase() + " _ ".repeat(generationMotFacile.length - 2).toUpperCase() + generationMotFacile.toUpperCase()[generationMotFacile.length - 1];
-    document.getElementById("generationMotFacile").innerText = motATrouverFacile;
-    motSelectionne = generationMotFacile;
-    difficulte = "facile";
-});
+    boutonFacile.addEventListener("click", function () {
+        reset();
+        let generationMotFacile = motFacile[Math.floor(Math.random() * motFacile.length)];
+        let motATrouverFacile = generationMotFacile[0].toUpperCase() + " _ ".repeat(generationMotFacile.length - 2).toUpperCase() + generationMotFacile.toUpperCase()[generationMotFacile.length - 1];
+        console.log(document.getElementById("mot").innerText = motATrouverFacile);
+        motSelectionne = generationMotFacile;
+        difficulte = "facile";
+    });
 
 /**
  * Si l'utilisateur clique sur le bouton "moyen", un mot de la liste "motMoyen" est généré
  */
-boutonMoyen.addEventListener("click", function() {
-    reset();
-    generationMotMoyen = motMoyen[Math.floor(Math.random() * motMoyen.length)];
-    let motATrouverMoyen = generationMotMoyen[0].toUpperCase() + " _ ".repeat(generationMotMoyen.length - 1).toUpperCase();
-    document.getElementById("generationMotMoyen").innerText = motATrouverMoyen;
-    motSelectionne = generationMotMoyen;
-    difficulte = "moyen";
-});
+    boutonMoyen.addEventListener("click", function () {
+        reset();
+        let generationMotMoyen = motMoyen[Math.floor(Math.random() * motMoyen.length)];
+        let motATrouverMoyen = generationMotMoyen[0].toUpperCase() + " _ ".repeat(generationMotMoyen.length - 1).toUpperCase();
+        document.getElementById("mot").innerText = motATrouverMoyen;
+        motSelectionne = generationMotMoyen;
+        difficulte = "moyen";
+    });
 
 /**
  * Si l'utilisateur clique sur le bouton "difficile", un mot de la liste "motDifficile" est généré
  */
-boutonDifficile.addEventListener("click", function() {
-    reset();
-    generationMotDifficile = motDifficile[Math.floor(Math.random() * motDifficile.length)];
-    let motATrouverDifficile = " _ ".repeat(generationMotDifficile.length - 1).toUpperCase();
-    document.getElementById("generationMotDifficile").innerText = motATrouverDifficile;
-    motSelectionne = generationMotDifficile;
-    difficulte = "difficile";
-});
+    boutonDifficile.addEventListener("click", function () {
+        reset();
+        let generationMotDifficile = motDifficile[Math.floor(Math.random() * motDifficile.length)];
+        let motATrouverDifficile = " _ ".repeat(generationMotDifficile.length - 1).toUpperCase();
+        document.getElementById("mot").innerText = motATrouverDifficile;
+        motSelectionne = generationMotDifficile;
+        difficulte = "difficile";
+    });
 
 /**
  * Pour chaque lettre de l'alphabet, on ajoute un événement lorsqu'on clique sur le bouton correspondant
@@ -97,16 +109,17 @@ alphabet.forEach(function (lettre) {
                     score += 30;
                 }
                 document.getElementById("scoreJoueur").innerText = score;
+                reset();
             }
         } else {
-            // Si la lettre n'est pas dans le mot, décrémente le nombre de vies et change l'image
             vie--;
             document.getElementById("vieJoueur").innerText = vie;
             let imgNum = 11 - vie;
             let imgNom = "pendu" + String(imgNum).padStart(2, '0') + ".png";
             document.getElementById("penduu").src = "../../assets/images/" + imgNom;
-            if (vie === -1) {
+            if (vie === 0) {
                 alert("Vous avez perdu !");
+                reset();
             }
         }
     });
@@ -120,26 +133,35 @@ boutonValiderMot.addEventListener("click", function() {
             score += 10;
         } else if (difficulte === "moyen") {
             score += 20;
-        } else if (difficulte === "difficile"){
+        } else if (difficulte === "difficile") {
             score += 30;
         }
         document.getElementById("scoreJoueur").innerText = score;
+        reset();
     } else {
         if (boutonDifficile.clicked) {
             alert("Vous avez perdu !");
+            reset();
         } else {
             vie--;
             document.getElementById("vieJoueur").innerText = vie;
             let imgNum = 11 - vie;
             let imgNom = "pendu" + String(imgNum).padStart(2, '0') + ".png";
             document.getElementById("penduu").src = "../../assets/images/" + imgNom;
-            if (vie === -1) {
+            if (vie === 0) {
                 alert("Vous avez perdu !");
+                reset();
             }
         }
     }
     essayer.value = "";
 });
 
+boutonRejouer.addEventListener("click", function() {
+    reset();
+});
+
 document.getElementById("vieJoueur").innerText = vie;
 document.getElementById("scoreJoueur").innerText = score;
+    
+
