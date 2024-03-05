@@ -37,11 +37,6 @@ document.getElementById('startButton').addEventListener('click', function () {
     startTimer();
 });
 
-// Ajoutez ici votre code existant pour la création et le déplacement des cartes...
-
-// Variable pour stocker les points
-var points = 0;
-
 // Fonction pour ajuster les points en fonction des actions de l'utilisateur
 function adjustPoints(action) {
     if (action === 'flipCard') {
@@ -57,21 +52,14 @@ function adjustPoints(action) {
         // Vous déplacez une carte des fondations vers le tableau : - 5 points
         points -= 5;
     }
+    updatePointsDisplay(); // Met à jour l'affichage des points
 }
 
 // Fonction pour mettre à jour l'affichage des points
 function updatePointsDisplay() {
-    var pointsDisplay = document.getElementById('points');
+    var pointsDisplay = document.getElementById('pointsDisplay');
     pointsDisplay.textContent = 'Points: ' + points;
 }
-
-
-
-
-
-
-
-
 
 cards=[];
         entities=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
