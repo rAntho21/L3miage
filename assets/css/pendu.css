@@ -99,3 +99,27 @@ h2 {
     justify-content: space-between;
     align-items: center;
 }
+
+#coeurVie {
+    height: 20px;
+    width: 20px;
+}
+
+#etoileScore {
+    height: 30px;
+    width: 30px;
+}
+
+#rejouer {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: saddlebrown;
+    color: white;
+    cursor: pointer;
+}
+
+#rejouer:hover {
+    background-color: #602d09;
+}

@@ -22,6 +22,10 @@ let vie = 11;
 
 let boutonRejouer = document.getElementById("rejouer");
 
+let buttons = document.querySelectorAll('#difficultes button');
+
+let audio = new Audio('../../assets/son/cliquePendu.mp3');
+
 /**
  * Permet de réinitialiser les mots générés lorsque l'utilisateur change la difficulté
  */
@@ -41,6 +45,11 @@ function reset() {
         bouton.classList.remove('bouton-gris');
     });
 
+    buttons.forEach(button => {
+        button.style.backgroundColor = "";
+    });
+
+    motSelectionne = "";
     document.getElementById("penduu").src = "../../assets/images/pendu00.png";
 }
 
@@ -88,38 +97,41 @@ function reset() {
 alphabet.forEach(function (lettre) {
     let bouton = document.getElementById(lettre);
     bouton.addEventListener('click', function () {
-        bouton.classList.add('bouton-gris');
-        // Vérifie si la lettre est dans le mot actuel
-        if (motSelectionne.toLowerCase().includes(lettre.toLowerCase())) {
-            // Si la lettre est dans le mot, remplace le caractère de soulignement correspondant par la lettre
-            let motAffiche = document.getElementById("mot").innerText;
-            for (let i = 0; i < motSelectionne.length; i++) {
-                if (motSelectionne[i].toLowerCase() === lettre.toLowerCase()) {
-                    motAffiche = motAffiche.substr(0, i * 2) + lettre + " " + motAffiche.substr(i * 2 + 2);
+        if (difficulte !== "") {
+            audio.play();
+            bouton.classList.add('bouton-gris');
+            // Vérifie si la lettre est dans le mot actuel
+            if (motSelectionne.toLowerCase().includes(lettre.toLowerCase())) {
+                // Si la lettre est dans le mot, remplace le caractère de soulignement correspondant par la lettre
+                let motAffiche = document.getElementById("mot").innerText;
+                for (let i = 0; i < motSelectionne.length; i++) {
+                    if (motSelectionne[i].toLowerCase() === lettre.toLowerCase()) {
+                        motAffiche = motAffiche.substr(0, i * 2) + lettre + " " + motAffiche.substr(i * 2 + 2);
+                    }
                 }
-            }
-            document.getElementById("mot").innerText = motAffiche;
-            if (!motAffiche.includes("_")) {
-                alert("Vous avez gagné !");
-                if (difficulte === "facile") {
-                    score += 10;
-                } else if (difficulte === "moyen") {
-                    score += 20;
-                } else if (difficulte === "difficile"){
-                    score += 30;
+                document.getElementById("mot").innerText = motAffiche;
+                if (!motAffiche.includes("_")) {
+                    alert("Vous avez gagné !");
+                    if (difficulte === "facile") {
+                        score += 10;
+                    } else if (difficulte === "moyen") {
+                        score += 20;
+                    } else if (difficulte === "difficile") {
+                        score += 30;
+                    }
+                    document.getElementById("scoreJoueur").innerText = score;
+                    reset();
                 }
-                document.getElementById("scoreJoueur").innerText = score;
-                reset();
-            }
-        } else {
-            vie--;
-            document.getElementById("vieJoueur").innerText = vie;
-            let imgNum = 11 - vie;
-            let imgNom = "pendu" + String(imgNum).padStart(2, '0') + ".png";
-            document.getElementById("penduu").src = "../../assets/images/" + imgNom;
-            if (vie === 0) {
-                alert("Vous avez perdu !");
-                reset();
+            } else {
+                vie--;
+                document.getElementById("vieJoueur").innerText = vie;
+                let imgNum = 11 - vie;
+                let imgNom = "pendu" + String(imgNum).padStart(2, '0') + ".png";
+                document.getElementById("penduu").src = "../../assets/images/" + imgNom;
+                if (vie === 0) {
+                    alert("Vous avez perdu !");
+                    reset();
+                }
             }
         }
     });
@@ -127,34 +139,36 @@ alphabet.forEach(function (lettre) {
 
 boutonValiderMot.addEventListener("click", function() {
     let motEssaye = essayer.value.toLowerCase();
-    if (motEssaye === motSelectionne) {
-        alert("Vous avez gagné !");
-        if (difficulte === "facile") {
-            score += 10;
-        } else if (difficulte === "moyen") {
-            score += 20;
-        } else if (difficulte === "difficile") {
-            score += 30;
-        }
-        document.getElementById("scoreJoueur").innerText = score;
-        reset();
-    } else {
-        if (boutonDifficile.clicked) {
-            alert("Vous avez perdu !");
+    if (difficulte !== "") {
+        if (motEssaye === motSelectionne) {
+            alert("Vous avez gagné !");
+            if (difficulte === "facile") {
+                score += 10;
+            } else if (difficulte === "moyen") {
+                score += 20;
+            } else if (difficulte === "difficile") {
+                score += 30;
+            }
+            document.getElementById("scoreJoueur").innerText = score;
             reset();
         } else {
-            vie--;
-            document.getElementById("vieJoueur").innerText = vie;
-            let imgNum = 11 - vie;
-            let imgNom = "pendu" + String(imgNum).padStart(2, '0') + ".png";
-            document.getElementById("penduu").src = "../../assets/images/" + imgNom;
-            if (vie === 0) {
+            if (boutonDifficile.clicked) {
                 alert("Vous avez perdu !");
                 reset();
+            } else {
+                vie--;
+                document.getElementById("vieJoueur").innerText = vie;
+                let imgNum = 11 - vie;
+                let imgNom = "pendu" + String(imgNum).padStart(2, '0') + ".png";
+                document.getElementById("penduu").src = "../../assets/images/" + imgNom;
+                if (vie === 0) {
+                    alert("Vous avez perdu !");
+                    reset();
+                }
             }
         }
+        essayer.value = "";
     }
-    essayer.value = "";
 });
 
 boutonRejouer.addEventListener("click", function() {
@@ -163,5 +177,15 @@ boutonRejouer.addEventListener("click", function() {
 
 document.getElementById("vieJoueur").innerText = vie;
 document.getElementById("scoreJoueur").innerText = score;
-    
+
+buttons.forEach(button => {
+    button.addEventListener('click', function () {
+        buttons.forEach(btn => {
+            btn.style.backgroundColor = "";
+        });
+        this.style.backgroundColor = "green";
+    });
+});
+
+
 
