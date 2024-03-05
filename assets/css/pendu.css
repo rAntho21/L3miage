@@ -1,0 +1,125 @@
+h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #000000;
+}
+
+#difficultes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#facile, #moyen, #difficile {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: #ece7e7;
+    color: #000000;
+    cursor: pointer;
+}
+
+#facile:hover, #moyen:hover, #difficile:hover {
+    background-color: #dcd6d6;
+}
+#pendu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    font-size: 40px;
+    color: #000000;
+
+}
+
+#lettre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#lettre button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: forestgreen;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#lettre button:hover {
+    background-color: #034603;
+}
+
+#lettre .bouton-gris {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+#essayeMot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#essaye {
+    margin: 5px;
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: #ece7e7;
+    color: #000000;
+}
+
+#validerMot {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: forestgreen;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#hautPage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#coeurVie {
+    height: 20px;
+    width: 20px;
+}
+
+#etoileScore {
+    height: 30px;
+    width: 30px;
+}
+
+#rejouer {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: saddlebrown;
+    color: white;
+    cursor: pointer;
+}
+
+#rejouer:hover {
+    background-color: #602d09;
+}
