@@ -98,6 +98,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 0px;
 }
 
 #coeurVie {
@@ -110,7 +111,13 @@ h2 {
     width: 30px;
 }
 
-#rejouer {
+#boutonhaut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rejouer, #regle {
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
@@ -120,6 +127,7 @@ h2 {
     cursor: pointer;
 }
 
-#rejouer:hover {
+#rejouer:hover, #regle:hover {
     background-color: #602d09;
 }
+
