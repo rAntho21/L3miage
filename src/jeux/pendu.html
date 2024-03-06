@@ -35,6 +35,37 @@
             <button id="difficile">Difficile</button>
         </div>
 
+        <div id="popup">
+            <div class="contenu-popup">
+                <h4> Règle de jeu </h4>
+                <p>Le jeu du pendu consiste à trouver un mot généré aléatoirement en essayant de trouver les bonnes lettres une par une.<br>
+                    Vous aurez un certain nombre de chances pour trouver le mot.<br>
+                    Lorsque vous pensez avoir le mot, vous pouvez tenter votre chance, si vous échouez, alors vous perdez une vie.</p>
+                <a href="javascript:void(0)" onclick="activePopup()" class="fermer"> X </a>
+            </div>
+        </div>
+
+        <div id="popupGagne">
+            <div class="contenu-popup">
+                <h4> VOUS AVEZ GAGNÉ! </h4>
+                <a href="javascript:void(0)" onclick="activePopupGagne()" class="fermer"> X </a>
+            </div>
+        </div>
+
+        <div id="popupPerdu">
+            <div class="contenu-popup">
+                <h4> VOUS AVEZ PERDU! </h4>
+                <a href="javascript:void(0)" onclick="activePopupPerdu()" class="fermer"> X </a>
+            </div>
+        </div>
+
+        <div id="boutonhaut">
+                <button id="regle" onclick="activePopup"> Règle </button>
+            <div id="finJeu">
+                <button id="rejouer">Rejouer</button>
+            </div>
+        </div>
+
         <div id="hautPage">
             <div id="vie">
                 <p><img id="coeurVie" src="../../assets/images/coeurVie.gif"> : <span id="vieJoueur"></span></p>
@@ -53,6 +84,7 @@
 
             </div>
         </div>
+
         <div id="lettre">
             <button id="A"> A </button>
             <button id="B"> B </button>
@@ -87,9 +119,6 @@
             <button id="validerMot">Valider </button>
         </div>
 
-        <div id="finJeu">
-            <button id="rejouer">Rejouer</button>
-        </div>
     </div>
 
     <script defer src="../../assets/js/pendu/main.js"></script>
