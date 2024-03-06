@@ -25,7 +25,9 @@ let boutonRejouer = document.getElementById("rejouer");
 let buttons = document.querySelectorAll('#difficultes button');
 
 let audio = new Audio('../../assets/son/cliquePendu.mp3');
-
+let audioVictoire = new Audio('../../assets/son/defaite.mp3');
+let audioDefaite = new Audio('../../assets/son/victoire.mp3');
+let boutonPopup = document.getElementById("regle");
 /**
  * Permet de réinitialiser les mots générés lorsque l'utilisateur change la difficulté
  */
@@ -111,7 +113,8 @@ alphabet.forEach(function (lettre) {
                 }
                 document.getElementById("mot").innerText = motAffiche;
                 if (!motAffiche.includes("_")) {
-                    alert("Vous avez gagné !");
+                    activePopupGagne();
+                    audioVictoire.play();
                     if (difficulte === "facile") {
                         score += 10;
                     } else if (difficulte === "moyen") {
@@ -129,7 +132,8 @@ alphabet.forEach(function (lettre) {
                 let imgNom = "pendu" + String(imgNum).padStart(2, '0') + ".png";
                 document.getElementById("penduu").src = "../../assets/images/" + imgNom;
                 if (vie === 0) {
-                    alert("Vous avez perdu !");
+                    activePopupPerdu();
+                    audioDefaite.play();
                     reset();
                 }
             }
@@ -141,7 +145,8 @@ boutonValiderMot.addEventListener("click", function() {
     let motEssaye = essayer.value.toLowerCase();
     if (difficulte !== "") {
         if (motEssaye === motSelectionne) {
-            alert("Vous avez gagné !");
+            activePopupGagne();
+            audioVictoire.play();
             if (difficulte === "facile") {
                 score += 10;
             } else if (difficulte === "moyen") {
@@ -153,7 +158,8 @@ boutonValiderMot.addEventListener("click", function() {
             reset();
         } else {
             if (boutonDifficile.clicked) {
-                alert("Vous avez perdu !");
+                activePopupPerdu();
+                audioDefaite.play();
                 reset();
             } else {
                 vie--;
@@ -162,7 +168,8 @@ boutonValiderMot.addEventListener("click", function() {
                 let imgNom = "pendu" + String(imgNum).padStart(2, '0') + ".png";
                 document.getElementById("penduu").src = "../../assets/images/" + imgNom;
                 if (vie === 0) {
-                    alert("Vous avez perdu !");
+                    activePopupPerdu();
+                    audioDefaite.play();
                     reset();
                 }
             }
@@ -186,6 +193,45 @@ buttons.forEach(button => {
         this.style.backgroundColor = "green";
     });
 });
+
+function activePopup() {
+    const popup = document.getElementById("popup");
+    if (popup) {
+        console.log(popup);
+        popup.classList.toggle("active");
+        console.log(popup.classList);
+    } else {
+        console.log("popup non trouvé dans le html");
+    }
+}
+
+function activePopupGagne() {
+    const popup = document.getElementById("popupGagne");
+    if (popup) {
+        console.log(popup);
+        popup.classList.toggle("active");
+        console.log(popup.classList);
+    } else {
+        console.log("popup non trouvé dans le html");
+    }
+}
+
+function activePopupPerdu() {
+    const popup = document.getElementById("popupPerdu");
+    if (popup) {
+        console.log(popup);
+        popup.classList.toggle("active");
+        console.log(popup.classList);
+    } else {
+        console.log("popup non trouvé dans le html");
+    }
+}
+
+if (popup) {
+    boutonPopup.addEventListener("click", activePopup);
+} else {
+    console.log("bouton non trouvé dans le html");
+}
 
 
 

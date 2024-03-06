@@ -131,3 +131,40 @@ h2 {
     background-color: #602d09;
 }
 
+#popup, #popupGagne, #popupPerdu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    /* z-index: 1000;*/
+    display: none;
+}
+
+#popup.active, #popupGagne.active, #popupPerdu.active {
+    display: block;
+}
+
+.contenu-popup {
+    max-width: 600px;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fermer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: red;
+    text-decoration: none;
+}
+
+
+
