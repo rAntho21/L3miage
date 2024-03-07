@@ -1,0 +1,149 @@
+        * {
+            user-select: none;
+        }
+
+        body {
+            background-color: rgb(0, 0, 0);
+            cursor: default;
+            user-select: none;
+        }
+
+        table {
+            margin: 0;
+            padding: 0;
+            border-collapse: collapse;
+        }
+
+        tr {
+            margin: 0;
+            padding: 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            font-family: sans-serif;
+            font-size: 1.0em;
+            text-align: center;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+            border: 1px solid black;
+            width: 2em;
+            height: 2em;
+            border-collapse: collapse;
+        }
+
+        tbody {
+            margin: 0;
+            padding: 0;
+        }
+
+        #field {
+            margin-top: 10%;
+            background-color: #229933;
+            float: left;
+            position: relative;
+        }
+
+        #field td {
+            position: relative;
+        }
+
+        #deal {
+    margin-top: 25%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75px;
+    border-bottom: none;
+    background-color: #229933;
+    z-index: 999;
+}
+
+        
+
+        #deal td {
+            border-right: none;
+        }
+
+        #four {
+            margin-top: 20%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75px;
+    border-bottom: none;
+    background-color: #229933;
+    z-index: 999;
+}
+
+
+
+
+        div.bottom {
+            border-top: none;
+        }
+
+        div.top {
+            border-bottom: none;
+            width: 16em;
+            height: 2em;
+            border-left: 10px solid rgba(0, 0, 0, 0);
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        #game {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        td {
+            width: 50px;
+            height: 30px; /* Ajustement de la hauteur */
+            padding: 10px;
+        }
+
+        #timer, #startButton, #pointsDisplay {
+            font-family: sans-serif;
+            font-size: 1.0em;
+            font-weight: bold;
+            color: white; /* Couleur du texte */
+            background-color: #229933; /* Couleur de fond */
+            width: 100px; /* Largeur */
+            height: 30px; /* Hauteur */
+            text-align: center; /* Alignement du texte */
+            margin: 10px; /* Marge extérieure */
+            border: 1px solid black; /* Bordure */
+            cursor: pointer; /* Curseur */
+        }
+        
+        #startButton {
+            width: 75px; /* Largeur spécifique pour le bouton Start */
+        }
+        
+        #pointsDisplay {
+            width: 150px; /* Largeur spécifique pour l'affichage des points */
+        }
+        
+        #timer:hover, #startButton:hover, #pointsDisplay:hover {
+            background-color: #33a94b; /* Couleur de fond au survol */
+        }
+        
+        #timer:active, #startButton:active, #pointsDisplay:active {
+            background-color: #196b29; /* Couleur de fond au clic */
+        }
+        
+
