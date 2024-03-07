@@ -210,6 +210,8 @@ function activePopupGagne() {
     if (popup) {
         console.log(popup);
         popup.classList.toggle("active");
+        document.getElementById("scoreRecapG").innerText = score;
+        document.getElementById("motRecapG").innerText = motSelectionne.toUpperCase();
         console.log(popup.classList);
     } else {
         console.log("popup non trouvé dans le html");
@@ -221,6 +223,8 @@ function activePopupPerdu() {
     if (popup) {
         console.log(popup);
         popup.classList.toggle("active");
+        document.getElementById("scoreRecapD").innerText = score;
+        document.getElementById("motRecapD").innerText = motSelectionne.toUpperCase();
         console.log(popup.classList);
     } else {
         console.log("popup non trouvé dans le html");
