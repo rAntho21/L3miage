@@ -4,24 +4,33 @@ h2 {
     color: #000000;
 }
 
-#difficultes {
+#difficultes h4 {
+    text-align: center;
+}
+
+#haut {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+
 }
 
 #facile, #moyen, #difficile {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
     margin: 5px;
-    padding: 10px;
     border-radius: 5px;
-    border: 1px solid #000;
-    background-color: #ece7e7;
-    color: #000000;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #facile:hover, #moyen:hover, #difficile:hover {
-    background-color: #dcd6d6;
+    background-color: #2980b9;
 }
 #pendu {
     display: flex;
@@ -47,14 +56,14 @@ h2 {
 }
 
 #lettre button {
-    margin: 5px;
-    padding: 10px;
-    font-size: 20px;
-    border-radius: 5px;
-    border: 1px solid #000;
     background-color: forestgreen;
-    color: #ffffff;
+    color: #fff;
+    border: none;
+    padding: 15px 15px;
+    margin: 5px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #lettre button:hover {
@@ -85,20 +94,24 @@ h2 {
 }
 
 #validerMot {
-    margin: 5px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #000;
     background-color: forestgreen;
-    color: #ffffff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#validerMot:hover {
+    background-color: #034603;
 }
 
 #hautPage {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
 #coeurVie {
@@ -119,16 +132,17 @@ h2 {
 
 #rejouer, #regle {
     margin: 5px;
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 5px;
     border: 1px solid #000;
-    background-color: saddlebrown;
+    background-color: forestgreen;
     color: white;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #rejouer:hover, #regle:hover {
-    background-color: #602d09;
+    background-color: #1a691a;
 }
 
 #popup, #popupGagne, #popupPerdu {
@@ -155,14 +169,26 @@ h2 {
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Ajout de l'ombre */
+}
+
+#popupGagne .contenu-popup {
+    background-color: #00ff00;
+    color: black;
+}
+
+#popupPerdu .contenu-popup {
+    background-color: #ff0000;
+    color: black;
 }
 
 .fermer {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
     cursor: pointer;
-    color: red;
+    color: black;
     text-decoration: none;
 }
 

@@ -25,8 +25,8 @@ let boutonRejouer = document.getElementById("rejouer");
 let buttons = document.querySelectorAll('#difficultes button');
 
 let audio = new Audio('../../assets/son/cliquePendu.mp3');
-let audioVictoire = new Audio('../../assets/son/defaite.mp3');
-let audioDefaite = new Audio('../../assets/son/victoire.mp3');
+let audioVictoire = new Audio('../../assets/son/victoire.mp3');
+let audioDefaite = new Audio('../../assets/son/defaite.mp3');
 let boutonPopup = document.getElementById("regle");
 /**
  * Permet de réinitialiser les mots générés lorsque l'utilisateur change la difficulté
@@ -190,7 +190,7 @@ buttons.forEach(button => {
         buttons.forEach(btn => {
             btn.style.backgroundColor = "";
         });
-        this.style.backgroundColor = "green";
+        this.style.backgroundColor = "forestgreen";
     });
 });
 
@@ -210,6 +210,8 @@ function activePopupGagne() {
     if (popup) {
         console.log(popup);
         popup.classList.toggle("active");
+        document.getElementById("scoreRecapG").innerText = score;
+        document.getElementById("motRecapG").innerText = motSelectionne.toUpperCase();
         console.log(popup.classList);
     } else {
         console.log("popup non trouvé dans le html");
@@ -221,6 +223,8 @@ function activePopupPerdu() {
     if (popup) {
         console.log(popup);
         popup.classList.toggle("active");
+        document.getElementById("scoreRecapD").innerText = score;
+        document.getElementById("motRecapD").innerText = motSelectionne.toUpperCase();
         console.log(popup.classList);
     } else {
         console.log("popup non trouvé dans le html");

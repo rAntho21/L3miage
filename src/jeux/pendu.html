@@ -28,11 +28,19 @@
 <body>
     <div id="jeu">
         <h2>Le Pendu</h2>
-        <div id="difficultes">
-            <p>Choisissez une difficulté :</p>
-            <button id="facile">Facile</button>
-            <button id="moyen">Moyen</button>
-            <button id="difficile">Difficile</button>
+        <div id="haut">
+            <div id="difficultes">
+                <h4>Choisissez une difficulté :</h4>
+                <button id="facile">Facile</button>
+                <button id="moyen">Moyen</button>
+                <button id="difficile">Difficile</button>
+            </div>
+            <div id="boutonhaut">
+                <button id="regle" onclick="activePopup"> Règle </button>
+                <div id="finJeu">
+                    <button id="rejouer">Rejouer</button>
+                </div>
+            </div>
         </div>
 
         <div id="popup">
@@ -48,6 +56,8 @@
         <div id="popupGagne">
             <div class="contenu-popup">
                 <h4> VOUS AVEZ GAGNÉ! </h4>
+                <p>Score: <span id="scoreRecapG"></span></p>
+                <p>Mot découvert: <span id="motRecapG"></span></p>
                 <a href="javascript:void(0)" onclick="activePopupGagne()" class="fermer"> X </a>
             </div>
         </div>
@@ -55,14 +65,9 @@
         <div id="popupPerdu">
             <div class="contenu-popup">
                 <h4> VOUS AVEZ PERDU! </h4>
+                <p>Score: <span id="scoreRecapD"></span></p>
+                <p>Mot à trouver : <span id="motRecapD"></span></p>
                 <a href="javascript:void(0)" onclick="activePopupPerdu()" class="fermer"> X </a>
-            </div>
-        </div>
-
-        <div id="boutonhaut">
-                <button id="regle" onclick="activePopup"> Règle </button>
-            <div id="finJeu">
-                <button id="rejouer">Rejouer</button>
             </div>
         </div>
 
