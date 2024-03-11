@@ -7,19 +7,10 @@ let boutonReglePendu = document.getElementById("reglePendu");
 let boutonRegleMorpion = document.getElementById("regleMorpion");
 let boutonRegleSolitaire = document.getElementById("regleSolitaire");
 
-/*boutonRegleSudoku.addEventListener("click", function () {
-    activePopup();
-});
-boutonReglePendu.addEventListener("click", function () {
-    activePopup();
-});
-boutonRegleMorpion.addEventListener("click", function () {
-    activePopup();
-});
-boutonRegleSolitaire.addEventListener("click", function () {
-    activePopup();
-});*/
-
+let boutonSuccesSudoku = document.getElementById("sucsSudoku");
+let boutonSuccesPendu = document.getElementById("sucsPendu");
+let boutonSuccesMorpion = document.getElementById("sucsMorpion");
+let boutonSuccesSolitaire = document.getElementById("sucsSolitaire");
 
 function activePopupSudoku() {
     const popupSudoku = document.getElementById("popupSudoku");
@@ -65,6 +56,52 @@ function activePopupSolitaire() {
     }
 }
 
+function activeSuccesSudoku() {
+    const succesSudoku = document.getElementById("succesSudoku");
+    if (succesSudoku) {
+        console.log(succesSudoku);
+        succesSudoku.classList.toggle("active");
+        console.log(succesSudoku.classList);
+    } else {
+        console.log("popup non trouvé dans le html");
+    }
+}
+
+function activeSuccesPendu() {
+    const succesPendu = document.getElementById("succesPendu");
+    if (succesPendu) {
+        console.log(succesPendu);
+        succesPendu.classList.toggle("active");
+        console.log(succesPendu.classList);
+    } else {
+        console.log("popup non trouvé dans le html");
+    }
+}
+
+function activeSuccesMorpion() {
+    const succesMorpion = document.getElementById("succesMorpion");
+    if (succesMorpion) {
+        console.log(succesMorpion);
+        succesMorpion.classList.toggle("active");
+        console.log(succesMorpion.classList);
+    } else {
+        console.log("popup non trouvé dans le html");
+    }
+}
+
+function activeSuccesSolitaire() {
+    const succesSolitaire = document.getElementById("succesSolitaire");
+    if (succesSolitaire) {
+        console.log(succesSolitaire);
+        succesSolitaire.classList.toggle("active");
+        console.log(succesSolitaire.classList);
+    } else {
+        console.log("popup non trouvé dans le html");
+    }
+
+}
+
+
 if (popup) {
     boutonRegleSudoku.addEventListener("click", activePopupSudoku);
 } else {
@@ -82,6 +119,26 @@ if (popup) {
 }
 if (popup) {
     boutonRegleSolitaire.addEventListener("click", activePopupSolitaire);
+} else {
+    console.log("bouton non trouvé dans le html");
+}
+if (popup) {
+    boutonSuccesSudoku.addEventListener("click", activeSuccesSudoku);
+} else {
+    console.log("bouton non trouvé dans le html");
+}
+if (popup) {
+    boutonSuccesPendu.addEventListener("click", activeSuccesPendu);
+} else {
+    console.log("bouton non trouvé dans le html");
+}
+if (popup) {
+    boutonSuccesMorpion.addEventListener("click", activeSuccesMorpion);
+} else {
+    console.log("bouton non trouvé dans le html");
+}
+if (popup) {
+    boutonSuccesSolitaire.addEventListener("click", activeSuccesSolitaire);
 } else {
     console.log("bouton non trouvé dans le html");
 }

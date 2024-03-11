@@ -47,7 +47,7 @@ button:hover {
     align-items: center;
 }*/
 
-#popupSudoku, #popupPendu, #popupMorpion, #popupSolitaire {
+#popupSudoku, #popupPendu, #popupMorpion, #popupSolitaire, #succesSudoku, #succesPendu, #succesMorpion, #succesSolitaire{
     position: fixed;
     top: 0;
     left: 0;
@@ -58,7 +58,7 @@ button:hover {
     display: none;
 }
 
-#popupSudoku.active, #popupPendu.active, #popupMorpion.active, #popupSolitaire.active {
+#popupSudoku.active, #popupPendu.active, #popupMorpion.active, #popupSolitaire.active, #succesSudoku.active, #succesPendu.active, #succesMorpion.active, #succesSolitaire.active {
     display: block;
 }
 
