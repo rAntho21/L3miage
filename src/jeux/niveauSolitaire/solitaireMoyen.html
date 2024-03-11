@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/solitaire.css">
-    <title>Jaya | Solitaire</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/solitaire.css">
+    <title>Jayak | Solitaire</title>
 
 </head>
 <body onload="initialiserJeu()">
@@ -13,16 +13,16 @@
             <a href="../../index.html"><img src="../../assets/images/logo.png" alt="Logo Jayak"></a>
             <a href="../../index.html">Jayak</a>
             <div>
-                <a href="../navigation/connexion.html">Connexion</a>
-                <a href="../navigation/inscription.html">Inscription</a>
+                <a href="../../navigation/connexion.html">Connexion</a>
+                <a href="../../navigation/inscription.html">Inscription</a>
             </div>
         </div>
         <div id="Menu">
             <ul>
-                <li><a href="../navigation/listeJeux.html">Jeux</a></li>
-                <li><a href="../navigation/boutique.html">Boutique</a></li>
-                <li><a href="../navigation/profil.html">Profil</a></li>
-                <li><a href="../navigation/parametres.html">Paramètres</a></li>
+                <li><a href="../../navigation/listeJeux.html">Jeux</a></li>
+                <li><a href="../../navigation/boutique.html">Boutique</a></li>
+                <li><a href="../../navigation/profil.html">Profil</a></li>
+                <li><a href="../../navigation/parametres.html">Paramètres</a></li>
                 <li><div>SearchBar</div></li>
             </ul>
         </div>
@@ -34,9 +34,9 @@
             <button id="startButton">Start</button>
             <div id="pointsDisplay">Points: 0</div>
 
-            <button id="facile" onclick="startGame('easy')">Mode Facile</button>
-            <button id="moyen" onclick="startGame('medium')">Mode Moyen</button>
-            <button id="difficile" onclick="startGame('hard')">Mode Difficile</button>
+            <a href="solitaireFacile.html"><button id="facile" onclick="startGame('easy')">Mode Facile</button></a>
+            <a href="solitaireMoyen.html"><button id="moyen" onclick="startGame('medium')">Mode Moyen</button></a>
+            <a href="solitaireDifficile.html"><button id="difficile" onclick="startGame('hard')">Mode Difficile</button></a>
 
 
         
@@ -252,7 +252,7 @@
                 
         </table>
     </div>
-    <script src="../../assets/js/solitaire.js"></script>
+    <script src="../../../assets/js/solitaire.js"></script>
     
 </div>
 
