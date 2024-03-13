@@ -177,56 +177,35 @@ for (i = 0; i < tds.length; i++) {
                 });
             
                 // Ajoute un écouteur d'événement pour le lâcher sur la case
-                tds[i].addEventListener('drop', tds[i].d2=function (e) {
+                // Ajoute un écouteur d'événement pour le lâcher sur la case
+                // Ajoute un écouteur d'événement pour le lâcher sur la case
+                tds[i].addEventListener('drop', function (e) {
                     e.preventDefault();
-                    // Empêche l'action par défaut lors du lâcher sur la case
-            
-                    // Récupère les données de l'élément glissé
-                    fromi=parseInt(e.dataTransfer.getData('fromi'));
-                    ishand=e.dataTransfer.getData('hand')
-            
-                    // Calcul de la dernière colonne
-                    lastcol=this.i-7;
-                    if (lastcol<0) {
-                        lastcol=-1;
-                    }
-            
-                    if (ishand==true) {
-                        // Vérifie si l'élément glissé est dans la main
-                        if (lastcol!=-1 && ((handcard.color=='r' && fieldcards[lastcol].color=='b') || (fieldcards[lastcol].color=='r' && handcard.color=='b'))) {
-                            // Vérifie si la couleur des cartes correspond et si les nombres sont consécutifs
-                            if (handcard.number+1==fieldcards[lastcol].number) {
-                                // Échange les cartes et met à jour l'affichage
-                                tmp=handcard;
-                                handcard=undefined;
-                                handcard=undefined
-                                hand.innerHTML='';
-                                fieldcards[this.i]=undefined;
-                                fieldcards[this.i]=tmp;
-                                update();
-                                adjustPoints('moveToFoundation');
-                            }
+                    var fromi = parseInt(e.dataTransfer.getData('fromi'));
+                    var ishand = e.dataTransfer.getData('hand') === 'true';
+                
+                    var targetCard = fieldcards[this.i];
+                    var cardToMove = ishand ? handcard : fieldcards[fromi];
+                
+                    // Si la cible est une case vide ou si la carte à déplacer a un numéro immédiatement supérieur à celui de la carte cible
+                    if (!targetCard || (cardToMove && targetCard.number + 1 === cardToMove.number)) {
+                        // Déplacez la carte
+                        fieldcards[this.i] = cardToMove;
+                        if (ishand) {
+                            handcard = undefined;
+                            hand.innerHTML = '';
+                            adjustPoints('moveToTableau');
+                        } else {
+                            fieldcards[fromi] = undefined;
+                            adjustPoints('moveFromTableau');
                         }
-                    } else {
-                        // Si l'élément glissé est sur le plateau
-                        if (lastcol!=-1 && ((fieldcards[fromi].color=='r' && fieldcards[lastcol].color=='b') || (fieldcards[lastcol].color=='r' && fieldcards[fromi].color=='b'))) {
-                            // Vérifie si la couleur des cartes correspond et si les nombres sont consécutifs
-                            if (fieldcards[fromi].number+1==fieldcards[lastcol].number) {
-                                // Déplace la carte et met à jour l'affichage
-                                tmp=fieldcards[fromi];
-                                fieldcards[fromi]=undefined;
-                                fieldcards[this.i]=undefined;
-                                fieldcards[this.i]=tmp;
-                                update();
-                                adjustPoints('moveToFoundation');
-                                
-                            }
-                        }
+                        update();
                     }
                 });
             }
         }
     }
+      
             
             // Incrémente le numéro de ligne
             row++;
@@ -365,6 +344,15 @@ for (i = 0; i < tds.length; i++) {
                     }
                 }
             
+                if (handcard) {
+                    hand.setAttribute('draggable', 'true');
+                    hand.removeEventListener('dragstart', hand.d3); // Supprimez l'ancien écouteur pour éviter les doublons
+                    hand.addEventListener('dragstart', hand.d3 = function (e) {
+                        e.dataTransfer.setData('fromi', this.i.toString()); // Assurez-vous que c'est une chaîne
+                        e.dataTransfer.setData('hand', 'true'); // Définissez explicitement comme chaîne 'true'
+                    });
+                }
+
         
            //console.log(pz[row]);
             rz[row]=fieldcards[i];
@@ -388,7 +376,7 @@ for (i = 0; i < tds.length; i++) {
 
                         // Si une pile de cartes est déplacée, vérifie si les cartes peuvent être empilées
                         if (isstack==true) {
-                            if (lastcol!=-1 && ((fieldcards[fromi].color=='r' && fieldcards[lastcol].color=='b') || (fieldcards[lastcol].color=='r' && fieldcards[fromi].color=='b'))) {
+                            if (fieldcards[fromi].number+1==fieldcards[lastcol].number) {
                                 if (fieldcards[fromi].number+1==fieldcards[lastcol].number) {
                                     // Déplace la pile de cartes
                                     for (z=0;z<13;z++) {
@@ -403,7 +391,7 @@ for (i = 0; i < tds.length; i++) {
                         } else {
                             // Si une carte de la main est déplacée
                             if (ishand==true) {
-                                if (lastcol!=-1 && ((handcard.color=='r' && fieldcards[lastcol].color=='b') || (fieldcards[lastcol].color=='r' && handcard.color=='b'))) {
+                                if (fieldcards[fromi].number+1==fieldcards[lastcol].number) {
                                     if (handcard.number+1==fieldcards[lastcol].number) {
                                         // Déplace la carte de la main sur le plateau
                                         tmp=handcard;
@@ -419,7 +407,7 @@ for (i = 0; i < tds.length; i++) {
                                 }
                             } else {
                                 // Si une carte du plateau est déplacée
-                                if (lastcol!=-1 && ((fieldcards[fromi].color=='r' && fieldcards[lastcol].color=='b') || (fieldcards[lastcol].color=='r' && fieldcards[fromi].color=='b'))) {
+                                if (fieldcards[fromi].number+1==fieldcards[lastcol].number) {
                                     if (fieldcards[fromi].number+1==fieldcards[lastcol].number) {
                                         // Déplace la carte du plateau
                                         tmp=fieldcards[fromi];
