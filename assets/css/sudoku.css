@@ -1,0 +1,44 @@
+#Select-Difficulty {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#Sudoku {
+    display: none;
+}
+
+#Select-Difficulty button {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px;
+    background-color: #4CAF50; /* Couleur verte */
+    border: none;
+    color: white; /* Texte blanc */
+    cursor: pointer;
+    border-radius: 5px; /* Bordures arrondies */
+    transition: background-color 0.3s, transform 0.3s; /* Transition de couleur et d'échelle */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+#Select-Difficulty button:hover {
+    background-color: #45a049; /* Couleur verte légèrement plus foncée au survol */
+    transform: translateY(-2px); /* Légère translation vers le haut au survol */
+}
+
+#Select-Difficulty button:focus {
+    outline: none; /* Supprime la bordure de focus */
+}
+
+#Select-Difficulty button:active {
+    transform: translateY(1px); /* Effet de clic enfoncé */
+}

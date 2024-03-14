@@ -4,12 +4,12 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../../assets/css/main.css">
         <link rel="stylesheet" href="../../assets/css/listeJeux.css">
-        <title>Jaya | Liste des jeux</title>
+        <title>Jayak | Liste des jeux</title>
     </head>
     <header>
         <div id="Entete-site">
-            <a href="../../index.html"><img src="assets/images/logo.png" alt="Logo Jaya"></a>
-            <a href="../../index.html">Jaya</a>
+            <a href="../../index.html"><img src="assets/images/logo.png" alt="Logo Jayak"></a>
+            <a href="../../index.html">Jayak</a>
             <div>
                 <a href="connexion.html">Connexion</a>
                 <a href="inscription.html">Inscription</a>
@@ -37,10 +37,44 @@
                 </p>
                 <div class="buttons-jeux">
                     <button> Jouer </button>
-                    <button> Règles </button>
-                    <button> Succès </button>
+                    <button id="regleSudoku" onclick="activePopupSudoku()"> Règles </button>
+                    <button id="succSudoku" onclick="activeSuccesSudoku()"> Succès </button>
                 </div>
             </div>
+            <div id="popupSudoku">
+                <div class="contenu-popup">
+                    <h4> Règle Sudoku </h4>
+                    <p>
+                        Chaque ligne, colonne et région de 9 cases ne doit contenir qu'une seule fois tous les chiffres de un à neuf. <br>
+                        Pour cela, vous devrez élaborer des stratgies et avoir un minimum de réflexion
+                    </p>
+                    <h4> Difficultés </h4>
+                    <p>
+                        - Facile : Plus de chiffres apparaissent. <br>
+                        - Difficile : Moins de chiffres apparaissent.
+                        <br>
+                    </p>
+                    <h4> Scores </h4>
+                    <p>
+                        - Facile : 10 points <br>
+                        - Difficile : 20 points
+                    </p>
+                    <a href="javascript:void(0)" onclick="activePopupSudoku()" class="fermer"> X </a>
+                </div>
+            </div>
+            <div id="succesSudoku">
+                <div class="contenu-popup">
+                    <h4> Succès </h4>
+                    <p>
+                        - Réussir 1 niveau de difficulté facile <br>
+                        - Réussir 1 niveau de difficulté difficile <br>
+                        - Réussir 5 niveau de difficulté facile <br>
+                        - Réussir 5 niveau de difficulté difficile
+                    </p>
+                    <a href="javascript:void(0)" onclick="activeSuccesSudoku()" class="fermer"> X </a>
+                </div>
+            </div>
+
             <div class="jeux">
                 <h3>Pendu</h3>
                 <img src="" alt="">
@@ -50,25 +84,99 @@
                     Lorsque vous pensez avoir le mot, vous pouvez tenter votre chance, si vous échouez, alors vous perdez une vie.
                 </p>
                 <div class="buttons-jeux">
-                    <button> Jouer </button>
-                    <button> Règles </button>
-                    <button> Succès </button>
+                    <a href="../jeux/pendu.html"><button> Jouer </button></a>
+                    <button id="reglePendu" onclick="activePopupPendu()"> Règles </button>
+                    <button id="sucsPendu" onclick="activeSuccesPendu()"> Succès </button>
                 </div>
             </div>
+            <div id="popupPendu">
+                <div class="contenu-popup">
+                    <h4> Règle Pendu </h4>
+                    <p>
+                        Le jeu du pendu consiste à trouver un mot généré aléatoirement selon la difficulté.
+                        Le joueur aura un certain nombre de vies pour trouver celui-ci en citant des lettres.
+                        Lorsque l’utilisateur pense avoir le mot, il peut tenter sa chance, si il échoue alors il perdra une vie.
+                    </p>
+                    <h4> Difficultés </h4>
+                    <p>
+                        - Facile : Vous avez droit à la première et dernière lettres <br>
+                        - Moyen : Vous avez droit à la première lettre <br>
+                        - Difficile : Vous n'avez droit à aucune lettre
+                    </p>
+                    <h4> Scores </h4>
+                    <p>
+                        - Facile : 10 points <br>
+                        - Moyen : 20 points <br>
+                        - Difficile : 30 points
+                    <a href="javascript:void(0)" onclick="activePopupPendu()" class="fermer"> X </a>
+                </div>
+            </div>
+            <div id="succesPendu">
+                <div class="contenu-popup">
+                    <h4> Succès </h4>
+                    <p>
+                        - Gagner une partie pour la première fois <br>
+                        - Gagner une partie en trouvant toutes les lettres sans perdre de vie <br>
+                        - Gagner tous les succès en une partie <br>
+                        - Gagner en tapant le mot de la barre “input” et le trouver du premier coup <br>
+                        - Gagner une partie dans tous les modes de difficultés
+                    </p>
+                    <a href="javascript:void(0)" onclick="activeSuccesPendu()" class="fermer"> X </a>
+                </div>
+            </div>
+
             <div class="jeux">
-                <h3>Bataille navale</h3>
+                <h3>Morpion</h3>
                 <img src="" alt="">
                 <p>
-                    Le jeu se joue à 2 joueurs, c’est un 1 versus 1,tour par tour. Il se joue sur 2 grilles différentes, chaque grille appartient à 1 joueur.
-                    Les joueurs pourront placer 5 bateaux de différentes tailles sur leur grille respective. Les bateaux seront placés OBLIGATOIREMENT horizontalement et verticalement.
-                    Ils devront tour par tour sélectionner une case sur la grille adverse (touché-coulé) et ainsi faire tomber tous les bateaux de l’ennemi.
+                    Le jeu peut se jouer à 2 , en 1 versus 1, ou il peut se jouer en 1 versus 1 bot Aléatoire/bot Intelligent.
+                    Les joueurs doivent aligner leurs symboles, croix ou rond que ce soit verticale,horizontale ou en diagonale.
+                    Le joueur ayant aligné en premier ses symboles gagne la partie. La partie peut se finir si toutes les cases sont remplies et qu’aucun joueur n’ayant réussi à aligner ses symboles.
                 </p>
                 <div class="buttons-jeux">
                     <button> Jouer </button>
-                    <button> Règles </button>
-                    <button> Succès </button>
+                    <button id="regleMorpion" onclick="activePopupMorpion()"> Règles </button>
+                    <button id="sucsMorpion" onclick="activeSuccesMorpion()"> Succès </button>
                 </div>
             </div>
+            <div id="popupMorpion">
+                <div class="contenu-popup">
+                    <h4> Règle Morpion </h4>
+                    <p>
+                        Le jeu peut se jouer à 2 , en 1 versus 1, ou il peut se jouer en 1 versus 1 bot Aléatoire/bot Intelligent.
+                        Les joueurs doivent aligner leurs symboles, croix ou rond que ce soit verticale,horizontale ou en diagonale.
+                        Le joueur ayant aligné en premier ses symboles gagne la partie. La partie peut se finir si toutes les cases sont remplies et qu’aucun joueur n’ayant réussi à aligner ses symboles.
+                    </p>
+                    <h4> Difficultés </h4>
+                    <p>
+                        - Facile : Le joueur joue contre le bot aléatoire, sur une grille 3x3, avec une limite de temps de 10 secondes pour placer un symbole <br>
+                        - Moyenne : Le joueur joue contre le bot aléatoire, sur une grille 4x4, avec une limite de temps de 8 secondes pour placer un symbole <br>
+                        - Intermédiaire : Le joueur joue contre le bot intelligent, sur une grille 3x3, avec une limite de temps de 6 secondes pour placer un symbole <br>
+                        - Difficile: Le joueur joue contre le bot intelligent, sur une grille 4x4, avec une limite de temps de 4 secondes pour placer un symbole
+                    </p>
+                    <h4> Scores </h4>
+                    <p>
+                        - Facile : 10 points <br>
+                        - Moyen : 20 points <br>
+                        - Intermédiaire : 30 points <br>
+                        - Difficile : 40 points
+                    </p>
+                    <a href="javascript:void(0)" onclick="activePopupMorpion()" class="fermer"> X </a>
+                </div>
+            </div>
+            <div id="succesMorpion">
+                <div class="contenu-popup">
+                    <h4> Succès </h4>
+                    <p>
+                        - Gagner un niveau de difficulté 1 <br>
+                        - Gagner un niveau de difficulté 2 <br>
+                        - Gagner un niveau de difficulté 3 <br>
+                        - Gagner un niveau de difficulté 4
+                    </p>
+                    <a href="javascript:void(0)" onclick="activeSuccesMorpion()" class="fermer"> X </a>
+                </div>
+            </div>
+
             <div class="jeux">
                 <h3>Solitaire</h3>
                 <img src="" alt="">
@@ -76,14 +184,45 @@
                     Le but principal du Solitaire est de déplacer toutes les cartes vers quatre fondations, classées par couleur et en ordre croissant, commençant par l'As et se terminant par le Roi.
                 </p>
                 <div class="buttons-jeux">
-                    <button> Jouer </button>
-                    <button> Règles </button>
-                    <button> Succès </button>
+                    <a href="../jeux/solitaire.html"><button> Jouer </button></a>
+                    <button id="regleSolitaire" onclick="activePopupSolitaire()"> Règles </button>
+                    <button id="sucsSolitaire" onclick="activeSuccesSolitaire()"> Succès </button>
+                </div>
+            </div>
+            <div id="popupSolitaire">
+                <div class="contenu-popup">
+                    <h4> Règle Solitaire </h4>
+                    <p>
+                        Le but principal du Solitaire est de déplacer toutes les cartes vers quatre fondations, classées par couleur et en ordre croissant, commençant par l'As et se terminant par le Roi.
+                    </p>
+                    <h4> Difficultés </h4>
+                    <p>
+                        - Facile : Disposition de cartes sans alterné les couleurs<br>
+                        - Moyenne: Disposition des cartes en alternant les couleurs<br>
+                        - Difficile: Finir le jeu en moins de 3 minutes
+                    </p>
+                    <h4> Scores </h4>
+                    <p>
+                        - Facile : 10 points <br>
+                        - Moyen : 20 points <br>
+                        - Difficile : 30 points
+                    </p>
+                    <a href="javascript:void(0)" onclick="activePopupSolitaire()" class="fermer"> X </a>
+                </div>
+                <div id="succesSolitaire">
+                    <div class="contenu-popup">
+                        <h4> Succès </h4>
+                        <p>
+                            - Gagner une partie dans toutes les difficultés
+                        </p>
+                        <a href="javascript:void(0)" onclick="activeSuccesSolitaire()" class="fermer"> X </a>
+                    </div>
                 </div>
             </div>
         </div>
+    <script src="../../assets/js/listeJeux.js"></script>
     </body>
     <footer>
-        <p>&copy; Jaya 2024-2025</p>
+        <p>&copy; Jayak 2024-2025</p>
     </footer>
 </html>

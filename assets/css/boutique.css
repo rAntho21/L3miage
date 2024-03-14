@@ -1,0 +1,138 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+.flex-container > div {
+    width: 100%;
+    padding: 30px;
+    margin: 5px;
+    background-color: #ff6666;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.flex-container > div:hover {
+    transform: translateY(-5px);
+}
+
+.conteneur {
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    margin: 10px;
+}
+
+.sudoku{
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    margin: 10px;
+}
+
+.Pendu{
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    margin: 10px;
+}
+
+.bataille-navale{
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    margin: 10px;
+}
+
+.Solitaire{
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    margin: 10px;
+}
+
+.div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8 {
+    flex: 1;
+    width: calc((100% - 6 * 20px) / 4);
+    padding: 30px;
+    margin: 20px;
+    background-color: #ff9999;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.div1:nth-child(2n), .div2:nth-child(2n), .div3:nth-child(2n), .div4:nth-child(2n), .div5:nth-child(2n), .div6:nth-child(2n), .div7:nth-child(2n), .div8:nth-child(2n) {
+    background-color: #ffcccc;
+}
+
+.div1:hover, .div2:hover, .div3:hover, .div4:hover, .div5:hover, .div6:hover, .div7:hover, .div8:hover {
+    transform: translateY(-5px);
+}
+
+.rectangleGris {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: grey;
+}
+
+.boutonAcheter {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.boutonAcheter:hover {
+    background-color: #45a049;
+}
+
+button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    
+    
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.active {
+    background-color: #08530c !important; /* La couleur active */
+  }
+
