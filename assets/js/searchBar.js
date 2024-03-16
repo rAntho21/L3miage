@@ -21,6 +21,17 @@ document.getElementById('search-button').addEventListener('click', function() {
         }
     }
     if (!found) {
-        alert('Aucun jeu ne correspond à votre recherche');
+        activePopupErreurSearch();
     }
 });
+
+function activePopupErreurSearch() {
+    const popup = document.getElementById("popupErreurSearch");
+    if (popup) {
+        console.log(popup);
+        popup.classList.toggle("active");
+        console.log(popup.classList);
+    } else {
+        console.log("popup non trouvé dans le html");
+    }
+}

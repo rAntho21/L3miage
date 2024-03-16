@@ -1,9 +1,8 @@
-/* GÉNÉRAL */
+
 body {
     font-size: 16px;
     color: #333;
     padding: 10px;
-    /* overflow-y: hidden; */
 }
 
 h1 {
@@ -145,4 +144,46 @@ footer {
     text-decoration: none;
     margin: 0;
     cursor: pointer;
+}
+
+
+#popupErreurSearch {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    /* z-index: 1000;*/
+    display: none;
+}
+
+#popupErreurSearch.active {
+    display: block;
+}
+
+.contenu-popup {
+    max-width: 600px;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#popupErreurSearch .contenu-popup h4 {
+    color: #ff0000;
+}
+
+.fermer {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
 }
