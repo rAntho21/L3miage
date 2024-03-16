@@ -21,7 +21,10 @@
             <li><a href="boutique.html">Boutique</a></li>
             <li><a href="profil.html">Profil</a></li>
             <li><a href="parametres.html">Paramètres</a></li>
-            <li><div>SearchBar</div></li>
+            <li id="search-bar">
+                <input type="search" id="search" placeholder="Rechercher ... ">
+                <button type="submit" id="search-button">Rechercher</button>
+            </li>
         </ul>
     </div>
 </header>
@@ -419,6 +422,17 @@
         <a href="#" class="boutonAcheter">Acheter</a>
         </div>
       </div>
+      <div id="popupErreurSearch">
+        <div class="contenu-popup">
+            <h4> Recherche introuvable </h4>
+            <p>
+                Votre recherche est introuvable sur notre site, <br>
+                Merci d'essayer une nouvelle expression de recherche.
+            </p>
+            <a href="javascript:void(0)" onclick="activePopupErreurSearch()" class="fermer"> X </a>
+        </div>
+    </div>
+    <script src="../../assets/js/searchBar.js"></script>
 
 <!--      <script>
        function afficherTous() {

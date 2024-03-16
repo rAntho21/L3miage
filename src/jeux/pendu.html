@@ -21,112 +21,126 @@
             <li><a href="../navigation/boutique.html">Boutique</a></li>
             <li><a href="../navigation/profil.html">Profil</a></li>
             <li><a href="../navigation/parametres.html">Paramètres</a></li>
-            <li><div>SearchBar</div></li>
+            <li id="search-bar">
+                <input type="search" id="search" placeholder="Rechercher ... ">
+                <button type="submit" id="search-button">Rechercher</button>
+            </li>
         </ul>
     </div>
 </header>
 <body>
-    <div id="jeu">
-        <h2>Le Pendu</h2>
-        <div id="haut">
-            <div id="difficultes">
-                <h4>Choisissez une difficulté :</h4>
-                <button id="facile">Facile</button>
-                <button id="moyen">Moyen</button>
-                <button id="difficile">Difficile</button>
-            </div>
-            <div id="boutonhaut">
-                <button id="regle" onclick="activePopup"> Règle </button>
-                <div id="finJeu">
-                    <button id="rejouer">Rejouer</button>
-                </div>
+<div id="popupErreurSearch">
+    <div class="contenu-popup">
+        <h4> Recherche introuvable </h4>
+        <p>
+            Votre recherche est introuvable sur notre site, <br>
+            Merci d'essayer une nouvelle expression de recherche.
+        </p>
+        <a href="javascript:void(0)" onclick="activePopupErreurSearch()" class="fermer"> X </a>
+    </div>
+</div>
+<div id="jeu">
+    <h2>Le Pendu</h2>
+    <div id="haut">
+        <div id="difficultes">
+            <h4>Choisissez une difficulté :</h4>
+            <button id="facile">Facile</button>
+            <button id="moyen">Moyen</button>
+            <button id="difficile">Difficile</button>
+        </div>
+        <div id="boutonhaut">
+            <button id="regle" onclick="activePopup"> Règle </button>
+            <div id="finJeu">
+                <button id="rejouer">Rejouer</button>
             </div>
         </div>
-
-        <div id="popup">
-            <div class="contenu-popup">
-                <h4> Règle de jeu </h4>
-                <p>Le jeu du pendu consiste à trouver un mot généré aléatoirement en essayant de trouver les bonnes lettres une par une.<br>
-                    Vous aurez un certain nombre de chances pour trouver le mot.<br>
-                    Lorsque vous pensez avoir le mot, vous pouvez tenter votre chance, si vous échouez, alors vous perdez une vie.</p>
-                <a href="javascript:void(0)" onclick="activePopup()" class="fermer"> X </a>
-            </div>
-        </div>
-
-        <div id="popupGagne">
-            <div class="contenu-popup">
-                <h4> VOUS AVEZ GAGNÉ! </h4>
-                <p>Score: <span id="scoreRecapG"></span></p>
-                <p>Mot découvert: <span id="motRecapG"></span></p>
-                <a href="javascript:void(0)" onclick="activePopupGagne()" class="fermer"> X </a>
-            </div>
-        </div>
-
-        <div id="popupPerdu">
-            <div class="contenu-popup">
-                <h4> VOUS AVEZ PERDU! </h4>
-                <p>Score: <span id="scoreRecapD"></span></p>
-                <p>Mot à trouver : <span id="motRecapD"></span></p>
-                <a href="javascript:void(0)" onclick="activePopupPerdu()" class="fermer"> X </a>
-            </div>
-        </div>
-
-        <div id="hautPage">
-            <div id="vie">
-                <p><img id="coeurVie" src="../../assets/images/coeurVie.gif"> : <span id="vieJoueur"></span></p>
-            </div>
-
-            <div id="score">
-                <p> <img id="etoileScore" src="../../assets/images/etoile2.gif"> : <span id="scoreJoueur"></span></p>
-            </div>
-        </div>
-
-        <div id="hautJeu">
-            <div id="pendu">
-                <img id="penduu" src="../../assets/images/pendu00.png" alt="Pendu">
-            </div>
-            <div id="mot">
-
-            </div>
-        </div>
-
-        <div id="lettre">
-            <button id="A"> A </button>
-            <button id="B"> B </button>
-            <button id="C"> C </button>
-            <button id="D"> D </button>
-            <button id="E"> E </button>
-            <button id="F"> F </button>
-            <button id="G"> G </button>
-            <button id="H"> H </button>
-            <button id="I"> I </button>
-            <button id="J"> J </button>
-            <button id="K"> K </button>
-            <button id="L"> L </button>
-            <button id="M"> M </button>
-            <button id="N"> N </button>
-            <button id="O"> O </button>
-            <button id="P"> P </button>
-            <button id="Q"> Q </button>
-            <button id="R"> R </button>
-            <button id="S"> S </button>
-            <button id="T"> T </button>
-            <button id="U"> U </button>
-            <button id="V"> V </button>
-            <button id="W"> W </button>
-            <button id="X"> X </button>
-            <button id="Y"> Y </button>
-            <button id="Z"> Z </button>
-        </div>
-
-        <div id="essayeMot">
-            <input type="text" id="essaye" placeholder="Essayer un mot"/>
-            <button id="validerMot">Valider </button>
-        </div>
-
     </div>
 
-    <script defer src="../../assets/js/pendu/main.js"></script>
+    <div id="popup">
+        <div class="contenu-popup">
+            <h4> Règle de jeu </h4>
+            <p>Le jeu du pendu consiste à trouver un mot généré aléatoirement en essayant de trouver les bonnes lettres une par une.<br>
+                Vous aurez un certain nombre de chances pour trouver le mot.<br>
+                Lorsque vous pensez avoir le mot, vous pouvez tenter votre chance, si vous échouez, alors vous perdez une vie.</p>
+            <a href="javascript:void(0)" onclick="activePopup()" class="fermer"> X </a>
+        </div>
+    </div>
+
+    <div id="popupGagne">
+        <div class="contenu-popup">
+            <h4> VOUS AVEZ GAGNÉ! </h4>
+            <p>Score: <span id="scoreRecapG"></span></p>
+            <p>Mot découvert: <span id="motRecapG"></span></p>
+            <a href="javascript:void(0)" onclick="activePopupGagne()" class="fermer"> X </a>
+        </div>
+    </div>
+
+    <div id="popupPerdu">
+        <div class="contenu-popup">
+            <h4> VOUS AVEZ PERDU! </h4>
+            <p>Score: <span id="scoreRecapD"></span></p>
+            <p>Mot à trouver : <span id="motRecapD"></span></p>
+            <a href="javascript:void(0)" onclick="activePopupPerdu()" class="fermer"> X </a>
+        </div>
+    </div>
+
+    <div id="hautPage">
+        <div id="vie">
+            <p><img id="coeurVie" src="../../assets/images/coeurVie.gif"> : <span id="vieJoueur"></span></p>
+        </div>
+
+        <div id="score">
+            <p> <img id="etoileScore" src="../../assets/images/etoile2.gif"> : <span id="scoreJoueur"></span></p>
+        </div>
+    </div>
+
+    <div id="hautJeu">
+        <div id="pendu">
+            <img id="penduu" src="../../assets/images/pendu00.png" alt="Pendu">
+        </div>
+        <div id="mot">
+
+        </div>
+    </div>
+
+    <div id="lettre">
+        <button id="A"> A </button>
+        <button id="B"> B </button>
+        <button id="C"> C </button>
+        <button id="D"> D </button>
+        <button id="E"> E </button>
+        <button id="F"> F </button>
+        <button id="G"> G </button>
+        <button id="H"> H </button>
+        <button id="I"> I </button>
+        <button id="J"> J </button>
+        <button id="K"> K </button>
+        <button id="L"> L </button>
+        <button id="M"> M </button>
+        <button id="N"> N </button>
+        <button id="O"> O </button>
+        <button id="P"> P </button>
+        <button id="Q"> Q </button>
+        <button id="R"> R </button>
+        <button id="S"> S </button>
+        <button id="T"> T </button>
+        <button id="U"> U </button>
+        <button id="V"> V </button>
+        <button id="W"> W </button>
+        <button id="X"> X </button>
+        <button id="Y"> Y </button>
+        <button id="Z"> Z </button>
+    </div>
+
+    <div id="essayeMot">
+        <input type="text" id="essaye" placeholder="Essayer un mot"/>
+        <button id="validerMot">Valider </button>
+    </div>
+
+</div>
+
+<script defer src="../../assets/js/pendu/main.js"></script>
+<script src="../../assets/js/searchBar.js"></script>
 </body>
 <footer>
     <p>&copy; Jayak 2024-2025</p>
