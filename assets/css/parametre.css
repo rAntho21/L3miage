@@ -17,7 +17,7 @@
     font-size: 18px;
     color: #555;
     margin-left: 10px;
-    line-height: 1.5; /* Ajuste la hauteur de ligne pour aligner le texte avec la checkbox */
+    line-height: 1.5;
 }
 
 input[type="text"] {
@@ -31,32 +31,30 @@ input[type="text"] {
 
 button {
     display: block;
-    width: 50%; /* Réduit la largeur du bouton à 50% de la largeur du conteneur */
-    margin: 0 auto; /* Centre le bouton horizontalement */
-    padding: 8px; /* Réduit l'espacement intérieur du bouton */
-    background-color: #4CAF50; /* Couleur verte */
+    width: 50%;
+    margin: 0 auto;
+    padding: 8px;
+    background-color: #4CAF50;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px; /* Réduit la taille de la police */
+    font-size: 16px;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049; /* Légèrement plus foncé au survol */
+    background-color: #45a049;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-/* Masquer la checkbox par défaut */
 input[type="checkbox"] {
     display: none;
 }
 
-/* Styles pour le faux élément de checkbox */
 .checkbox-container {
     position: relative;
     display: inline-block;
@@ -75,7 +73,6 @@ input[type="checkbox"] {
     border-radius: 5px;
 }
 
-/* Styles pour la coche */
 .checkbox-container input[type="checkbox"]:checked + .checkmark::after {
     content: "";
     position: absolute;
@@ -89,7 +86,6 @@ input[type="checkbox"] {
     transform: translate(-50%, -50%);
 }
 
-/* Styles pour le texte à côté de la checkbox */
 .checkbox-label {
     margin-left: 30px;
     vertical-align: middle;
@@ -97,12 +93,10 @@ input[type="checkbox"] {
     font-size: 16px;
 }
 
-/* Styles pour le texte à côté de la checkbox lorsqu'elle est désactivée */
 .checkbox-label.disabled {
     color: #999;
 }
 
-/* Appliquer un effet de survol */
 .checkbox-container:hover input[type="checkbox"] + .checkmark {
     background-color: #ddd;
 }
