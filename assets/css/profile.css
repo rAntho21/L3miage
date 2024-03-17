@@ -33,13 +33,13 @@
     display: block;
     padding: 5px;
     color: white;
-    font-size: 18px; /* Taille de police de la barre de progression */
+    font-size: 18px;
 }
 
 .level,
 .money {
     margin-top: 10px;
-    font-size: 18px; /* Taille de police pour le niveau et l'argent */
+    font-size: 18px;
 }
 
 

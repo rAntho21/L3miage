@@ -170,7 +170,7 @@ h2 {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Ajout de l'ombre */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 #popupGagne .contenu-popup {
