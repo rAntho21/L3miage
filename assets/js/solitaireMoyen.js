@@ -2,12 +2,14 @@ var timerInterval; // Déclaration d'une variable pour stocker l'identifiant de 
 var seconds = 0; // Initialisation d'une variable pour stocker le nombre de secondes écoulées
 var timerRunning = false; // Initialisation d'une variable pour indiquer si le minuteur est en cours d'exécution
 var points = 0; // Variable pour stocker les points
+var gameStarted = false;
 
 // Fonction pour démarrer le minuteur
 function startTimer() {
     if (!timerRunning) { // Vérifie si le minuteur n'est pas déjà en cours d'exécution
         timerInterval = setInterval(updateTimer, 1000); // Lance l'intervalle pour mettre à jour le minuteur toutes les secondes
         timerRunning = true; // Met à jour l'état du minuteur pour indiquer qu'il est en cours d'exécution
+        gameStarted = true;
     }
 }
 
@@ -48,6 +50,10 @@ document.getElementById('moyen').addEventListener('click', function(){
     level_medium
 });
 
+document.getElementById('startButton').addEventListener('click', function () {
+    startTimer();
+    gameStarted = true;
+});
 // Fonction pour ajuster les points en fonction des actions de l'utilisateur
 function adjustPoints(action) {
     // Vérifie le type d'action et ajuste les points en conséquence
@@ -286,6 +292,9 @@ for (i = 0; i < tds.length; i++) {
         
          
         function update() {
+
+            if (!gameStarted) return;
+
             // Réinitialise les variables row et col
             row=0;
             col=0;

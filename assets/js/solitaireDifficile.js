@@ -1,51 +1,60 @@
-var timerInterval; // Déclaration d'une variable pour stocker l'identifiant de l'intervalle du minuteur
-var seconds = 0; // Initialisation d'une variable pour stocker le nombre de secondes écoulées
-var timerRunning = false; // Initialisation d'une variable pour indiquer si le minuteur est en cours d'exécution
-var points = 0; // Variable pour stocker les points
+var timerInterval;
+var totalSeconds = 180; // Durée totale du timer en secondes
+var seconds = 0;
+var timerRunning = false;
+var points = 0;
+var gameStarted = true;
 
-// Fonction pour démarrer le minuteur
 function startTimer() {
-    if (!timerRunning) { // Vérifie si le minuteur n'est pas déjà en cours d'exécution
-        timerInterval = setInterval(updateTimer, 1000); // Lance l'intervalle pour mettre à jour le minuteur toutes les secondes
-        timerRunning = true; // Met à jour l'état du minuteur pour indiquer qu'il est en cours d'exécution
+    if (!timerRunning) {
+        timerInterval = setInterval(updateTimer, 1000);
+        timerRunning = true;
+        gameStarted = true;
     }
 }
 
-// Fonction pour arrêter le minuteur
 function stopTimer() {
-    clearInterval(timerInterval); // Arrête l'intervalle du minuteur
-    timerRunning = false; // Met à jour l'état du minuteur pour indiquer qu'il est arrêté
+    clearInterval(timerInterval);
+    timerRunning = false;
 }
 
-// Fonction pour réinitialiser le minuteur
 function resetTimer() {
-    stopTimer(); // Arrête le minuteur
-    seconds = 0; // Réinitialise le nombre de secondes écoulées à zéro
-    updateTimerDisplay(); // Met à jour l'affichage du minuteur
+    stopTimer();
+    seconds = 0;
+    updateTimerDisplay();
 }
 
-// Fonction pour mettre à jour le minuteur
 function updateTimer() {
-    seconds++; // Incrémente le nombre de secondes écoulées
-    updateTimerDisplay(); // Met à jour l'affichage du minuteur
+    seconds++;
+    updateTimerDisplay();
+    
+    // Vérifie si le temps imparti est écoulé
+    if (seconds >= totalSeconds) {
+        stopTimer();
+        // Déclarez la défaite du joueur ici
+        alert("Temps écoulé. Vous avez perdu !");
+    }
 }
 
-// Fonction pour mettre à jour l'affichage du minuteur
 function updateTimerDisplay() {
-    var minutes = Math.floor(seconds / 60); // Calcule le nombre de minutes écoulées
-    var remainingSeconds = seconds % 60; // Calcule le nombre de secondes restantes
-    var timerDisplay = document.getElementById('timer'); // Récupère l'élément d'affichage du minuteur dans le DOM
-    // Met à jour le contenu de l'élément d'affichage du minuteur avec les minutes et les secondes formatées
+    var minutes = Math.floor((totalSeconds - seconds) / 60);
+    var remainingSeconds = (totalSeconds - seconds) % 60;
+    var timerDisplay = document.getElementById('timer');
+
     timerDisplay.textContent = (minutes < 10 ? '0' : '') + minutes + ':' + (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
 }
 
-// Ajoute un écouteur d'événements au bouton de démarrage pour démarrer le minuteur lorsqu'il est cliqué
 document.getElementById('startButton').addEventListener('click', function () {
     startTimer();
 });
 
 document.getElementById('moyen').addEventListener('click', function(){
     level_medium
+});
+
+document.getElementById('startButton').addEventListener('click', function () {
+    startTimer();
+    gameStarted = true;
 });
 
 // Fonction pour ajuster les points en fonction des actions de l'utilisateur
@@ -287,6 +296,9 @@ for (i = 0; i < tds.length; i++) {
          
         function update() {
             // Réinitialise les variables row et col
+
+            if (!gameStarted) return;
+
             row=0;
             col=0;
              

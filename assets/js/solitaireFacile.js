@@ -2,12 +2,14 @@ var timerInterval; // Déclaration d'une variable pour stocker l'identifiant de 
 var seconds = 0; // Initialisation d'une variable pour stocker le nombre de secondes écoulées
 var timerRunning = false; // Initialisation d'une variable pour indiquer si le minuteur est en cours d'exécution
 var points = 0; // Variable pour stocker les points
+var gameStarted = false;
 
 // Fonction pour démarrer le minuteur
 function startTimer() {
     if (!timerRunning) { // Vérifie si le minuteur n'est pas déjà en cours d'exécution
         timerInterval = setInterval(updateTimer, 1000); // Lance l'intervalle pour mettre à jour le minuteur toutes les secondes
         timerRunning = true; // Met à jour l'état du minuteur pour indiquer qu'il est en cours d'exécution
+        gameStarted = true;
     }
 }
 
@@ -48,6 +50,11 @@ document.getElementById('moyen').addEventListener('click', function(){
     level_medium
 });
 
+document.getElementById('startButton').addEventListener('click', function () {
+    startTimer();
+    gameStarted = true;
+});
+
 // Fonction pour ajuster les points en fonction des actions de l'utilisateur
 function adjustPoints(action) {
     // Vérifie le type d'action et ajuste les points en conséquence
@@ -70,7 +77,7 @@ function updatePointsDisplay() {
 }
 
 
-// La suite du code est la création et la gestion du jeu de cartes et de l'interface utilisateur, avec des commentaires semblables aux précédents pour chaque ligne de code.
+
 
 // Initialise un tableau vide pour stocker les cartes
 cards = [];
@@ -176,32 +183,34 @@ for (i = 0; i < tds.length; i++) {
                     // Empêche l'action par défaut lors du survol de la case
                 });
             
-                // Ajoute un écouteur d'événement pour le lâcher sur la case
-                // Ajoute un écouteur d'événement pour le lâcher sur la case
-                // Ajoute un écouteur d'événement pour le lâcher sur la case
-                tds[i].addEventListener('drop', function (e) {
-                    e.preventDefault();
-                    var fromi = parseInt(e.dataTransfer.getData('fromi'));
-                    var ishand = e.dataTransfer.getData('hand') === 'true';
-                
-                    var targetCard = fieldcards[this.i];
-                    var cardToMove = ishand ? handcard : fieldcards[fromi];
-                
-                    // Si la cible est une case vide ou si la carte à déplacer a un numéro immédiatement supérieur à celui de la carte cible
-                    if (!targetCard || (cardToMove && targetCard.number + 1 === cardToMove.number)) {
-                        // Déplacez la carte
+                // Ajoute un écouteur d'événements pour le lâcher sur la case
+            tds[i].addEventListener('drop', function (e) {
+                e.preventDefault();
+                var fromi = parseInt(e.dataTransfer.getData('fromi'));
+                var ishand = e.dataTransfer.getData('hand') === 'true';
+                var targetCard = fieldcards[this.i];
+                var cardToMove = ishand ? handcard : fieldcards[fromi];
+
+                // Vérifie si la carte provient de la main ou du tableau
+                if (ishand) {
+                    // Si la carte provient de la main, vérifie si elle peut être déposée sur la case cible
+                    if (targetCard && (cardToMove.suit === targetCard.suit || cardToMove.number === targetCard.number + 1)) {
+                        // Déplacez la carte de la main vers le tableau
                         fieldcards[this.i] = cardToMove;
-                        if (ishand) {
-                            handcard = undefined;
-                            hand.innerHTML = '';
-                            adjustPoints('moveToTableau');
-                        } else {
-                            fieldcards[fromi] = undefined;
-                            adjustPoints('moveFromTableau');
-                        }
+                        handcard = undefined;
+                        hand.innerHTML = '';
                         update();
                     }
-                });
+                } else {
+                    // Si la carte provient du tableau, vérifie si elle peut être déposée sur la case cible
+                    if (!targetCard || (cardToMove && (targetCard.suit === cardToMove.suit || targetCard.number === cardToMove.number + 1))) {
+                        // Déplacez la carte du tableau vers le tableau
+                        fieldcards[this.i] = cardToMove;
+                        fieldcards[fromi] = undefined;
+                        update();
+                    }
+                }
+            });
             }
         }
     }
@@ -265,6 +274,10 @@ for (i = 0; i < tds.length; i++) {
         
          
         function update() {
+
+            if (gameStarted == false)
+             return;
+            
             // Réinitialise les variables row et col
             row=0;
             col=0;
