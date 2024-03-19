@@ -76,7 +76,22 @@ function updatePointsDisplay() {
     pointsDisplay.textContent = 'Points: ' + points; // Met à jour le contenu de l'élément d'affichage des points avec le nombre de points
 }
 
+function checkWinCondition() {
+    var allFoundationsFull = true;
 
+    // Vérifie si toutes les fondations contiennent 13 cartes
+    for (var i = 0; i < ftds.length; i++) {
+        if (ftds[i].number !== 13) {
+            allFoundationsFull = false;
+            break;
+        }
+    }
+
+    // Si toutes les fondations sont pleines, affiche un message de victoire
+    if (allFoundationsFull) {
+        alert('Félicitations, vous avez gagné !');
+    }
+}
 
 
 // Initialise un tableau vide pour stocker les cartes
@@ -210,6 +225,7 @@ for (i = 0; i < tds.length; i++) {
                         update();
                     }
                 }
+                checkWinCondition();
             });
             }
         }

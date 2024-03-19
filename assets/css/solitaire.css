@@ -184,3 +184,23 @@ td {
 #timer:active {
     background-color: #196b29;
 }
+
+#notification {
+    position: fixed;
+    color: #33a94b;
+    background: black;
+    border-radius: 5px;
+    padding: 1.2rem 2.4rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, .4);
+    bottom: -8rem; /* Position par rapport au bas de la fenêtre */
+    left: 50%; /* Centrage horizontal */
+    transform: translateX(-50%);
+    transition: all .4s;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#notification.show {
+    bottom: 2rem;
+}

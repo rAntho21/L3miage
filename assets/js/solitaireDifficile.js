@@ -1,5 +1,5 @@
 var timerInterval;
-var totalSeconds = 180; // Durée totale du timer en secondes
+var totalSeconds = 10; // Durée totale du timer en secondes
 var seconds = 0;
 var timerRunning = false;
 var points = 0;
@@ -32,7 +32,11 @@ function updateTimer() {
     if (seconds >= totalSeconds) {
         stopTimer();
         // Déclarez la défaite du joueur ici
-        alert("Temps écoulé. Vous avez perdu !");
+        // alert("Temps écoulé. Vous avez perdu !");
+        notification.classList.add('show');
+         setTimeout(() => {
+             notification.classList.remove('show');
+        }, 5000);
     }
 }
 
@@ -47,6 +51,8 @@ function updateTimerDisplay() {
 document.getElementById('startButton').addEventListener('click', function () {
     startTimer();
 });
+
+const notification = document.getElementById('notification');
 
 document.getElementById('moyen').addEventListener('click', function(){
     level_medium
@@ -76,6 +82,23 @@ function adjustPoints(action) {
 function updatePointsDisplay() {
     var pointsDisplay = document.getElementById('pointsDisplay'); // Récupère l'élément d'affichage des points dans le DOM
     pointsDisplay.textContent = 'Points: ' + points; // Met à jour le contenu de l'élément d'affichage des points avec le nombre de points
+}
+
+function checkWinCondition() {
+    var allFoundationsFull = true;
+
+    // Vérifie si toutes les fondations contiennent 13 cartes
+    for (var i = 0; i < ftds.length; i++) {
+        if (ftds[i].number !== 13) {
+            allFoundationsFull = false;
+            break;
+        }
+    }
+
+    // Si toutes les fondations sont pleines, affiche un message de victoire
+    if (allFoundationsFull) {
+        alert('Félicitations, vous avez gagné !');
+    }
 }
 
 
@@ -232,6 +255,7 @@ for (i = 0; i < tds.length; i++) {
                             }
                         }
                     }
+                    checkWinCondition();
                 });
             }
         }
