@@ -15,7 +15,7 @@ function checkLogin() {
         activePopupDeconnexion();
         setTimeout(function() {
             window.location.href = '../../src/navigation/connexion.html';
-        }, 5000);
+        }, 3000);
         /*window.location.href = '../../src/navigation/connexion.html';*/
         return;
     }
@@ -26,7 +26,7 @@ function checkLogin() {
         activePopupConnexion();
         setTimeout(function() {
             window.location.href = '../../src/navigation/deconnexion.html';
-        }, 5000);
+        }, 3000);
         /*window.location.href = '../../src/navigation/deconnexion.html';*/
     } else {
         alert('Nom d\'utilisateur ou mot de passe incorrect !');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             activePopupDeconnexion();
             setTimeout(function() {
                 window.location.href = '../../src/navigation/connexion.html';
-            }, 5000);
+            }, 3000);
             /*window.location.href = '../../src/navigation/connexion.html';*/
         });
     } else {
