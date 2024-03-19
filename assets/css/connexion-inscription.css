@@ -44,12 +44,12 @@ input {
     cursor: pointer;
 }
 
-.bouton #con {
+.bouton #con, .bouton #decon {
     background-color: forestgreen;
     color: white;
 }
 
-.bouton #con:hover {
+.bouton #con:hover, .bouton #decon:hover  {
     background-color: darkgreen;
 }
 

@@ -1,9 +1,3 @@
-body {
-    padding: 0;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-}
 
 .flex-container > div {
     width: 100%;
@@ -133,6 +127,6 @@ button:hover {
 }
 
 .active {
-    background-color: #08530c !important; /* La couleur active */
+    background-color: #08530c !important;
   }
 
