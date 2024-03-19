@@ -2,14 +2,12 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    /* autres styles */
 }
 
 footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    /* autres styles */
 }
 body {
     display: flex;
@@ -73,25 +71,25 @@ body {
 }
 
 #restart-button {
-    background-color: #4CAF50; /* couleur de fond */
-    border: none; /* pas de bordure */
-    color: white; /* couleur du texte */
-    padding: 15px 32px; /* espace intérieur */
-    text-align: center; /* alignement du texte */
-    text-decoration: none; /* pas de soulignement */
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
     display: inline-block;
-    font-size: 16px; /* taille de la police */
+    font-size: 16px;
     margin: 4px 2px;
-    cursor: pointer; /* change le curseur en main lorsqu'il survole le bouton */
-    border-radius: 4px; /* coins arrondis */
+    cursor: pointer;
+    border-radius: 4px;
 }
 
 #restart-button:hover {
-    background-color: #45a049; /* change la couleur de fond lorsqu'il survole le bouton */
+    background-color: #45a049;
 }
 
 #difficulty-buttons button.disabled {
-    background-color: #ccc; /* couleur de fond lorsqu'il est désactivé */
+    background-color: #ccc;
 }
 
 #difficulty-title {

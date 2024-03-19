@@ -9,8 +9,7 @@
 </head>
 <header>
     <div id="Entete-site">
-        <a href="../../index.html"><img src="../../assets/images/logo.png" alt="Logo Jayak"></a>
-        <a href="../../index.html">Jayak</a>
+        <a href="../../index.html"><img alt="Logo Jayak" id="logo" src="../../assets/images/logo.png"></a>
         <div>
             <a href="../navigation/connexion.html">Connexion</a>
             <a href="../navigation/inscription.html">Inscription</a>
@@ -22,11 +21,24 @@
             <li><a href="../navigation/boutique.html">Boutique</a></li>
             <li><a href="../navigation/profil.html">Profil</a></li>
             <li><a href="../navigation/parametres.html">Paramètres</a></li>
-            <li><div>SearchBar</div></li>
+            <li id="search-bar">
+                <input type="search" id="search" placeholder="Rechercher ... ">
+                <button type="submit" id="search-button">Rechercher</button>
+            </li>
         </ul>
     </div>
 </header>
 <body>
+<div id="popupErreurSearch">
+    <div class="contenu-popup">
+        <h4> Recherche introuvable </h4>
+        <p>
+            Votre recherche est introuvable sur notre site, <br>
+            Merci d'essayer une nouvelle expression de recherche.
+        </p>
+        <a href="javascript:void(0)" onclick="activePopupErreurSearch()" class="fermer"> X </a>
+    </div>
+</div>
 <h1 class="game-title">Jeu du Morpion</h1>
 <button id="restart-button" style="position: fixed; right: 20px; top: 50%;">Recommencer</button>
 <div id="board">
@@ -40,6 +52,7 @@
     <button id="difficulty-4">4</button>
 </div>
     <script src="../../assets/js/morpion.js"></script>
+    <script src="../../assets/js/searchBar.js"></script>
 </body>
 <footer>
     <p>&copy; Jayak 2024-2025</p>
