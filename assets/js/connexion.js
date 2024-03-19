@@ -12,17 +12,22 @@ function checkLogin() {
     if (isConnected) {
         isConnected = false;
         localStorage.setItem('isConnected', isConnected);
-        alert('Vous êtes maintenant déconnecté !');
-        document.getElementById('con').textContent = 'Se connecter';
-        window.location.href = '../../src/navigation/connexion.html';
+        activePopupDeconnexion();
+        setTimeout(function() {
+            window.location.href = '../../src/navigation/connexion.html';
+        }, 5000);
+        /*window.location.href = '../../src/navigation/connexion.html';*/
         return;
     }
 
     if (username === hardcodedUser.username && password === hardcodedUser.password) {
         isConnected = true;
         localStorage.setItem('isConnected', isConnected);
-        alert('Connexion réussie !');
-        window.location.href = '../../src/navigation/deconnexion.html';
+        activePopupConnexion();
+        setTimeout(function() {
+            window.location.href = '../../src/navigation/deconnexion.html';
+        }, 5000);
+        /*window.location.href = '../../src/navigation/deconnexion.html';*/
     } else {
         alert('Nom d\'utilisateur ou mot de passe incorrect !');
     }
@@ -35,8 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             isConnected = false;
             localStorage.setItem('isConnected', isConnected);
-            alert('Vous êtes maintenant déconnecté !');
-            window.location.href = '../../src/navigation/connexion.html';
+            activePopupDeconnexion();
+            setTimeout(function() {
+                window.location.href = '../../src/navigation/connexion.html';
+            }, 5000);
+            /*window.location.href = '../../src/navigation/connexion.html';*/
         });
     } else {
         console.error("le bouton déconnexion n'existe pas");
@@ -60,3 +68,27 @@ window.onload = function() {
         window.location.href = '../../src/navigation/connexion.html';
     }
 };
+
+function activePopupConnexion() {
+    const popup = document.getElementById("popupConnexion");
+    if (popup) {
+        console.log(popup);
+        popup.classList.toggle("active");
+        localStorage.setItem('popupConnexionActive', true);
+        console.log(popup.classList);
+    } else {
+        console.log("popup non trouvé dans le html");
+    }
+}
+
+function activePopupDeconnexion() {
+    const popup = document.getElementById("popupDeconnexion");
+    if (popup) {
+        console.log(popup);
+        popup.classList.toggle("active");
+        localStorage.setItem('popupDeconnexionActive', true);
+        console.log(popup.classList);
+    } else {
+        console.log("popup non trouvé dans le html");
+    }
+}
