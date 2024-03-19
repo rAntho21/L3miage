@@ -1,149 +1,206 @@
-        * {
-            user-select: none;
-        }
+* {
+    user-select: none;
+}
 
-        body {
-            background-color: rgb(0, 0, 0);
-            cursor: default;
-            user-select: none;
-        }
+body {
+    background-color: #1a1a1a;
+    cursor: default;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-        table {
-            margin: 0;
-            padding: 0;
-            border-collapse: collapse;
-        }
+table {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    width: 100%;
+}
 
-        tr {
-            margin: 0;
-            padding: 0;
-            border-collapse: collapse;
-        }
+td {
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #333;
+    width: 3em;
+    height: 3em;
+    background-color: #229933;
+    transition: background-color 0.3s ease;
+}
 
-        td {
-            font-family: sans-serif;
-            font-size: 1.0em;
-            text-align: center;
-            font-weight: bold;
-            margin: 0;
-            padding: 0;
-            border: 1px solid black;
-            width: 2em;
-            height: 2em;
-            border-collapse: collapse;
-        }
+td:hover {
+    background-color: #33a94b;
+}
 
-        tbody {
-            margin: 0;
-            padding: 0;
-        }
+tbody {
+    margin: 0;
+    padding: 0;
+}
 
-        #field {
-            margin-top: 10%;
-            background-color: #229933;
-            float: left;
-            position: relative;
-        }
+#field {
+    margin-top: 10%;
+    background-color: #229933;
+    float: left;
+    position: relative;
+}
 
-        #field td {
-            position: relative;
-        }
+#field td {
+    position: relative;
+}
 
-        #deal {
-    margin-top: 25%;
+#deal, #four {
+    position: fixed;
+    width: 75px;
+    height: 75px;
+    background-color: transparent; /* Fond transparent */
+    z-index: 999;
+    cursor: pointer;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*border: 3px solid #fff;*/
+    box-shadow: none; /* Pas d'ombre */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#deal:hover, #four:hover {
+    background-color: #33a94b;
+    transform: scale(1);
+}
+
+#deal:active, #four:active {
+    background-color: #196b29;
+}
+
+div.bottom {
+    border-top: none;
+}
+
+div.top {
+    border-bottom: none;
+    width: 16em;
+    height: 2em;
+    border-left: 10px solid transparent;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#game {
+    max-width: 500px;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+td {
+    width: 50px;
+    height: 30px;
+    padding: 10px;
+}
+
+.button {
+    font-size: 1.2em;
+    font-weight: bold;
+    /*color: white;*/
+    background-color: #229933;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #33a94b;
+}
+
+.button:active {
+    background-color: #196b29;
+}
+
+#deal {
+    margin-top: 20%;
     position: fixed;
     top: 0;
     right: 0;
-    width: 75px;
-    border-bottom: none;
-    background-color: #229933;
-    z-index: 999;
 }
 
-        
-
-        #deal td {
-            border-right: none;
-        }
-
-        #four {
-            margin-top: 20%;
+#four {
+    margin-top: 20%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 75px;
-    border-bottom: none;
-    background-color: #229933;
-    z-index: 999;
 }
 
+#startButton,
+#mediumModeButton,
+#hardModeButton,
+#pointsDisplay,
+#timer {
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background-color: #229933;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
 
+#startButton:hover,
+#mediumModeButton:hover,
+#hardModeButton:hover,
+#pointsDisplay:hover,
+#timer:hover {
+    background-color: #33a94b;
+}
 
+#startButton:active,
+#mediumModeButton:active,
+#hardModeButton:active,
+#pointsDisplay:active,
+#timer:active {
+    background-color: #196b29;
+}
 
-        div.bottom {
-            border-top: none;
-        }
+#notification {
+    position: fixed;
+    color: #33a94b;
+    background: black;
+    border-radius: 5px;
+    padding: 1.2rem 2.4rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, .4);
+    bottom: -8rem; /* Position par rapport au bas de la fenêtre */
+    left: 50%; /* Centrage horizontal */
+    transform: translateX(-50%);
+    transition: all .4s;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
 
-        div.top {
-            border-bottom: none;
-            width: 16em;
-            height: 2em;
-            border-left: 10px solid rgba(0, 0, 0, 0);
-            margin: 0;
-            padding: 0;
-        }
-
-        #container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        #game {
-            max-width: 500px;
-            width: 100%;
-        }
-
-        table {
-            width: 100%;
-            table-layout: fixed;
-        }
-
-        td {
-            width: 50px;
-            height: 30px;
-            padding: 10px;
-        }
-
-        #timer, #startButton, #pointsDisplay {
-            font-family: sans-serif;
-            font-size: 1.0em;
-            font-weight: bold;
-            color: white;
-            background-color: #229933;
-            width: 100px;
-            height: 30px;
-            text-align: center;
-            margin: 10px;
-            border: 1px solid black;
-            cursor: pointer;
-        }
-        
-        #startButton {
-            width: 75px;
-        }
-        
-        #pointsDisplay {
-            width: 150px;
-        }
-        
-        #timer:hover, #startButton:hover, #pointsDisplay:hover {
-            background-color: #33a94b;
-        }
-        
-        #timer:active, #startButton:active, #pointsDisplay:active {
-            background-color: #196b29;
-        }
-        
-
+#notification.show {
+    bottom: 2rem;
+}

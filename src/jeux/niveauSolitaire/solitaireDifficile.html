@@ -2,19 +2,19 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../../../assets/css/main.css">
-    <link rel="stylesheet" href="../../../../assets/css/solitaire.css">
-    <title>Jayak | Solitaire</title>
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/solitaire.css">
+    <title>Jaya | Solitaire</title>
 
 </head>
 <body onload="initialiserJeu()">
     <header>
         <div id="Entete-site">
-            <a href="../../../index.html"><img id="logo"  src="../../../assets/images/logo.png" alt="Logo Jayak"></a>
-            <a href="../../../index.html">Jayak</a>
+            <a href="../../../index.html"><img id="logo" src="../../../assets/images/logo.png" alt="Logo Jaya"></a>
+            <a href="../../../index.html">Jaya</a>
             <div>
-                <a href="../../../navigation/connexion.html">Connexion</a>
-                <a href="../../../navigation/inscription.html">Inscription</a>
+                <a href="../../navigation/connexion.html">Connexion</a>
+                <a href="../../navigation/inscription.html">Inscription</a>
             </div>
         </div>
         <div id="Menu">
@@ -28,17 +28,17 @@
         </div>
     </header>
     <div id="notification">
-        Vous avez gagner!
+        Vous avez perdu, le temps est fini, vous pouvez recommencer en raffraichissant la page!
     </div>
     <div id="container">
         <div id="game">
-            <div id="timer">00:00</div>
+            <div id="timer">00:10</div>
             <button id="startButton">Start</button>
             <div id="pointsDisplay">Points: 0</div>
 
             <a href="solitaireFacile.html"><button id="facile" onclick="startGame('easy')">Mode Facile</button></a>
             <a href="solitaireMoyen.html"><button id="moyen" onclick="startGame('medium')">Mode Moyen</button></a>
-            <a href="solitaireDifficile.html"><button id="difficile" onclick="startGame('hard')">Mode Difficile</button></a>
+            <!--<a href="niveauSolitaire/"><button id="difficile" onclick="startGame('hard')">Mode Difficile</button></a>-->
 
 
         
@@ -232,16 +232,34 @@
                 <td>
                 <td>
             </tr>
+            <tr>
+                <td>
+                <td>
+                <td>
+                <td>
+                <td>
+                <td>
+                <td>
+            </tr>
+            <tr>
+                <td>
+                <td>
+                <td>
+                <td>
+                <td>
+                <td>
+                <td>
+            </tr>
             
                 
         </table>
     </div>
-    <script src="../../../assets/js/solitaire.js"></script>
+    <script src="../../../assets/js/solitaireDifficile.js"></script>
     
 </div>
 
 <footer>
-    <p>&copy; Jayak 2024-2025</p>
+    <p>&copy; Jaya 2024-2025</p>
 </footer>
 </body>
 </html>
