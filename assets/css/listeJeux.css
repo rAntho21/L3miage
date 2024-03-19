@@ -27,7 +27,7 @@
     color: #000000;
 }
 
-.bouton {
+.buttons-jeux button {
     margin-top: 20px;
     padding: 8px 15px;
     border: none;
@@ -41,8 +41,7 @@ button:hover {
     background-color: darkgreen;
 }
 
-/*
-.buttons-jeux{
+/*.buttons-jeux{
     text-align: center;
     align-items: center;
 }*/
