@@ -30,6 +30,7 @@ function resetTimer() {
 function updateTimer() {
     seconds++; // Incrémente le nombre de secondes écoulées
     updateTimerDisplay(); // Met à jour l'affichage du minuteur
+    checkWinCondition();
 }
 
 // Fonction pour mettre à jour l'affichage du minuteur
@@ -89,9 +90,15 @@ function checkWinCondition() {
 
     // Si toutes les fondations sont pleines, affiche un message de victoire
     if (allFoundationsFull) {
-        alert('Félicitations, vous avez gagné !');
+        notification.classList.add('show');
+
+
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 10000);
     }
-}
+    }
+
 
 
 // Initialise un tableau vide pour stocker les cartes
@@ -198,39 +205,33 @@ for (i = 0; i < tds.length; i++) {
                     // Empêche l'action par défaut lors du survol de la case
                 });
             
-                // Ajoute un écouteur d'événements pour le lâcher sur la case
-            tds[i].addEventListener('drop', function (e) {
-                e.preventDefault();
-                var fromi = parseInt(e.dataTransfer.getData('fromi'));
-                var ishand = e.dataTransfer.getData('hand') === 'true';
-                var targetCard = fieldcards[this.i];
-                var cardToMove = ishand ? handcard : fieldcards[fromi];
-
-                // Vérifie si la carte provient de la main ou du tableau
-                if (ishand) {
-                    // Si la carte provient de la main, vérifie si elle peut être déposée sur la case cible
-                    if (targetCard && (cardToMove.suit === targetCard.suit || cardToMove.number === targetCard.number + 1)) {
-                        // Déplacez la carte de la main vers le tableau
+                // Ajoute un écouteur d'événement pour le lâcher sur la case
+                tds[i].addEventListener('drop', function (e) {
+                    e.preventDefault();
+                    var fromi = parseInt(e.dataTransfer.getData('fromi'));
+                    var ishand = e.dataTransfer.getData('hand') === 'true';
+                
+                    var targetCard = fieldcards[this.i];
+                    var cardToMove = ishand ? handcard : fieldcards[fromi];
+                
+                    // Si la cible est une case vide ou si la carte à déplacer a un numéro immédiatement supérieur à celui de la carte cible
+                    if (!targetCard || (cardToMove && targetCard.number + 1 === cardToMove.number)) {
+                        // Déplacez la carte
                         fieldcards[this.i] = cardToMove;
-                        handcard = undefined;
-                        hand.innerHTML = '';
+                        if (ishand) {
+                            handcard = undefined;
+                            hand.innerHTML = '';
+                            adjustPoints('moveToTableau');
+                        } else {
+                            fieldcards[fromi] = undefined;
+                            adjustPoints('moveFromTableau');
+                        }
                         update();
                     }
-                } else {
-                    // Si la carte provient du tableau, vérifie si elle peut être déposée sur la case cible
-                    if (!targetCard || (cardToMove && (targetCard.suit === cardToMove.suit || targetCard.number === cardToMove.number + 1))) {
-                        // Déplacez la carte du tableau vers le tableau
-                        fieldcards[this.i] = cardToMove;
-                        fieldcards[fromi] = undefined;
-                        update();
-                    }
-                }
-                checkWinCondition();
-            });
+                });
             }
         }
     }
-      
             
             // Incrémente le numéro de ligne
             row++;
@@ -290,10 +291,8 @@ for (i = 0; i < tds.length; i++) {
         
          
         function update() {
-
-            if (gameStarted == false)
-             return;
-            
+            checkWinCondition();
+            if(!gameStarted) return;
             // Réinitialise les variables row et col
             row=0;
             col=0;
@@ -406,45 +405,36 @@ for (i = 0; i < tds.length; i++) {
                         // Si une pile de cartes est déplacée, vérifie si les cartes peuvent être empilées
                         if (isstack==true) {
                             if (fieldcards[fromi].number+1==fieldcards[lastcol].number) {
-                                if (fieldcards[fromi].number+1==fieldcards[lastcol].number) {
-                                    // Déplace la pile de cartes
-                                    for (z=0;z<13;z++) {
-                                        tmp=fieldcards[fromi+(z*7)];
-                                        fieldcards[fromi+(z*7)]=undefined;
-                                        fieldcards[this.i+(z*7)]=undefined;
-                                        fieldcards[this.i+(z*7)]=tmp;
-                                    }
-                                    update();
+                                // Déplace la pile de cartes
+                                for (z=0;z<13;z++) {
+                                    tmp=fieldcards[fromi+(z*7)];
+                                    fieldcards[fromi+(z*7)]=undefined;
+                                    fieldcards[this.i+(z*7)]=tmp;
                                 }
+                                update();
                             }
                         } else {
                             // Si une carte de la main est déplacée
                             if (ishand==true) {
-                                if (fieldcards[fromi].number+1==fieldcards[lastcol].number) {
-                                    if (handcard.number+1==fieldcards[lastcol].number) {
-                                        // Déplace la carte de la main sur le plateau
-                                        tmp=handcard;
-                                        handcard=undefined;
-                                        handcard=undefined
-                                        hand.innerHTML='';
-                                        fieldcards[this.i]=undefined;
-                                        fieldcards[this.i]=tmp;
-                                        update();
-                                        adjustPoints('moveToTbleau');
-                                        handshift();
-                                    }
+                                if (handcard.number+1==fieldcards[lastcol].number || fieldcards[lastcol] == undefined) {
+                                    // Déplace la carte de la main sur le plateau
+                                    var targetIndex = this.i; // Ajoutez cette ligne
+                                    tmp=handcard;
+                                    handcard=undefined;
+                                    hand.innerHTML='';
+                                    fieldcards[targetIndex]=tmp; // Modifiez cette ligne
+                                    update();
+                                    adjustPoints('moveToTbleau');
+                                    handshift();
                                 }
                             } else {
                                 // Si une carte du plateau est déplacée
                                 if (fieldcards[fromi].number+1==fieldcards[lastcol].number) {
-                                    if (fieldcards[fromi].number+1==fieldcards[lastcol].number) {
-                                        // Déplace la carte du plateau
-                                        tmp=fieldcards[fromi];
-                                        fieldcards[fromi]=undefined;
-                                        fieldcards[this.i]=undefined;
-                                        fieldcards[this.i]=tmp;
-                                        update();
-                                    }
+                                    // Déplace la carte du plateau
+                                    tmp=fieldcards[fromi];
+                                    fieldcards[fromi]=undefined;
+                                    fieldcards[this.i]=tmp;
+                                    update();
                                 }
                             }
                         }
@@ -529,6 +519,7 @@ for (i = 0; i < tds.length; i++) {
         }
          
         }
+
         // Sélectionne l'élément HTML correspondant à la main du joueur et au paquet de cartes
         hand=document.getElementById('hand');
         deck=document.getElementById('deck');
@@ -666,75 +657,72 @@ for (i = 0; i < ftds.length; i++) {
     });
     ftds[i].addEventListener('drop', tds[i].d2 = function (e) {
         e.preventDefault(); // Empêche le comportement par défaut du navigateur
-
+    
         // Vérifie si la carte est dans la main du joueur ou sur le plateau de jeu
         ishand = e.dataTransfer.getData('hand');
         fromi = parseInt(e.dataTransfer.getData('fromi'));
-
+    
         // Si la carte est dans la main du joueur
         if (ishand == true) {
             // Vérifie si la carte peut être placée sur cet emplacement
-            if (handcard.suit == this.suit) {
-                if (handcard.number == this.number) {
-                    // Détermine le symbole correspondant à la couleur de la carte
-                    suit = '';
-                    if (handcard.suit == 'S') {
-                        suit = '&#9824;';
-                        hand.style.color = 'black';
-                    }
-                    if (handcard.suit == 'H') {
-                        suit = '&#9829;';
-                        hand.style.color = '#a33';
-                    }
-                    if (handcard.suit == 'C') {
-                        suit = '&#9827;';
-                        hand.style.color = 'black';
-                    }
-                    if (handcard.suit == 'D') {
-                        suit = '&#9830;';
-                        hand.style.color = '#a33';
-                    }
-                    // Affiche la carte sur cet emplacement et met à jour le numéro de carte
-                    this.innerHTML = handcard.face + '' + suit;
-                    this.number++;
-                    handcard = undefined;
-                    hand.innerHTML = '';
-                    handshift(); // Décale une nouvelle carte de la pioche à la main du joueur
+            if (handcard.suit == this.suit && handcard.number == this.number) {
+                // Détermine le symbole correspondant à la couleur de la carte
+                suit = '';
+                if (handcard.suit == 'S') {
+                    suit = '&#9824;';
+                    hand.style.color = 'black';
                 }
+                if (handcard.suit == 'H') {
+                    suit = '&#9829;';
+                    hand.style.color = '#a33';
+                }
+                if (handcard.suit == 'C') {
+                    suit = '&#9827;';
+                    hand.style.color = 'black';
+                }
+                if (handcard.suit == 'D') {
+                    suit = '&#9830;';
+                    hand.style.color = '#a33';
+                }
+                // Affiche la carte sur cet emplacement et met à jour le numéro de carte
+                this.innerHTML = handcard.face + '' + suit;
+                this.number++;
+                handcard = undefined;
+                hand.innerHTML = '';
+                handshift(); // Décale une nouvelle carte de la pioche à la main du joueur
             }
         } else { // Si la carte est sur le plateau de jeu
-            // Vérifie si la carte peut être placée sur cet emplacement
-            if (fieldcards[fromi].suit == this.suit) {
-                if (fieldcards[fromi].number == this.number) {
-                    // Détermine le symbole correspondant à la couleur de la carte
-                    suit = '';
-                    if (fieldcards[fromi].suit == 'S') {
-                        suit = '&#9824;';
-                        hand.style.color = 'black';
-                    }
-                    if (fieldcards[fromi].suit == 'H') {
-                        suit = '&#9829;';
-                        hand.style.color = '#a33';
-                    }
-                    if (fieldcards[fromi].suit == 'C') {
-                        suit = '&#9827;';
-                        hand.style.color = 'black';
-                    }
-                    if (fieldcards[fromi].suit == 'D') {
-                        suit = '&#9830;';
-                        hand.style.color = '#a33';
-                    }
-                    // Affiche la carte sur cet emplacement et met à jour le numéro de carte
-                    this.innerHTML = fieldcards[fromi].face + '' + suit;
-                    this.number++;
-                    // Déplace la carte du plateau de jeu vers cet emplacement et met à jour le plateau de jeu
-                    tmp = fieldcards[fromi];
-                    fieldcards[fromi] = undefined;
-                    fieldcards[this.i] = undefined;
-                    fieldcards[this.i] = tmp;
-                    update();
+            // Votre code existant pour déplacer une carte du plateau de jeu
+            if (fieldcards[fromi].suit == this.suit && fieldcards[fromi].number == this.number) {
+                // Détermine le symbole correspondant à la couleur de la carte
+                suit = '';
+                if (fieldcards[fromi].suit == 'S') {
+                    suit = '&#9824;';
+                    hand.style.color = 'black';
                 }
+                if (fieldcards[fromi].suit == 'H') {
+                    suit = '&#9829;';
+                    hand.style.color = '#a33';
+                }
+                if (fieldcards[fromi].suit == 'C') {
+                    suit = '&#9827;';
+                    hand.style.color = 'black';
+                }
+                if (fieldcards[fromi].suit == 'D') {
+                    suit = '&#9830;';
+                    hand.style.color = '#a33';
+                }
+                // Affiche la carte sur cet emplacement et met à jour le numéro de carte
+                this.innerHTML = fieldcards[fromi].face + '' + suit;
+                this.number++;
+                // Déplace la carte du plateau de jeu vers cet emplacement et met à jour le plateau de jeu
+                tmp = fieldcards[fromi];
+                fieldcards[fromi] = undefined;
+                fieldcards[this.i] = undefined;
+                fieldcards[this.i] = tmp;
+                update();
             }
         }
     });
 }
+

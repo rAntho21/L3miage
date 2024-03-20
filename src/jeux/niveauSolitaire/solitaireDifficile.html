@@ -11,7 +11,7 @@
     <header>
         <div id="Entete-site">
             <a href="../../../index.html"><img id="logo" src="../../../assets/images/logo.png" alt="Logo Jaya"></a>
-            <a href="../../../index.html">Jaya</a>
+            <a href="../../../index.html">Jayak</a>
             <div>
                 <a href="../../navigation/connexion.html">Connexion</a>
                 <a href="../../navigation/inscription.html">Inscription</a>
@@ -23,23 +23,29 @@
                 <li><a href="../../navigation/boutique.html">Boutique</a></li>
                 <li><a href="../../navigation/profil.html">Profil</a></li>
                 <li><a href="../../navigation/parametres.html">Paramètres</a></li>
-                <li><div>SearchBar</div></li>
+                <input type="search" id="search" placeholder="Rechercher ... ">
+                    <button type="submit" id="search-button">Rechercher</button>
             </ul>
         </div>
     </header>
-    <div id="notification">
-        Vous avez perdu, le temps est fini, vous pouvez recommencer en raffraichissant la page!
+    <div id="notificationL">
+        Vous avez perdu, le temps est fini, vous pouvez recommencer en appuyant sur le bouton Rafraichir!
+    </div>
+    <div id="notificationW">
+        Vous avez gagner, vous pouvez recommencer en appuyant sur le bouton Rafraichir!
     </div>
     <div id="container">
         <div id="game">
-            <div id="timer">00:10</div>
+            <div style="display: flex; justify-content: space-between;">
+            <div id="timer">5:00</div>
             <button id="startButton">Start</button>
             <div id="pointsDisplay">Points: 0</div>
-
+            </div>
+            <div style="display: flex; justify-content: space-between;">
             <a href="solitaireFacile.html"><button id="facile" onclick="startGame('easy')">Mode Facile</button></a>
             <a href="solitaireMoyen.html"><button id="moyen" onclick="startGame('medium')">Mode Moyen</button></a>
-            <!--<a href="niveauSolitaire/"><button id="difficile" onclick="startGame('hard')">Mode Difficile</button></a>-->
-
+            <a href="solitaireDifficile.html"><button id="difficile" onclick="startGame('hard')">Rafraichir</button></a>
+            </div>
 
         
 
@@ -259,7 +265,7 @@
 </div>
 
 <footer>
-    <p>&copy; Jaya 2024-2025</p>
+    <p>&copy; Jayak 2024-2025</p>
 </footer>
 </body>
 </html>
