@@ -1,13 +1,16 @@
+// Vérifiez si l'utilisateur est sur la page d'accueil
+const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+
 // Liste de vos pages de jeu
 const pages = [
-    { name: 'Sudoku', url: '../../src/jeux/sudoku.html' },
-    { name: 'Pendu', url: '../../src/jeux/pendu.html' },
-    { name: 'Morpion', url: '../../src/jeux/morpion.html' },
-    { name: 'Solitaire', url: '../../src/jeux/niveauSolitaire/solitaireMoyen.html' },
-    { name: 'Profil', url: '../../src/navigation/profil.html' },
-    { name: 'Paramètre', url: '../../src/navigation/parametres.html' },
-    { name: 'Jeux', url: '../../src/navigation/listeJeux.html' },
-    { name: 'Boutique', url: '../../src/navigation/boutique.html' }
+    { name: 'Sudoku', url: (isHomePage ? 'src/jeux/sudoku.html' : '../../src/jeux/sudoku.html') },
+    { name: 'Pendu', url: (isHomePage ? 'src/jeux/pendu.html' : '../../src/jeux/pendu.html') },
+    { name: 'Morpion', url: (isHomePage ? 'src/jeux/morpion.html' : '../../src/jeux/morpion.html') },
+    { name: 'Solitaire', url: (isHomePage ? 'src/jeux/niveauSolitaire/solitaireMoyen.html' : '../../src/jeux/niveauSolitaire/solitaireMoyen.html') },
+    { name: 'Profil', url: (isHomePage ? 'src/navigation/profil.html' : '../../src/navigation/profil.html') },
+    { name: 'Paramètre', url: (isHomePage ? 'src/navigation/parametres.html' : '../../src/navigation/parametres.html') },
+    { name: 'Jeux', url: (isHomePage ? 'src/navigation/listeJeux.html' : '../../src/navigation/listeJeux.html') },
+    { name: 'Boutique', url: (isHomePage ? 'src/navigation/boutique.html' : '../../src/navigation/boutique.html') }
 ];
 
 document.getElementById('search-button').addEventListener('click', function() {
