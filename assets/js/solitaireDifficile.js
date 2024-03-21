@@ -1,5 +1,5 @@
 var timerInterval;
-var totalSeconds = 300; // Durée totale du timer en secondes
+var totalSeconds = 5; // Durée totale du timer en secondes
 var seconds = 0;
 var timerRunning = false;
 var points = 0;
