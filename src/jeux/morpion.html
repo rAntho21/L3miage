@@ -2,15 +2,14 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link href="../../assets/css/main.css" rel="stylesheet">
-    <link href="../../assets/css/sudoku.css" rel="stylesheet">
-    <script type="module" src="../../assets/js/Sudoku.js"></script>
-    <title>Jaya | Sudoku</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/morpion.css">
+
+    <title>Jaya | Morpion</title>
 </head>
 <header>
     <div id="Entete-site">
         <a href="../../index.html"><img alt="Logo Jayak" id="logo" src="../../assets/images/logo.png"></a>
-        <a href="../../index.html">Jayak</a>
         <div>
             <a href="../navigation/connexion.html">Connexion</a>
             <a href="../navigation/inscription.html">Inscription</a>
@@ -40,33 +39,20 @@
         <a href="javascript:void(0)" onclick="activePopupErreurSearch()" class="fermer"> X </a>
     </div>
 </div>
-<div id="Select-Difficulty">
-    <h1>Choisissez la difficulté</h1>
-    <button id="btn-Facile">Facile</button>
-    <button id="btn-Moyen">Moyen</button>
-    <button id="btn-Difficile">Difficile</button>
-    <img id="loading" src="../../assets/images/loading.gif" alt="chargement">
+<h1 class="game-title">Jeu du Morpion</h1>
+<button id="restart-button" style="position: fixed; right: 20px; top: 50%;">Recommencer</button>
+<div id="board">
+    <!-- Les grilles sont générées en js -->
 </div>
-<div id="Sudoku">
-    <h1>Jeu de Sudoku</h1>
-    <div id="Grille">
-        <!-- La grille de jeu Sudoku sera affichée ici par JavaScript -->
-    </div>
-    <div id="touches">
-        <button id="1" class="touche" value="1">1</button>
-        <button id="2" class="touche" value="2">2</button>
-        <button id="3" class="touche" value="3">3</button>
-        <button id="4" class="touche" value="4">4</button>
-        <button id="5" class="touche" value="5">5</button>
-        <button id="6" class="touche" value="6">6</button>
-        <button id="7" class="touche" value="7">7</button>
-        <button id="8" class="touche" value="8">8</button>
-        <button id="9" class="touche" value="9">9</button>
-        <button id="0" class="touche" value="0">Suppr</button>
-    </div>
-
+<div id="timer"></div>
+<div id="difficulty-buttons">
+    <p id="difficulty-title">Difficulté</p>    <button id="difficulty-1">1</button>
+    <button id="difficulty-2">2</button>
+    <button id="difficulty-3">3</button>
+    <button id="difficulty-4">4</button>
 </div>
-<script src="../../assets/js/searchBar.js"></script>
+    <script src="../../assets/js/morpion.js"></script>
+    <script src="../../assets/js/searchBar.js"></script>
 </body>
 <footer>
     <p>&copy; Jayak 2024-2025</p>

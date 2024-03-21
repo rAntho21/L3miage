@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/boutique.css" />
-    <title>Jaya | Boutique</title>
+    <title>Jayak | Boutique</title>
 </head>
 <header>
     <div id="Entete-site">
-        <a href="../../index.html"><img src="assets/images/logo.png" alt="Logo Jaya"></a>
-        <a href="../../index.html">Jaya</a>
+        <a href="../../index.html"><img alt="Logo Jayak" id="logo" src="../../assets/images/logo.png"></a>
+        <a href="../../index.html">Jayak</a>
         <div>
             <a href="connexion.html">Connexion</a>
             <a href="inscription.html">Inscription</a>
@@ -21,22 +21,26 @@
             <li><a href="boutique.html">Boutique</a></li>
             <li><a href="profil.html">Profil</a></li>
             <li><a href="parametres.html">Paramètres</a></li>
-            <li><div>SearchBar</div></li>
+            <li id="search-bar">
+                <input type="search" id="search" placeholder="Rechercher ... ">
+                <button type="submit" id="search-button">Rechercher</button>
+            </li>
         </ul>
     </div>
 </header>
 <body>
     <h1>Boutique</h1>
-    <h2 id="categories" style="text-align: center; color: black;">
-        <button class="bouton" type="button" id="boutonTous" onclick="afficherTous()">Tous</button>
-        <button class="bouton" type="button" id="boutonSudoku" onclick="afficherProduits('sudoku')">Sudoku</button>
-        <button class="bouton" type="button" id="boutonPendu" onclick="afficherProduits('bataille-navale')">Bataille Navale</button>
-        <button class="bouton" type="button" id="boutonBataille" onclick="afficherProduits('pendu')">Pendu</button>
-        <button class="bouton" type="button" id="boutonSolitaire" onclick="afficherProduits('solitaire')">Solitaire</button>
-    </h2>
+    <div class="bouton">
+        <button type="button" id="boutonTous" onclick="afficherTous()">Tous</button>
+        <button type="button" id="boutonSudoku" onclick="afficherProduits('sudoku')">Sudoku</button>
+        <button type="button" id="boutonPendu" onclick="afficherProduits('bataille-navale')">Bataille Navale</button>
+        <button type="button" id="boutonBataille" onclick="afficherProduits('pendu')">Pendu</button>
+        <button type="button" id="boutonSolitaire" onclick="afficherProduits('solitaire')">Solitaire</button>
+    </div>
+
 
     <div class="conteneur" id="tous" style="display:block;">
-    <h1>Sudoku</h1>
+    <h2>Sudoku</h2>
     <div class="sudoku">
         
         <div class="div1">
@@ -85,7 +89,7 @@
         </div>
       </div>
     <br/> 
-        <h1>Pendu</h1>
+        <h2>Pendu</h2>
       <div class="Pendu">
         
         <div class="div1">
@@ -134,7 +138,7 @@
         </div>
       </div>
       <br/>
-<h1>Bataille Navale</h1>
+<h2>Bataille Navale</h2>
       <div class="bataille-navale">
         
         <div class="div1">
@@ -182,7 +186,7 @@
         <a href="#" class="boutonAcheter">Acheter</a>
         </div>
       </div>
-        <h1>Solitaire</h1>
+        <h2>Solitaire</h2>
       <div class="Solitaire">
        
         <div class="div1">
@@ -419,199 +423,21 @@
         <a href="#" class="boutonAcheter">Acheter</a>
         </div>
       </div>
-
-<!--      <script>
-       function afficherTous() {
-    var tousProduits = document.querySelectorAll(".conteneur > .div1, .conteneur > .div2, .conteneur > .div3, .conteneur > .div4, .conteneur > .div5, .conteneur > .div6, .conteneur > .div7, .conteneur > .div8");
-    for (var k = 0; k < tousProduits.length; k++) {
-        tousProduits[k].style.display = "flex";
-    }
-}
-
-// Fonction pour afficher une catégorie spécifique
-function afficherCategorie(categorie) {
-    var tousProduits = document.querySelectorAll(".conteneur > .div1, .conteneur > .div2, .conteneur > .div3, .conteneur > .div4, .conteneur > .div5, .conteneur > .div6, .conteneur > .div7, .conteneur > .div8");
-    for (var i = 0; i < tousProduits.length; i++) {
-        tousProduits[i].style.display = "none";
-    }
-
-    for (var j = 0; j < categorie.length; j++) {
-        categorie[j].style.display = "flex";
-    }
-}
-
-// Fonctions pour afficher les différentes catégories
-function afficherSudoku() {
-    var produitsSudoku = document.querySelectorAll("#sudoku > .div1, #sudoku > .div2, #sudoku > .div3, #sudoku > .div4, #sudoku > .div5, #sudoku > .div6, #sudoku > .div7, #sudoku > .div8");
-    afficherCategorie(produitsSudoku);
-}
-
-function afficherBatailleNavale() {
-    var produitsBatailleNavale = document.querySelectorAll("#bataille-navale > .div1, #bataille-navale > .div2, #bataille-navale > .div3, #bataille-navale > .div4, #bataille-navale > .div5, #bataille-navale > .div6, #bataille-navale > .div7, #bataille-navale > .div8");
-    afficherCategorie(produitsBatailleNavale);
-}
-
-function afficherPendu() {
-    var produitsPendu = document.querySelectorAll("#pendu > .div1, #pendu > .div2, #pendu > .div3, #pendu > .div4, #pendu > .div5, #pendu > .div6, #pendu > .div7, #pendu > .div8");
-    afficherCategorie(produitsPendu);
-}
-
-function afficherSolitaire() {
-    var produitsSolitaire = document.querySelectorAll("#solitaire > .div1, #solitaire > .div2, #solitaire > .div3, #solitaire > .div4, #solitaire > .div5, #solitaire > .div6, #solitaire > .div7, #solitaire > .div8");
-    afficherCategorie(produitsSolitaire);
-}
-    </script>
--->
-
-<!--
-<script>
-    // Fonction pour afficher une catégorie spécifique
-    function afficherCategorie(categorie) {
-        var tousProduits = document.querySelectorAll(".conteneur > .div1, .conteneur > .div2, .conteneur > .div3, .conteneur > .div4, .conteneur > .div5, .conteneur > .div6, .conteneur > .div7, .conteneur > .div8");
-        for (var i = 0; i < tousProduits.length; i++) {
-            tousProduits[i].style.display = "none";
-        }
-
-        for (var j = 0; j < categorie.length; j++) {
-            categorie[j].style.display = "flex";
-        }
-    }
-
-    // Fonctions pour afficher les différentes catégories
-    function afficherSudoku() {
-        var produitsSudoku = document.querySelectorAll("#sudoku > .div1, #sudoku > .div2, #sudoku > .div3, #sudoku > .div4, #sudoku > .div5, #sudoku > .div6, #sudoku > .div7, #sudoku > .div8");
-        afficherCategorie(produitsSudoku);
-    }
-
-    function afficherBatailleNavale() {
-        var produitsBatailleNavale = document.querySelectorAll("#bataille-navale > .div1, #bataille-navale > .div2, #bataille-navale > .div3, #bataille-navale > .div4, #bataille-navale > .div5, #bataille-navale > .div6, #bataille-navale > .div7, #bataille-navale > .div8");
-        afficherCategorie(produitsBatailleNavale);
-    }
-
-    function afficherPendu() {
-        var produitsPendu = document.querySelectorAll("#pendu > .div1, #pendu > .div2, #pendu > .div3, #pendu > .div4, #pendu > .div5, #pendu > .div6, #pendu > .div7, #pendu > .div8");
-        afficherCategorie(produitsPendu);
-    }
-
-    function afficherSolitaire() {
-        var produitsSolitaire = document.querySelectorAll("#solitaire > .div1, #solitaire > .div2, #solitaire > .div3, #solitaire > .div4, #solitaire > .div5, #solitaire > .div6, #solitaire > .div7, #solitaire > .div8");
-        afficherCategorie(produitsSolitaire);
-    }
-</script>
--->
-<!--
-<script>
-    let boutonTous = document.getElementById("boutonTous");
-let boutonSudoku = document.getElementById("boutonSudoku");
-let boutonPendu = document.getElementById("boutonPendu");
-let boutonBataille = document.getElementById("boutonBataille");
-let boutonSolitaire = document.getElementById("boutonSolitaire");
-
-let divTous = document.getElementById("tous");
-let divSudoku = document.getElementById("sudoku");
-let divPendu = document.getElementById("pendu");
-let divBataille = document.getElementById("bataille-navale");
-let divSolitaire = document.getElementById("solitaire");
-
-boutonTous.addEventListener("click", () => {
-  toggleVisibility(divTous);
-});
-
-boutonSudoku.addEventListener("click", () => {
-  toggleVisibility(divSudoku);
-});
-
-boutonPendu.addEventListener("click", () => {
-  toggleVisibility(divPendu);
-});
-
-boutonBataille.addEventListener("click", () => {
-  toggleVisibility(divBataille);
-});
-
-boutonSolitaire.addEventListener("click", () => {
-  toggleVisibility(divSolitaire);
-});
-
-function toggleVisibility(element) {
-  if (getComputedStyle(element).display !== "none") {
-    element.style.display = "none";
-  } else {
-    element.style.display = "block";
-  }
-}
-
-
-</script>
--->
-<script>
-let boutonTous = document.getElementById("boutonTous");
-let boutonSudoku = document.getElementById("boutonSudoku");
-let boutonPendu = document.getElementById("boutonPendu");
-let boutonBataille = document.getElementById("boutonBataille");
-let boutonSolitaire = document.getElementById("boutonSolitaire");
-
-let divTous = document.getElementById("tous");
-let divSudoku = document.getElementById("sudoku");
-let divPendu = document.getElementById("pendu");
-let divBataille = document.getElementById("bataille-navale");
-let divSolitaire = document.getElementById("solitaire");
-
-let boutons = document.querySelectorAll(".bouton");
-
-boutonTous.addEventListener("click", () => {
-  toggleVisibility(divTous);
-});
-
-boutonSudoku.addEventListener("click", () => {
-  hideAllExcept(divSudoku);
-});
-
-boutonPendu.addEventListener("click", () => {
-  hideAllExcept(divPendu);
-});
-
-boutonBataille.addEventListener("click", () => {
-  hideAllExcept(divBataille);
-});
-
-boutonSolitaire.addEventListener("click", () => {
-  hideAllExcept(divSolitaire);
-});
-
-function toggleVisibility(element) {
-  if (getComputedStyle(element).display !== "none") {
-    element.style.display = "none";
-  } else {
-    element.style.display = "block";
-  }
-}
-
-function hideAllExcept(elementToShow) {
-  let allDivs = [divTous, divSudoku, divPendu, divBataille, divSolitaire];
-  allDivs.forEach(div => {
-    if (div !== elementToShow) {
-      div.style.display = "none";
-    }
-  });
-  elementToShow.style.display = ""; // Affiche la div associée au bouton cliqué
-}
-
-boutons.forEach(bouton => {
-  bouton.addEventListener("click", () => {
-    // D'abord, on retire la classe "active" de tous les boutons
-    boutons.forEach(b => {
-      b.classList.remove("active");
-    });
-    // Ensuite, on ajoute la classe "active" au bouton cliqué
-    bouton.classList.add("active");
-  });
-});
-
-</script>
+      <div id="popupErreurSearch">
+        <div class="contenu-popup">
+            <h4> Recherche introuvable </h4>
+            <p>
+                Votre recherche est introuvable sur notre site, <br>
+                Merci d'essayer une nouvelle expression de recherche.
+            </p>
+            <a href="javascript:void(0)" onclick="activePopupErreurSearch()" class="fermer"> X </a>
+        </div>
+    </div>
+    <script src="../../assets/js/searchBar.js"></script>
+    <script src="../../assets/js/boutique.js"></script>
 
 </body>
 <footer>
-    <p>&copy; Jaya 2024-2025</p>
+    <p>&copy; Jayak 2024-2025</p>
 </footer>
 </html>

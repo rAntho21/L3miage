@@ -21,22 +21,22 @@
     font-size: 18px;
     text-align: center;
     margin: 10px;
-    background-color: #4CAF50; /* Couleur verte */
+    background-color: #4CAF50;
     border: none;
-    color: white; /* Texte blanc */
+    color: white;
     cursor: pointer;
-    border-radius: 5px; /* Bordures arrondies */
-    transition: background-color 0.3s, transform 0.3s; /* Transition de couleur et d'échelle */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #Select-Difficulty button:hover {
-    background-color: #45a049; /* Couleur verte légèrement plus foncée au survol */
-    transform: translateY(-2px); /* Légère translation vers le haut au survol */
+    background-color: #45a049;
+    transform: translateY(-2px);
 }
 
 #Select-Difficulty button:focus {
-    outline: none; /* Supprime la bordure de focus */
+    outline: none;
 }
 
 #Select-Difficulty button:active {

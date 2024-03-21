@@ -1,5 +1,3 @@
-body {
-}
 
 .container {
     max-width: 960px;
@@ -35,23 +33,13 @@ body {
     display: block;
     padding: 5px;
     color: white;
-    font-size: 18px; /* Taille de police de la barre de progression */
+    font-size: 18px;
 }
 
 .level,
 .money {
     margin-top: 10px;
-    font-size: 18px; /* Taille de police pour le niveau et l'argent */
+    font-size: 18px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
 
-ul li {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-    font-size: 18px; /* Taille de police pour les éléments de la liste */
-}

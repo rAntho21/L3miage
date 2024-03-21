@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/parametre.css">
-    <title>Jaya | Paramètres</title>
+    <title>Jayak | Paramètres</title>
 </head>
 <header>
     <div id="Entete-site">
-        <a href="../../index.html"><img src="../../assets/images/logo.png" alt="Logo Jaya"></a>
-        <a href="../../index.html">Jaya</a>
+        <a href="../../index.html"><img alt="Logo Jayak" id="logo" src="../../assets/images/logo.png"></a>
+        <a href="../../index.html">Jayak</a>
         <div>
             <a href="connexion.html">Connexion</a>
             <a href="inscription.html">Inscription</a>
@@ -21,11 +21,24 @@
             <li><a href="boutique.html">Boutique</a></li>
             <li><a href="profil.html">Profil</a></li>
             <li><a href="parametres.html">Paramètres</a></li>
-            <li><div>SearchBar</div></li>
+            <li id="search-bar">
+                <input type="search" id="search" placeholder="Rechercher ... ">
+                <button type="submit" id="search-button">Rechercher</button>
+            </li>
         </ul>
     </div>
 </header>
 <body>
+<div id="popupErreurSearch">
+    <div class="contenu-popup">
+        <h4> Recherche introuvable </h4>
+        <p>
+            Votre recherche est introuvable sur notre site, <br>
+            Merci d'essayer une nouvelle expression de recherche.
+        </p>
+        <a href="javascript:void(0)" onclick="activePopupErreurSearch()" class="fermer"> X </a>
+    </div>
+</div>
     <div class="container">
         <h1>Paramètres</h1>
         <div class="setting">
@@ -46,8 +59,9 @@
     <!-- Ajout de l'élément audio pour le son -->
     <audio id="checkboxSound" src="../../assets/son/CliqueDaltonien.mp3"></audio>
 
+<script src="../../assets/js/searchBar.js"></script>
 </body>
 <footer>
-    <p>&copy; Jaya 2024-2025</p>
+    <p>&copy; Jayak 2024-2025</p>
 </footer>
 </html>

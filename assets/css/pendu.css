@@ -1,0 +1,196 @@
+h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #000000;
+}
+
+#difficultes h4 {
+    text-align: center;
+}
+
+#haut {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+#facile, #moyen, #difficile {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#facile:hover, #moyen:hover, #difficile:hover {
+    background-color: #2980b9;
+}
+#pendu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    font-size: 40px;
+    color: #000000;
+
+}
+
+#lettre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#lettre button {
+    background-color: forestgreen;
+    color: #fff;
+    border: none;
+    padding: 15px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#lettre button:hover {
+    background-color: #034603;
+}
+
+#lettre .bouton-gris {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+#essayeMot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#essaye {
+    margin: 5px;
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: #ece7e7;
+    color: #000000;
+}
+
+#validerMot {
+    background-color: forestgreen;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#validerMot:hover {
+    background-color: #034603;
+}
+
+#hautPage {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#coeurVie {
+    height: 20px;
+    width: 20px;
+}
+
+#etoileScore {
+    height: 30px;
+    width: 30px;
+}
+
+#boutonhaut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rejouer, #regle {
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: forestgreen;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#rejouer:hover, #regle:hover {
+    background-color: #1a691a;
+}
+
+#popup, #popupGagne, #popupPerdu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    /* z-index: 1000;*/
+    display: none;
+}
+
+#popup.active, #popupGagne.active, #popupPerdu.active {
+    display: block;
+}
+
+.contenu-popup {
+    max-width: 600px;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#popupGagne .contenu-popup {
+    background-color: #00ff00;
+    color: black;
+}
+
+#popupPerdu .contenu-popup {
+    background-color: #ff0000;
+    color: black;
+}
+
+.fermer {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+
+

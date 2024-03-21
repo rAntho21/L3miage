@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/profile.css">
-
-    <title>Jayak | Profil</title>
+    <link rel="stylesheet" href="../../assets/css/connexion-inscription.css">
+    <title>Jayak | Deconnexion</title>
 </head>
 <header>
     <div id="Entete-site">
@@ -30,34 +29,6 @@
     </div>
 </header>
 <body>
-<div class="container">
-    <div class="profile">
-        <div class="stats">
-            <h2>Statistiques</h2>
-            <div class="progress">
-                <div class="experience">
-                    <span>Expérience</span>
-                    <div class="progress-bar" style="width: 50%;"></div>
-                </div>
-                <div class="level">
-                    <span>Niveau: 25</span>
-                </div>
-                <div class="money">
-                    <span>Argent: $ 1 000</span>
-                </div>
-            </div>
-        </div>
-        <div class="achievements">
-            <h2>Succès</h2>
-            <ul>
-                <li>Solitaire - </li>
-                <li>Jeu du Pendu - </li>
-                <li>Sudoku - </li>
-                <li>Bataille Navale - </li>
-            </ul>
-        </div>
-    </div>
-</div>
 <div id="popupErreurSearch">
     <div class="contenu-popup">
         <h4> Recherche introuvable </h4>
@@ -68,7 +39,32 @@
         <a href="javascript:void(0)" onclick="activePopupErreurSearch()" class="fermer"> X </a>
     </div>
 </div>
+
+<div id="page">
+    <h1>Deconnexion</h1>
+    <form>
+        <p>
+            Vous êtes sur le point de vous déconnecter de votre compte Jayak.<br><br>
+            Pour vous déconnecter, cliquez sur le bouton ci-dessous.
+        </p>
+        <div class="bouton">
+            <button id="decon" type="submit">Se deconnecter</button>
+        </div>
+    </form>
+</div>
+
+<div id="popupDeconnexion">
+    <div class="contenu-popup">
+        <h3> Déconnexion </h3>
+        <p>
+            Vous êtes maintenant déconnecté de votre compte Jayak.
+        </p>
+        <a href="javascript:void(0)" onclick="activePopupGagne()" class="fermer"> X </a>
+    </div>
+</div>
+
 <script src="../../assets/js/searchBar.js"></script>
+<script src="../../assets/js/connexion.js"></script>
 </body>
 <footer>
     <p>&copy; Jayak 2024-2025</p>
