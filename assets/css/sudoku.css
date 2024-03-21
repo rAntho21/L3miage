@@ -42,3 +42,98 @@
 #Select-Difficulty button:active {
     transform: translateY(1px); /* Effet de clic enfoncé */
 }
+
+/*
+ * PARTIE GRILLE ET CELLULE DE JEU
+ */
+#Grille {
+    margin: 0 15px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr); /* Création de 9 colonnes égales */
+    grid-template-rows: repeat(9, 1fr); /* Création de 9 lignes égales */
+    border: 2px solid #000; /* Bordure autour de la grille */
+    width: 400px; /* Largeur de la grille */
+    height: 400px; /* Hauteur de la grille */
+
+    float: left;
+}
+
+.sudoku-cellule {
+    border: 1px solid #000;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin : 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajouter une bordure plus foncée toutes les trois cellules */
+.sudoku-cellule:nth-child(3n) {
+    border-right: 2px solid #000;
+}
+
+.sudoku-cellule:nth-child(n+19):nth-child(-n+27) {
+    border-bottom: 2px solid #000;
+}
+
+.sudoku-cellule:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 2px solid #000;
+}
+
+.sudoku-cellule:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* LES TOUCHES */
+#touches {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-auto-rows: 50px;
+    gap: 5px;
+    justify-content: center;
+    align-content: center;
+}
+
+.touche {
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    float: right;
+}
+
+.touche-suppr {
+    grid-column: 1 / span 3;
+}
+
+.touche:hover {
+    background-color: lightgray;
+}
+
+.selected{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#loading{
+    width: 100px;
+    height: 100px;
+    display: none;
+    margin-top: 10px;
+}
+
+.errorChiffre{
+    background-color: rgba(255, 0, 0, 0.2);
+    Color: Red;
+}
+
+.GameSet{
+    font-weight: bold;
+}
