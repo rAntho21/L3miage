@@ -22,30 +22,7 @@ export default class GrilleSudoku{
         for (let i = 0; i < 9; i++) {
             this.grille[i] = [];
             for (let j = 0; j < 9; j++) {
-                let uneCellule = new Cellule(i,j);
-                this.grille[i][j] = uneCellule;
-                uneCellule.html.addEventListener('click', () => {
-                    if (this.btnSelected !== null){
-                        if(this.btnSelected.value === '0'){
-                            uneCellule.efface();
-                            uneCellule.html.classList.remove('errorChiffre');
-                        }
-                        else{
-                            uneCellule.modifyValue(this.btnSelected.value);
-                            if(parseInt(uneCellule.valeur)  === parseInt(this.grilleValide[i][j].valeur)) {
-                                this.nbChiffresInGrille -= 1;
-                                uneCellule.html.classList.remove('errorChiffre');
-                                if(this.nbChiffresInGrille === 0){
-                                    alert("Bravo, vous avez gagné !");
-                                    //GrilleSudoku.afficheChoix();
-                                }
-                            }
-                            else{
-                                uneCellule.html.classList.add('errorChiffre');
-                            }
-                        }
-                    }
-                })
+                this.grille[i][j] = new Cellule(i,j);
             }
         }
         this.showCelluleSudoku();
@@ -64,10 +41,53 @@ export default class GrilleSudoku{
     }
 
     /**
+     * Méthode qui initialise le listener d'une cellule.
+     * @param uneCellule
+     */
+    initListener(uneCellule) {
+        uneCellule.html.addEventListener('click', () => {
+            if (this.btnSelected !== null){
+                if(this.btnSelected.value === '0'){
+                    uneCellule.efface();
+                    uneCellule.html.classList.remove('errorChiffre');
+                }
+                else{
+                    uneCellule.modifyValue(this.btnSelected.value);
+                    if(parseInt(uneCellule.valeur)  === parseInt(this.grilleValide[uneCellule.ligne][uneCellule.colonne].valeur)) {
+                        this.nbChiffresInGrille -= 1;
+                        uneCellule.html.classList.remove('errorChiffre');
+                        if(this.nbChiffresInGrille <= 0){
+                            alert("Bravo, vous avez gagné !");
+                            GrilleSudoku.afficheChoix();
+                        }
+                    }
+                    else{
+                        uneCellule.html.classList.add('errorChiffre');
+                    }
+                }
+            }
+        })
+    }
+
+    /**
+     * Méthode qui initialise les listeners de chaque cellule de la grille
+     */
+    initListeners(){
+        this.grille.forEach(uneListeCellule => {
+            uneListeCellule.forEach(uneCellule => {
+                this.initListener(uneCellule);
+            });
+        });
+    }
+
+    /**
      * Méthode qui affiche la grille de jeu dans le DOM avec la difficultée sélectionnée
      * @param nb
      */
     choixDifficulte(nb){
+        this.nbChiffresInGrille = 81;
+        this.initListeners();
+
         this.difficulty = nb;
         console.log("Difficulty : " + this.difficulty);
 
@@ -93,10 +113,10 @@ export default class GrilleSudoku{
      * Cache la partie sudoku et affiche la partie choix difficultés
      */
     static afficheChoix(){
-        document.getElementById('Select-Difficulty').style.display = "block";
+        document.getElementById('Select-Difficulty').style.display = "flex";
         document.getElementById('Sudoku').style.display = "none";
     }
-    
+
     /**
      * Méthode qui choisi des cases aléatoires de la grille de jeu, pour y mettre le nombre de numéros valide.
      */
@@ -109,7 +129,6 @@ export default class GrilleSudoku{
 
             if (this.grille[alealigne][aleacolonne].isEmpty()){
                 this.grille[alealigne][aleacolonne].modifyPermanentlyValue(this.grilleValide[alealigne][aleacolonne].valeur);
-                // this.grille[alealigne][aleacolonne].removeEventListener('click');
                 numberToImplement -= 1;
             }
         }
@@ -123,7 +142,6 @@ export default class GrilleSudoku{
         boutons.forEach(bouton => {
             bouton.addEventListener('click', () => {
                 const valeur = bouton.value; // Récupérer la valeur du bouton
-                console.log("La valeur du bouton est : ", valeur);
 
                 // On vérifie si on a un bouton déjà selected et on l'enlève
                 if(this.btnSelected !== null){

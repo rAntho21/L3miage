@@ -48,8 +48,13 @@ export default class Cellule {
      */
     modifyPermanentlyValue(value){
         this.valeur = value;
-        this.html.textContent = value;
-        this.html.classList.add('GameSet');
+
+        const newHtml = this.html.cloneNode(true);
+        newHtml.textContent = value;
+        newHtml.classList.add('GameSet');
+
+        this.html.parentNode.replaceChild(newHtml, this.html);
+        this.html = newHtml;
     }
 
     /**
