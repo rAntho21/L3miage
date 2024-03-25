@@ -1,5 +1,5 @@
 var timerInterval;
-var totalSeconds = 10; // Durée totale du timer en secondes
+var totalSeconds = 5; // Durée totale du timer en secondes
 var seconds = 0;
 var timerRunning = false;
 var points = 0;
@@ -27,15 +27,16 @@ function resetTimer() {
 function updateTimer() {
     seconds++;
     updateTimerDisplay();
+    checkWinCondition();
     
     // Vérifie si le temps imparti est écoulé
     if (seconds >= totalSeconds) {
         stopTimer();
         // Déclarez la défaite du joueur ici
         // alert("Temps écoulé. Vous avez perdu !");
-        notification.classList.add('show');
+        notificationL.classList.add('show');
          setTimeout(() => {
-             notification.classList.remove('show');
+             notificationL.classList.remove('show');
         }, 5000);
     }
 }
@@ -97,9 +98,15 @@ function checkWinCondition() {
 
     // Si toutes les fondations sont pleines, affiche un message de victoire
     if (allFoundationsFull) {
-        alert('Félicitations, vous avez gagné !');
+        notificationW.classList.add('show');
+
+
+        setTimeout(() => {
+            notificationW.classList.remove('show');
+        }, 10000);
     }
-}
+    }
+
 
 
 // La suite du code est la création et la gestion du jeu de cartes et de l'interface utilisateur, avec des commentaires semblables aux précédents pour chaque ligne de code.
@@ -320,7 +327,7 @@ for (i = 0; i < tds.length; i++) {
          
         function update() {
             // Réinitialise les variables row et col
-
+            checkWinCondition();
             if (!gameStarted) return;
 
             row=0;
