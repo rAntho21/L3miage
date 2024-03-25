@@ -1,3 +1,5 @@
+import { updateStats } from './profil.js';
+
 let board = Array(9).fill(null);
 let currentPlayer = 'X';
 let timeoutId;
@@ -148,6 +150,7 @@ function checkWin(board) {
             return board[line[0]];
         }
     }
+    updateStats(100, 1000);
     return null;
 }
 
