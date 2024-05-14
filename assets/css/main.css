@@ -192,3 +192,9 @@ footer {
     padding: 0;
 }
 
+
+.image-right {
+    
+    width: 200px; /* Change this to the size you want */
+    height: auto;
+}
