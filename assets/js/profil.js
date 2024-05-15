@@ -24,6 +24,11 @@ export function updateStats(expGain, pointsGain) {
 
     const levelDisplay = document.querySelector('.level span');
     levelDisplay.textContent = `Niveau: ${level}`;
+    console.log("updateStats");
 }
 
-updateStats(100, 1000)
+// Ajout de l'écouteur d'événements DOMContentLoaded
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Mettre à jour les statistiques initiales
+    updateStats(0, 0);
+});

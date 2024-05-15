@@ -1,4 +1,4 @@
-import { updateStats } from './profil.js';
+//import {updateStats} from './profil.js';
 
 let board = Array(9).fill(null);
 let currentPlayer = 'X';
@@ -150,7 +150,7 @@ function checkWin(board) {
             return board[line[0]];
         }
     }
-    updateStats(100, 1000);
+    //updateStats(100, 1000);
     return null;
 }
 
