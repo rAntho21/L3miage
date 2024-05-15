@@ -40,3 +40,8 @@
     margin-top: 10px;
     font-size: 18px;
 }
+
+ul li details summary {
+    margin: 0 20px;
+    font-size: 1.3em;
+}
