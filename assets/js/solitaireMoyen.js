@@ -1,56 +1,68 @@
-var timerInterval;
-var seconds = 0;
-var timerRunning = false;
-var points = 0;
-var gameStarted = true;
+var timerInterval; // Déclaration d'une variable pour stocker l'identifiant de l'intervalle du minuteur
+var seconds = 0; // Initialisation d'une variable pour stocker le nombre de secondes écoulées
+var timerRunning = false; // Initialisation d'une variable pour indiquer si le minuteur est en cours d'exécution
+var points = 0; // Variable pour stocker les points
+var gameStarted = false;
 
+
+
+// Fonction pour démarrer le minuteur
 function startTimer() {
-    if (!timerRunning) {
-        timerInterval = setInterval(updateTimer, 1000);
-        timerRunning = true;
+    if (!timerRunning) { // Vérifie si le minuteur n'est pas déjà en cours d'exécution
+        timerInterval = setInterval(updateTimer, 1000); // Lance l'intervalle pour mettre à jour le minuteur toutes les secondes
+        timerRunning = true; // Met à jour l'état du minuteur pour indiquer qu'il est en cours d'exécution
         gameStarted = true;
     }
 }
 
+// Fonction pour arrêter le minuteur
 function stopTimer() {
-    clearInterval(timerInterval);
-    timerRunning = false;
+    clearInterval(timerInterval); // Arrête l'intervalle du minuteur
+    timerRunning = false; // Met à jour l'état du minuteur pour indiquer qu'il est arrêté
 }
 
+// Fonction pour réinitialiser le minuteur
 function resetTimer() {
-    stopTimer();
-    seconds = 0;
-    updateTimerDisplay();
+    stopTimer(); // Arrête le minuteur
+    seconds = 0; // Réinitialise le nombre de secondes écoulées à zéro
+    updateTimerDisplay(); // Met à jour l'affichage du minuteur
 }
 
+// Fonction pour mettre à jour le minuteur
 function updateTimer() {
-    seconds++;
-    updateTimerDisplay();
+    seconds++; // Incrémente le nombre de secondes écoulées
+    updateTimerDisplay(); // Met à jour l'affichage du minuteur
     checkWinCondition();
 }
 
+// Fonction pour mettre à jour l'affichage du minuteur
 function updateTimerDisplay() {
-    var minutes = Math.floor((totalSeconds - seconds) / 60);
-    var remainingSeconds = (totalSeconds - seconds) % 60;
-    var timerDisplay = document.getElementById('timer');
-
+    var minutes = Math.floor(seconds / 60); // Calcule le nombre de minutes écoulées
+    var remainingSeconds = seconds % 60; // Calcule le nombre de secondes restantes
+    var timerDisplay = document.getElementById('timer'); // Récupère l'élément d'affichage du minuteur dans le DOM
+    // Met à jour le contenu de l'élément d'affichage du minuteur avec les minutes et les secondes formatées
     timerDisplay.textContent = (minutes < 10 ? '0' : '') + minutes + ':' + (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
 }
 
+// Ajoute un écouteur d'événements au bouton de démarrage pour démarrer le minuteur lorsqu'il est cliqué
 document.getElementById('startButton').addEventListener('click', function () {
     startTimer();
 });
 
-var notification = document.getElementById('notification');
-
-document.getElementById('moyen').addEventListener('click', function(){
+document.getElementById('moyen').addEventListener('click', function () {
     level_medium
 });
 
 document.getElementById('startButton').addEventListener('click', function () {
-    startTimer();
-    gameStarted = true;
+    startGame();
 });
+
+var notification = document.querySelector('notification');
+
+function startGame() {
+    startTimer(); // Démarre le minuteur
+    gameStarted = true; // Indique que la partie a démarré
+}
 
 // Fonction pour ajuster les points en fonction des actions de l'utilisateur
 function adjustPoints(action) {
@@ -65,6 +77,7 @@ function adjustPoints(action) {
         points -= 5; // Vous déplacez une carte des fondations vers le tableau : - 5 points
     }
     updatePointsDisplay(); // Met à jour l'affichage des points
+    checkWinCondition();
 }
 
 // Fonction pour mettre à jour l'affichage des points
@@ -86,15 +99,14 @@ function checkWinCondition() {
 
     // Si toutes les fondations sont pleines, affiche un message de victoire
     if (allFoundationsFull) {
-        notification.classList.add('show');
-
-
-        setTimeout(() => {
-            notification.classList.remove('show');
-        }, 10000);
+         notification.classList.add('show');
+         setTimeout(() => {
+             notification.classList.remove('show');
+         }, 2000);
+        stopTimer();
+        gameStarted = false;
     }
 }
-
 
 // La suite du code est la création et la gestion du jeu de cartes et de l'interface utilisateur, avec des commentaires semblables aux précédents pour chaque ligne de code.
 
@@ -314,7 +326,7 @@ for (i = 0; i < tds.length; i++) {
          
         function update() {
             // Réinitialise les variables row et col
-            checkWinCondition();
+
             if (!gameStarted) return;
 
             row=0;

@@ -1,4 +1,5 @@
 var timerInterval;
+var totalSeconds = 5; // Durée totale du timer en secondes
 var seconds = 0;
 var timerRunning = false;
 var points = 0;
@@ -27,6 +28,17 @@ function updateTimer() {
     seconds++;
     updateTimerDisplay();
     checkWinCondition();
+    
+    // Vérifie si le temps imparti est écoulé
+    if (seconds >= totalSeconds) {
+        stopTimer();
+        // Déclarez la défaite du joueur ici
+        // alert("Temps écoulé. Vous avez perdu !");
+        notificationL.classList.add('show');
+         setTimeout(() => {
+             notificationL.classList.remove('show');
+        }, 5000);
+    }
 }
 
 function updateTimerDisplay() {
@@ -41,7 +53,7 @@ document.getElementById('startButton').addEventListener('click', function () {
     startTimer();
 });
 
-var notification = document.getElementById('notification');
+const notification = document.getElementById('notification');
 
 document.getElementById('moyen').addEventListener('click', function(){
     level_medium
@@ -86,14 +98,15 @@ function checkWinCondition() {
 
     // Si toutes les fondations sont pleines, affiche un message de victoire
     if (allFoundationsFull) {
-        notification.classList.add('show');
+        notificationW.classList.add('show');
 
 
         setTimeout(() => {
-            notification.classList.remove('show');
+            notificationW.classList.remove('show');
         }, 10000);
     }
-}
+    }
+
 
 
 // La suite du code est la création et la gestion du jeu de cartes et de l'interface utilisateur, avec des commentaires semblables aux précédents pour chaque ligne de code.
