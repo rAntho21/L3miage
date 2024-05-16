@@ -1,4 +1,6 @@
 import Cellule from './cellule.js';
+import {addStats} from "./profil.js";
+
 export default class GrilleSudoku{
     static numberToShowByDiffiulty = [45,36,25];
     static chiffres = [1,2,3,4,5,6,7,8,9];
@@ -56,15 +58,16 @@ export default class GrilleSudoku{
                     if(parseInt(uneCellule.valeur)  === parseInt(this.grilleValide[uneCellule.ligne][uneCellule.colonne].valeur)) {
                         this.nbChiffresInGrille -= 1;
                         uneCellule.html.classList.remove('errorChiffre');
-                        if(this.nbChiffresInGrille <= 0){
-                            alert("Bravo, vous avez gagné !");
-                            GrilleSudoku.afficheChoix();
-                        }
                     }
                     else{
                         uneCellule.html.classList.add('errorChiffre');
                     }
                 }
+            }
+            if(this.nbChiffresInGrille <= 0){
+                alert("Bravo, vous avez gagné !");
+                addStats(50,50);
+                GrilleSudoku.afficheChoix();
             }
         })
     }
