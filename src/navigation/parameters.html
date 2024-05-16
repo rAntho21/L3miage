@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="../../assets/css/parameter.css">
     <link rel="icon" href="../../assets/images/logo.png">
     <script src="../../assets/js/searchBar.js"></script>
-    <script src="../../assets/js/parameter.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script type="module" src="../../assets/js/parameter.js"></script>
     <title>Jayak | Paramètres</title>
 </head>
 <header>
@@ -54,22 +55,14 @@
         </div>
 
         <div class="setting">
-            <label for="activationKey">Avez-vous un code d'activation ? (10 caractères)</label><br>
+            <label for="activationKey">Avez-vous un code d'activation ?</label><br>
             <input type="text" id="activationKey" maxlength="10">
         </div>
-        <button onclick="saveSettings()">Activer</button>
+        <button id="activationKeyButton">Activer</button>
     </div>
 
     <!-- Ajout de l'élément audio pour le son -->
     <audio id="checkboxSound" src="../../assets/son/CliqueDaltonien.mp3"></audio>
-
-<script>
-    let daltonismeCheckBox = document.getElementById("daltonisme");
-    daltonismeCheckBox.addEventListener("change", () => {
-        localStorage.setItem("daltonisme", document.getElementById("daltonisme").checked);
-    });
-    daltonismeCheckBox.checked = isDaltonisme;
-</script>
 </body>
 <footer>
     <p>&copy; Jayak 2024-2025</p>
