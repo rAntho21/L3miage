@@ -4,6 +4,10 @@
     flex-wrap: wrap;
 }
 
+h1 {
+    margin-top: 40px;
+}
+
 .jeux {
     align-items: center;
     text-align: center;

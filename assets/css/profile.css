@@ -4,6 +4,10 @@
     padding: 0 20px;
 }
 
+h1 {
+    margin-top: 40px;
+}
+
 .profile {
     display: flex;
     justify-content: space-between;
