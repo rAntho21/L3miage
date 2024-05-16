@@ -84,6 +84,8 @@ button:hover {
     text-decoration: none;
 }
 
-#image{
-    height: 200px;
+.image-jeu {
+
+    width: 200px; /* Change this to the size you want */
+    height: auto;
 }
