@@ -25,6 +25,7 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 2px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
 
 /* Footer */
@@ -190,4 +191,47 @@ footer {
     height: 50px;
     margin: 0;
     padding: 0;
+}
+
+.daltonism {
+    color: #000;
+    background-color: #fff;
+}
+
+.daltonism h1,
+.daltonism h2,
+.daltonism h3,
+.daltonism h4,
+.daltonism h5,
+.daltonism h6 {
+    color: #3498DB;
+}
+
+.daltonism a {
+    color: #3498DB;
+}
+
+.daltonism button {
+    background-color: #85C1E9;
+    color: #17202A;
+}
+
+.daltonism button:hover {
+    background-color: #3498DB;
+}
+
+.daltonism #popupSudoku,
+.daltonism #popupPendu,
+.daltonism #popupMorpion,
+.daltonism #popupSolitaire {
+    background-color: #FDFEFE;
+    color: #17202A;
+}
+
+.daltonism #succesSudoku,
+.daltonism #succesPendu,
+.daltonism #succesMorpion,
+.daltonism #succesSolitaire {
+    background-color: #FDFEFE;
+    color: #17202A;
 }

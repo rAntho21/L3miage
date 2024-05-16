@@ -35,38 +35,39 @@ De plus, plus l’utilisateur joue, plus il aura de difficulté.
     <li>Gagner tous les succès en une partie.</li>
 </ul>
 
-<h3>La Bataille Navale</h3>
+<h3>Morpion</h3>
 <h4>Règles du jeu</h4>
 <p>
-Le jeu se joue à 2 joueurs, c’est un 1 versus 1,tour par tour.
-Il se joue sur 2 grilles différentes, chaque grille appartient à 1 joueur.
-Les joueurs pourront placer 5 bateaux de différentes tailles sur leur grille respective. 
-Les bateaux seront placés <strong>OBLIGATOIREMENT</strong> horizontalement ou verticalement. 
-Ils devront tour par tour sélectionner une case sur la grille adverse (touché-coulé) et ainsi faire tomber tous les bateaux de l’ennemi.
+Le jeu  se joue seul, il se joue en 1 versus 1 contre un bot Aléatoire/bot Intelligent.
+Les joueurs doivent aligner leurs symboles, croix ou rond que ce soit verticale,horizontale
+ou en diagonale. Le joueur ayant aligné en premier ses symboles gagne la partie. La partie 
+se finit si toutes les cases sont remplies et qu’aucun joueur n’ayant réussi à aligner ses symboles. 
 </p>
 <h4>Difficultés</h4>
 <ul>
     <li><strong>Facile</strong></li>
     <ul>
-        <li>Les bateaux sont de la même taille.</li>
-        <li>Les cases déjà ciblées restent affichée.</li>
-        <li>Les bateaux sont placée que verticalement.</li>
-        <li>Si la case d’un bateau est touché le joueur peut continuer à jouer.</li>
+        <li>Le joueur joue contre le bot aléatoire.</li>
+        <li>Le joueur joue sur une grille 3x3.</li>
+        <li>Le joueur a une limite de temps de 10 secondes pour placer un symbole.</li>
     </ul>
     <li><strong>Moyen</strong></li>
     <ul>
-        <li>Mettre un timer de 15 minutes.</li>
-        <li>Les bateaux sont de taille différente.</li>
-        <li>Les bateaux peuvent se placer de manière horizontale et verticale.</li>
-        <li>Le joueur peut effectuer qu’un seul tir par tour même si un bateau est touché.</li>
+        <li>Le joueur joue contre le bot aléatoire.</li>
+        <li>Le joueur joue sur une grille en 4x4.</li>
+        <li>Le joueur a une limite de temps de 8 secondes pour placer un symbole.</li>
     </ul>
-    <li><strong>Difficile</strong></li>
+    <li><strong>Intermediaire</strong></li>
     <ul>
-        <li>Mettre un timer de 10 minutes.</li>
-        <li>Les joueurs qui ont ciblé l’eau (coulé) ne s’affiche pas sur le plateau, 
-        elle s’affiche que lorsqu’il touche un bateau.</li>
-        <li>Ajout de Leurre pour donner de fausses indications.</li>
-        <li>Certains bateaux peuvent se déplacer d’une case, tous les 3 tours(pas sur).</li>
+        <li>Le joueur joue contre le bot intelligent.</li>
+        <li>Le joueur joue sur une grille 3x3.</li>
+        <li>Le joueur a une limite de temps de 6 secondes pour placer un symbole.</li>
+    </ul>
+    <li>Difficile</li>
+    <ul>
+        <li>Le joueur joue contre le bot intelligent.</li>
+        <li>Le joueur joue sur une grille en 4x4.</li>
+        <li>Le joueur a une limite de temps de 4 secondes pour placer un symbole.</li>
     </ul>
 </ul>
 <h4>Scores</h4>
@@ -75,11 +76,10 @@ Les joueurs gagneront des points s'ils gagnent ou perdent selon la difficulté d
 </p>
 <h4>Succès</h4>
 <ul>
-    <li>Ils gagnent une partie en un temps définie.</li>
-    <li>Ils font couler un bateau sans toucher une case “EAU”.</li>
-    <li>Ils gagnent une partie avec la difficulté difficile.</li>
-    <li>Ils ne se font pas couler un bateau.</li>
-    <li>Ils essayent de tricher.</li>
+    <li>Ils gagnent avec un niveau de difficulté 1.</li>
+    <li>Ils gagnent avec un niveau de difficulté 2.</li>
+    <li>Ils gagnent avec un niveau de difficulté 3.</li>
+    <li>Ils gagnent avec un niveau de difficulté 4.</li>
 </ul>
 
 <h3>Sudoku</h3>

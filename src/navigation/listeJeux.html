@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../../assets/css/main.css">
         <link rel="stylesheet" href="../../assets/css/listeJeux.css">
+        <link rel="icon" href="../../assets/images/logo.png">
         <title>Jayak | Liste des jeux</title>
     </head>
     <header>
@@ -27,19 +28,24 @@
                 </li>
             </ul>
         </div>
+        <label class="checkbox-container">
+            <input type="checkbox" id="toggleDaltonism">
+        </label>
     </header>
     <body>
         <h1> Liste des jeux </h1>
         <div id="liste-jeux">
             <div class="jeux">
+                <div id="entete-jeu">
                 <h3>Sudoku</h3>
-                <img src="" alt=""/>
+                <img class="image-jeu" src="../../assets/images/sudoku.png" alt=""/>
+                </div>
                 <p>
                     Chaque ligne, colonne et région de 9 cases ne doit contenir qu'une seule fois tous les chiffres de un à neuf. <br>
                     Pour cela, vous devrez élaborer des stratgies et avoir un minimum de réflexion
                 </p>
                 <div class="buttons-jeux">
-                    <button> Jouer </button>
+                    <a href="../jeux/sudoku.html"><button> Jouer </button></a>
                     <button id="regleSudoku" onclick="activePopupSudoku()"> Règles </button>
                     <button id="succSudoku" onclick="activeSuccesSudoku()"> Succès </button>
                 </div>
@@ -79,8 +85,10 @@
             </div>
 
             <div class="jeux">
-                <h3>Pendu</h3>
-                <img src="" alt="">
+                <div id="entete-jeu">
+                    <h3>Pendu</h3>
+                    <img class="image-jeu" src="../../assets/images/pendu.png" alt=""/>
+                    </div>
                 <p>
                     Le jeu du pendu consiste à trouver un mot généré aléatoirement en essayant de trouver les bonnes lettres une par une. <br>
                     Vous aurez un certain nombre de chances pour trouver le mot.<br>
@@ -129,8 +137,10 @@
             </div>
 
             <div class="jeux">
-                <h3>Morpion</h3>
-                <img src="" alt="">
+                <div id="entete-jeu">
+                    <h3>Morpion</h3>
+                    <img class="image-jeu" src="../../assets/images/morpion.png" alt=""/>
+                    </div>
                 <p>
                     Le jeu peut se jouer à 2 , en 1 versus 1, ou il peut se jouer en 1 versus 1 bot Aléatoire/bot Intelligent.
                     Les joueurs doivent aligner leurs symboles, croix ou rond que ce soit verticale,horizontale ou en diagonale.
@@ -181,13 +191,15 @@
             </div>
 
             <div class="jeux">
-                <h3>Solitaire</h3>
-                <img src="" alt="">
+                <div id="entete-jeu">
+                    <h3>Solitaire</h3>
+                    <img class="image-jeu" src="../../assets/images/solitaire.png" alt=""/>
+                    </div>
                 <p>
                     Le but principal du Solitaire est de déplacer toutes les cartes vers quatre fondations, classées par couleur et en ordre croissant, commençant par l'As et se terminant par le Roi.
                 </p>
                 <div class="buttons-jeux">
-                    <a href="../jeux/solitaire.html"><button> Jouer </button></a>
+                    <a href="../jeux/niveauSolitaire/solitaireMoyen.html"><button> Jouer </button></a>
                     <button id="regleSolitaire" onclick="activePopupSolitaire()"> Règles </button>
                     <button id="sucsSolitaire" onclick="activeSuccesSolitaire()"> Succès </button>
                 </div>
@@ -235,6 +247,8 @@
         </div>
         <script src="../../assets/js/searchBar.js"></script>
     <script src="../../assets/js/listeJeux.js"></script>
+        <script src="../../assets/js/paramètre.js"></script>
+
     </body>
     <footer>
         <p>&copy; Jayak 2024-2025</p>

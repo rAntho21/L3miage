@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/connexion-inscription.css">
+    <link rel="icon" href="../../assets/images/logo.png">
     <title>Jayak | Deconnexion</title>
 </head>
 <header>
@@ -27,6 +28,9 @@
             </li>
         </ul>
     </div>
+    <label class="checkbox-container">
+        <input type="checkbox" id="toggleDaltonism">
+    </label>
 </header>
 <body>
 <div id="popupErreurSearch">
@@ -53,8 +57,20 @@
     </form>
 </div>
 
+<div id="popupDeconnexion">
+    <div class="contenu-popup">
+        <h3> Déconnexion </h3>
+        <p>
+            Vous êtes maintenant déconnecté de votre compte Jayak.
+        </p>
+        <a href="javascript:void(0)" onclick="activePopupGagne()" class="fermer"> X </a>
+    </div>
+</div>
+
 <script src="../../assets/js/searchBar.js"></script>
 <script src="../../assets/js/connexion.js"></script>
+<script src="../../assets/js/paramètre.js"></script>
+
 </body>
 <footer>
     <p>&copy; Jayak 2024-2025</p>

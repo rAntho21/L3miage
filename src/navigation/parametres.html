@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/parametre.css">
+    <link rel="icon" href="../../assets/images/logo.png">
     <title>Jayak | Paramètres</title>
 </head>
 <header>
@@ -27,6 +28,7 @@
             </li>
         </ul>
     </div>
+
 </header>
 <body>
 <div id="popupErreurSearch">
@@ -43,9 +45,9 @@
         <h1>Paramètres</h1>
         <div class="setting">
             <label class="checkbox-container">
-                <input type="checkbox" id="colorblindMode">
-                <span class="checkmark"></span>
-                <span class="checkbox-label">Activer le mode daltonien</span>
+                <label for="toggleDaltonism">Mode daltonien</label>
+                <input type="checkbox" id="toggleDaltonism">
+
             </label>
         </div>
 
@@ -60,6 +62,7 @@
     <audio id="checkboxSound" src="../../assets/son/CliqueDaltonien.mp3"></audio>
 
 <script src="../../assets/js/searchBar.js"></script>
+<script src="../../assets/js/paramètre.js"></script>
 </body>
 <footer>
     <p>&copy; Jayak 2024-2025</p>
