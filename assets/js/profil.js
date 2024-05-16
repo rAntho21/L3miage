@@ -1,9 +1,11 @@
-// Variables globales pour l'expérience, les points et le niveau
-let experience = (experience === undefined) ? 0 : experience;
-let points = (points === undefined) ? 0 : points;
-let level = (level === undefined) ? 0 : level;
+// Récupérer les valeurs stockées dans le localStorage ou initialiser à 0 si elles n'existent pas
+let experience = localStorage.getItem('experience') ? parseInt(localStorage.getItem('experience')) : 0;
+let points = localStorage.getItem('points') ? parseInt(localStorage.getItem('points')) : 0;
+let level = localStorage.getItem('level') ? parseInt(localStorage.getItem('level')) : 0;
 
-export function addStats(expGain, pointsGain){
+// Gestion des points d'expérience et de l'argent
+export function addStats(expGain, pointsGain) {
+    // Accumuler l'expérience et les points
     experience += expGain;
     points += pointsGain;
     level = Math.floor(experience / 1000);
@@ -11,6 +13,21 @@ export function addStats(expGain, pointsGain){
 
 export function updateStats(){
     let experiencePercentage = ((experience % 1000) / 1000) * 100;
+
+    // Stocker les nouvelles valeurs dans le localStorage
+    localStorage.setItem('experience', experience);
+    localStorage.setItem('points', points);
+    localStorage.setItem('level', level);
+
+    return {
+        level,
+        points,
+        experiencePercentage
+    };
+}
+
+// Alimentation de l'affichage des données sur le HTML
+function updateDisplay({ level, points, experiencePercentage }) {
     const experienceBar = document.querySelector('.experience .progress-bar');
     experienceBar.style.width = `${experiencePercentage}%`;
     const experiencePercentageDisplay = document.querySelector('.experience .experience-percentage');
@@ -26,5 +43,8 @@ export function updateStats(){
 // Ajout de l'écouteur d'événements DOMContentLoaded
 document.addEventListener('DOMContentLoaded', (event) => {
     // Mettre à jour les statistiques initiales
-    updateStats(0, 0);
+    const stats = addStats(0, 0);
+    updateDisplay(stats);
 });
+
+addStats(1500, 1000);
