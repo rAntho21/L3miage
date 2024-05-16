@@ -4,6 +4,10 @@
     flex-wrap: wrap;
 }
 
+h1 {
+    margin-top: 40px;
+}
+
 .patch-note {
     box-sizing: border-box;
     width: 48%;

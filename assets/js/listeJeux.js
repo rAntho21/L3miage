@@ -1,16 +1,13 @@
-/*
-let boutonPopup = document.getElementById("reglePendu");
-*/
 
 let boutonRegleSudoku = document.getElementById("regleSudoku");
 let boutonReglePendu = document.getElementById("reglePendu");
 let boutonRegleMorpion = document.getElementById("regleMorpion");
 let boutonRegleSolitaire = document.getElementById("regleSolitaire");
 
-let boutonSuccesSudoku = document.getElementById("sucsSudoku");
-let boutonSuccesPendu = document.getElementById("sucsPendu");
-let boutonSuccesMorpion = document.getElementById("sucsMorpion");
-let boutonSuccesSolitaire = document.getElementById("sucsSolitaire");
+let boutonSuccesSudoku = document.getElementById("succSudoku");
+let boutonSuccesPendu = document.getElementById("succPendu");
+let boutonSuccesMorpion = document.getElementById("succMorpion");
+let boutonSuccesSolitaire = document.getElementById("succSolitaire");
 
 function activePopupSudoku() {
     const popupSudoku = document.getElementById("popupSudoku");
