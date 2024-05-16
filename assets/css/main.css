@@ -193,45 +193,45 @@ footer {
     padding: 0;
 }
 
-.daltonism {
+.daltonisme {
     color: #000;
     background-color: #fff;
 }
 
-.daltonism h1,
-.daltonism h2,
-.daltonism h3,
-.daltonism h4,
-.daltonism h5,
-.daltonism h6 {
+.daltonisme h1,
+.daltonisme h2,
+.daltonisme h3,
+.daltonisme h4,
+.daltonisme h5,
+.daltonisme h6 {
     color: #3498DB;
 }
 
-.daltonism a {
+.daltonisme a {
     color: #3498DB;
 }
 
-.daltonism button {
+.daltonisme button {
     background-color: #85C1E9;
     color: #17202A;
 }
 
-.daltonism button:hover {
+.daltonisme button:hover {
     background-color: #3498DB;
 }
 
-.daltonism #popupSudoku,
-.daltonism #popupPendu,
-.daltonism #popupMorpion,
-.daltonism #popupSolitaire {
+.daltonisme #popupSudoku,
+.daltonisme #popupPendu,
+.daltonisme #popupMorpion,
+.daltonisme #popupSolitaire {
     background-color: #FDFEFE;
     color: #17202A;
 }
 
-.daltonism #succesSudoku,
-.daltonism #succesPendu,
-.daltonism #succesMorpion,
-.daltonism #succesSolitaire {
+.daltonisme #succesSudoku,
+.daltonisme #succesPendu,
+.daltonisme #succesMorpion,
+.daltonisme #succesSolitaire {
     background-color: #FDFEFE;
     color: #17202A;
 }

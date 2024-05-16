@@ -97,7 +97,6 @@ export default class GrilleSudoku{
         this.difficulty = nb;
         console.log("Difficulty : " + this.difficulty);
 
-        console.log("Chargement de la grille");
         this.createValideSudokuGrid();
 
         console.log("Nombre à afficher : " + GrilleSudoku.numberToShowByDiffiulty[nb-1]);
@@ -258,10 +257,7 @@ export default class GrilleSudoku{
         const chiffresColonne = GrilleSudoku.getNbRestantColonne(colonne, grille);
         const chiffresCarre = GrilleSudoku.getNbRestantCarre(ligne, colonne, grille);
 
-        // Intersection des listes pour obtenir les chiffres restants pour la cellule
-        const chiffresRestants = chiffresLigne.filter(x => chiffresColonne.includes(x) && chiffresCarre.includes(x));
-
-        return chiffresRestants;
+        return chiffresLigne.filter(x => chiffresColonne.includes(x) && chiffresCarre.includes(x));
     }
 
     /**
@@ -271,6 +267,7 @@ export default class GrilleSudoku{
      * @param gainXP
      */
     afficherPopup(message, gainArgent, gainXP){
+        const self = this;
         const popup = document.createElement("div");
         popup.className = "popup";
 
@@ -300,16 +297,18 @@ export default class GrilleSudoku{
         boutonRejouer.style.flex = "1";
         boutonRejouer.style.marginRight = "10px";
         boutonRejouer.addEventListener("click", function() {
-            this.choixDifficulte(this.difficulty);
-            console.log("Rejouer");
+            self.choixDifficulte(self.difficulty);
+            document.body.removeChild(popup);
         });
         boutonContainer.appendChild(boutonRejouer);
 
         const boutonAccueil = document.createElement("button");
         boutonAccueil.textContent = "Accueil";
-        boutonAccueil.style.flex = "1"; // Prendre toute la largeur disponible
+        boutonAccueil.style.flex = "1";
         boutonAccueil.addEventListener("click", function() {
+            self.difficulty = -1;
             GrilleSudoku.afficheChoix();
+            document.body.removeChild(popup);
         });
         boutonContainer.appendChild(boutonAccueil);
 

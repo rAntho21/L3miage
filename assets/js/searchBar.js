@@ -8,25 +8,10 @@ const pages = [
     { name: 'Morpion', url: (isHomePage ? 'src/jeux/morpion.html' : '../../src/jeux/morpion.html') },
     { name: 'Solitaire', url: (isHomePage ? 'src/jeux/niveauSolitaire/solitaireMoyen.html' : '../../src/jeux/niveauSolitaire/solitaireMoyen.html') },
     { name: 'Profil', url: (isHomePage ? 'src/navigation/profil.html' : '../../src/navigation/profil.html') },
-    { name: 'Paramètre', url: (isHomePage ? 'src/navigation/parametres.html' : '../../src/navigation/parametres.html') },
+    { name: 'Paramètre', url: (isHomePage ? 'src/navigation/parameters.html' : '../../src/navigation/parameters.html') },
     { name: 'Jeux', url: (isHomePage ? 'src/navigation/listeJeux.html' : '../../src/navigation/listeJeux.html') },
     { name: 'Boutique', url: (isHomePage ? 'src/navigation/boutique.html' : '../../src/navigation/boutique.html') }
 ];
-
-document.getElementById('search-button').addEventListener('click', function() {
-    const searchMot = document.getElementById('search').value.toLowerCase();
-    let found = false;
-    for (let i = 0; i < pages.length; i++) {
-        if (pages[i].name.toLowerCase().includes(searchMot)) {
-            window.location.href = pages[i].url;
-            found = true;
-            break;
-        }
-    }
-    if (!found) {
-        activePopupErreurSearch();
-    }
-});
 
 function activePopupErreurSearch() {
     const popup = document.getElementById("popupErreurSearch");
@@ -37,4 +22,21 @@ function activePopupErreurSearch() {
     } else {
         console.log("popup non trouvé dans le html");
     }
+}
+
+window.onload = () => {
+    document.getElementById('search-button').addEventListener('click', function() {
+        const searchMot = document.getElementById('search').value.toLowerCase();
+        let found = false;
+        for (let i = 0; i < pages.length; i++) {
+            if (pages[i].name.toLowerCase().includes(searchMot)) {
+                window.location.href = pages[i].url;
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            activePopupErreurSearch();
+        }
+    });
 }
