@@ -76,11 +76,10 @@ Les joueurs gagneront des points s'ils gagnent ou perdent selon la difficulté d
 </p>
 <h4>Succès</h4>
 <ul>
-    <li>Ils gagnent une partie en un temps définie.</li>
-    <li>Ils font couler un bateau sans toucher une case “EAU”.</li>
-    <li>Ils gagnent une partie avec la difficulté difficile.</li>
-    <li>Ils ne se font pas couler un bateau.</li>
-    <li>Ils essayent de tricher.</li>
+    <li>Ils gagnent avec un niveau de difficulté 1.</li>
+    <li>Ils gagnent avec un niveau de difficulté 2.</li>
+    <li>Ils gagnent avec un niveau de difficulté 3.</li>
+    <li>Ils gagnent avec un niveau de difficulté 4.</li>
 </ul>
 
 <h3>Sudoku</h3>
