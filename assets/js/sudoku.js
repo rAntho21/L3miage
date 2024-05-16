@@ -5,8 +5,6 @@ let grille;
 window.onload = init;
 
 function init() {
-    console.log("Page et ressources prêtes à l'emploi");
-
     grille = new Grille();
 
     // onclick des boutons

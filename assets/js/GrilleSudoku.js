@@ -1,5 +1,5 @@
 import Cellule from './cellule.js';
-import {addStats} from "./profil.js";
+import { addStats } from './profil.js';
 
 export default class GrilleSudoku{
     static numberToShowByDiffiulty = [45,36,25];
@@ -51,7 +51,11 @@ export default class GrilleSudoku{
             if (this.btnSelected !== null){
                 if(this.btnSelected.value === '0'){
                     uneCellule.efface();
-                    uneCellule.html.classList.remove('errorChiffre');
+                    if(uneCellule.html.classList.contains('errorChiffre')){
+                        uneCellule.html.classList.remove('errorChiffre');
+                    }else{
+                        this.nbChiffresInGrille += 1;
+                    }
                 }
                 else{
                     uneCellule.modifyValue(this.btnSelected.value);
@@ -65,9 +69,8 @@ export default class GrilleSudoku{
                 }
             }
             if(this.nbChiffresInGrille <= 0){
-                alert("Bravo, vous avez gagné !");
-                addStats(50,50);
-                GrilleSudoku.afficheChoix();
+                addStats(10 * (this.difficulty), 20 * (this.difficulty));
+                this.afficherPopup("Victoire !", 10 * (this.difficulty), 20 * (this.difficulty));
             }
         })
     }
@@ -94,7 +97,6 @@ export default class GrilleSudoku{
         this.difficulty = nb;
         console.log("Difficulty : " + this.difficulty);
 
-        console.log("Chargement de la grille");
         this.createValideSudokuGrid();
 
         console.log("Nombre à afficher : " + GrilleSudoku.numberToShowByDiffiulty[nb-1]);
@@ -144,13 +146,11 @@ export default class GrilleSudoku{
         const boutons = document.querySelectorAll('.touche');
         boutons.forEach(bouton => {
             bouton.addEventListener('click', () => {
-                const valeur = bouton.value; // Récupérer la valeur du bouton
+                const valeur = bouton.value;
 
-                // On vérifie si on a un bouton déjà selected et on l'enlève
                 if(this.btnSelected !== null){
                     this.btnSelected.classList.remove("selected");
                 }
-                // On change de bouton selected
                 this.btnSelected = bouton;
                 bouton.classList.add("selected");
             });
@@ -257,10 +257,74 @@ export default class GrilleSudoku{
         const chiffresColonne = GrilleSudoku.getNbRestantColonne(colonne, grille);
         const chiffresCarre = GrilleSudoku.getNbRestantCarre(ligne, colonne, grille);
 
-        // Intersection des listes pour obtenir les chiffres restants pour la cellule
-        const chiffresRestants = chiffresLigne.filter(x => chiffresColonne.includes(x) && chiffresCarre.includes(x));
-
-        return chiffresRestants;
+        return chiffresLigne.filter(x => chiffresColonne.includes(x) && chiffresCarre.includes(x));
     }
 
+    /**
+     * Méthode qui affiche un popup de fin de partie avec les gains d'argent et d'expérience et qui nous permet de rejouer ou de retourner au menu de difficulté.
+     * @param message
+     * @param gainArgent
+     * @param gainXP
+     */
+    afficherPopup(message, gainArgent, gainXP){
+        const self = this;
+        const popup = document.createElement("div");
+        popup.className = "popup";
+
+        const titre = document.createElement("h4");
+        titre.textContent = message;
+        titre.style.textAlign = "center";
+        titre.style.color = "green";
+        popup.appendChild(titre);
+
+        const argentSpan = document.createElement("span");
+        argentSpan.textContent = "Gain d'argent: " + gainArgent + " pièces.";
+        argentSpan.style.display = "block";
+        popup.appendChild(argentSpan);
+
+        const xpSpan = document.createElement("span");
+        xpSpan.textContent = "Gain d'expérience: " + gainXP + " points.";
+        xpSpan.style.display = "block";
+        popup.appendChild(xpSpan);
+
+        const boutonContainer = document.createElement("div");
+        boutonContainer.style.display = "flex";
+        boutonContainer.style.justifyContent = "center";
+        boutonContainer.style.marginTop = "20px";
+
+        const boutonRejouer = document.createElement("button");
+        boutonRejouer.textContent = "Rejouer";
+        boutonRejouer.style.flex = "1";
+        boutonRejouer.style.marginRight = "10px";
+        boutonRejouer.addEventListener("click", function() {
+            self.choixDifficulte(self.difficulty);
+            document.body.removeChild(popup);
+        });
+        boutonContainer.appendChild(boutonRejouer);
+
+        const boutonAccueil = document.createElement("button");
+        boutonAccueil.textContent = "Accueil";
+        boutonAccueil.style.flex = "1";
+        boutonAccueil.addEventListener("click", function() {
+            self.difficulty = -1;
+            GrilleSudoku.afficheChoix();
+            document.body.removeChild(popup);
+        });
+        boutonContainer.appendChild(boutonAccueil);
+
+        popup.appendChild(boutonContainer);
+
+        popup.style.position = "fixed";
+        popup.style.top = "50%";
+        popup.style.left = "50%";
+        popup.style.transform = "translate(-50%, -50%)";
+        popup.style.backgroundColor = "#fff";
+        popup.style.padding = "20px";
+        popup.style.border = "2px solid #333";
+        popup.style.borderRadius = "5px";
+        popup.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
+        popup.style.zIndex = "9999";
+
+        document.body.appendChild(popup);
+    }
 }
