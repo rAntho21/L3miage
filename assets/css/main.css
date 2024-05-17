@@ -216,6 +216,10 @@ footer {
     color: #17202A;
 }
 
+.daltonisme label {
+    color: #000000;
+}
+
 .daltonisme button:hover {
     background-color: #3498DB;
 }
