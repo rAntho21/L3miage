@@ -10,6 +10,9 @@ let points = localStorage.getItem('points') && !isNaN(localStorage.getItem('poin
 export function addStats(expGain, pointsGain) {
     experience += expGain;
     points += pointsGain;
+
+    localStorage.setItem("experience", experience);
+    localStorage.setItem("points", points);
 }
 
 // Alimentation de l'affichage des données sur le HTML
